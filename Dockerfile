@@ -5,6 +5,8 @@ RUN npm ci
 COPY index.html vite.config.ts tsconfig.json ./
 COPY public ./public
 COPY apps ./apps
+COPY data/processed ./data/processed
+COPY data/manifests ./data/manifests
 RUN npm run build
 
 FROM python:3.12-slim AS runtime
