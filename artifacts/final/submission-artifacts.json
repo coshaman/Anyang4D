@@ -1,0 +1,16 @@
+{
+  "schema_version": "submission-artifacts-v1",
+  "official_template_preserved": true,
+  "hwpx": {
+    "path": "release/submission/SAFE-Twin_Anyang_공식제출서류_작성본.hwpx",
+    "sha256": "6a654968434755c057795e4aa78176f03c84a7d2c706f121bc7041a113a5a474",
+    "human_fields_remaining": true
+  },
+  "review_pdf": {
+    "path": "release/submission/SAFE-Twin_Anyang_공식제출서류_검토용.pdf",
+    "sha256": "dc5ce40473d35dca07afcdd49c91209c5217be0fcc152adf36e7afb9d83daa25",
+    "pages": 5,
+    "unsigned_review_only": true
+  },
+  "audit": "release/submission/SUBMISSION_FILL_AUDIT.md"
+}

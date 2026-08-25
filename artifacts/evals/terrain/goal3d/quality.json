@@ -1,0 +1,257 @@
+{
+  "schema_version": "0.1.0",
+  "goal": "SAFE-Twin Anyang Goal 3D",
+  "provenance": "DERIVED_TERRAIN_FROM_TOPOGRAPHIC_VECTORS",
+  "source_year": 2025,
+  "source_crs": "EPSG:5186",
+  "aoi_wgs84": {
+    "west": 126.946,
+    "south": 37.376,
+    "east": 126.966,
+    "north": 37.396
+  },
+  "projected_bounds_m": {
+    "west": 195217.1409604602,
+    "south": 530742.4180758583,
+    "east": 196989.37008281559,
+    "north": 532962.941948805
+  },
+  "elevation_layers": {
+    "F0017111": "LWPOLYLINE contour geometry with group-code-38 elevation",
+    "F0017114": "LWPOLYLINE index-contour geometry with group-code-38 elevation",
+    "F0027217": "INSERT spot-height geometry with group-code-30 elevation"
+  },
+  "sheets": [
+    {
+      "sheet_number": "37612048",
+      "source": "docs/(B010)수치지도_37612048_2025_00000144791614.dxf",
+      "sha256": "8c91cd9359746d906d50373bb5a2ea8c33ed2ba55eaedca61504681431a3702d",
+      "contours": 213,
+      "spot_heights": 191,
+      "constraint_count": 404,
+      "rejected_nonsemantic_polyline_or_insert_count": 24859
+    },
+    {
+      "sheet_number": "37612049",
+      "source": "docs/(B010)수치지도_37612049_2025_00000281118967.dxf",
+      "sha256": "a5b7084173b141f13025a782e7bcdf33d2855d3a13a1d8486af759dc2899d87d",
+      "contours": 339,
+      "spot_heights": 291,
+      "constraint_count": 630,
+      "rejected_nonsemantic_polyline_or_insert_count": 21606
+    },
+    {
+      "sheet_number": "37612058",
+      "source": "docs/(B010)수치지도_37612058_2025_00000652769840.dxf",
+      "sha256": "6a1f5cfc94304296ac4ec2b9f1db2150c20daf961eaf9ee34781057d4f94188f",
+      "contours": 37,
+      "spot_heights": 26,
+      "constraint_count": 63,
+      "rejected_nonsemantic_polyline_or_insert_count": 32055
+    },
+    {
+      "sheet_number": "37612059",
+      "source": "docs/(B010)수치지도_37612059_2025_00000779212951.dxf",
+      "sha256": "f9f4edba42b3adf38071bdda31ef2a168606b58b74163c036727279f01062853",
+      "contours": 111,
+      "spot_heights": 79,
+      "constraint_count": 190,
+      "rejected_nonsemantic_polyline_or_insert_count": 23087
+    }
+  ],
+  "support": {
+    "contour_count": 700,
+    "spot_height_count": 587,
+    "valid_constraint_count": 1287,
+    "contour_length_m": 173723.501777,
+    "contour_length_km_per_km2": 19.458212,
+    "spot_height_density_per_km2": 65.747986,
+    "bounds_m": {
+      "west": 194717.1409604602,
+      "south": 530242.4180758583,
+      "east": 197489.37008281559,
+      "north": 533462.941948805
+    }
+  },
+  "support_by_sheet": {
+    "37612048": {
+      "contour_count": 213,
+      "spot_height_count": 191,
+      "valid_constraint_count": 404,
+      "contour_length_m": 46060.864382,
+      "contour_length_km_per_km2": 5.15913,
+      "spot_height_density_per_km2": 21.393297,
+      "bounds_m": {
+        "west": 194717.1409604602,
+        "south": 530242.4180758583,
+        "east": 197489.37008281559,
+        "north": 533462.941948805
+      }
+    },
+    "37612049": {
+      "contour_count": 339,
+      "spot_height_count": 291,
+      "valid_constraint_count": 630,
+      "contour_length_m": 58177.638352,
+      "contour_length_km_per_km2": 6.516291,
+      "spot_height_density_per_km2": 32.593976,
+      "bounds_m": {
+        "west": 194717.1409604602,
+        "south": 530242.4180758583,
+        "east": 197489.37008281559,
+        "north": 533462.941948805
+      }
+    },
+    "37612058": {
+      "contour_count": 37,
+      "spot_height_count": 26,
+      "valid_constraint_count": 63,
+      "contour_length_m": 4401.489343,
+      "contour_length_km_per_km2": 0.492997,
+      "spot_height_density_per_km2": 2.912177,
+      "bounds_m": {
+        "west": 194717.1409604602,
+        "south": 530242.4180758583,
+        "east": 197489.37008281559,
+        "north": 533462.941948805
+      }
+    },
+    "37612059": {
+      "contour_count": 111,
+      "spot_height_count": 79,
+      "valid_constraint_count": 190,
+      "contour_length_m": 65083.509699,
+      "contour_length_km_per_km2": 7.289795,
+      "spot_height_density_per_km2": 8.848537,
+      "bounds_m": {
+        "west": 194717.1409604602,
+        "south": 530242.4180758583,
+        "east": 197489.37008281559,
+        "north": 533462.941948805
+      }
+    }
+  },
+  "working_constraint_count": 14227,
+  "method": {
+    "name": "idw_power_2",
+    "grid_spacing_m": 5.0,
+    "constraint_decimation_m": 10,
+    "candidates": [
+      "idw_power_2",
+      "nearest_constraint"
+    ]
+  },
+  "spot_holdout": {
+    "count": 100,
+    "mae_m": 6.353661357843425,
+    "rmse_m": 7.437990345117697,
+    "median_abs_error_m": 5.783840097195123,
+    "p95_abs_error_m": 13.065270565069026,
+    "max_abs_error_m": 17.798690546898897
+  },
+  "candidate_comparison": {
+    "candidates": {
+      "idw_power_2": {
+        "spot_holdout": {
+          "count": 100,
+          "mae_m": 6.353661357843425,
+          "rmse_m": 7.437990345117697,
+          "median_abs_error_m": 5.783840097195123,
+          "p95_abs_error_m": 13.065270565069026,
+          "max_abs_error_m": 17.798690546898897
+        },
+        "surface_properties": "continuous inverse-distance surface",
+        "contour_holdout": {
+          "count": 20,
+          "mae_m": 5.166890309405745,
+          "rmse_m": 5.3339551309449975,
+          "median_abs_error_m": 5.075547966620693,
+          "p95_abs_error_m": 7.34506977109071,
+          "max_abs_error_m": 7.3561470590760365
+        }
+      },
+      "nearest_constraint": {
+        "spot_holdout": {
+          "count": 100,
+          "mae_m": 1.1539000000000001,
+          "rmse_m": 1.5728658556914514,
+          "median_abs_error_m": 0.7850000000000001,
+          "p95_abs_error_m": 3.4720000000000004,
+          "max_abs_error_m": 5.190000000000001
+        },
+        "surface_properties": "piecewise-constant nearest constraint; discontinuity-prone",
+        "contour_holdout": {
+          "count": 20,
+          "mae_m": 2.0,
+          "rmse_m": 3.1622776601683795,
+          "median_abs_error_m": 0.0,
+          "p95_abs_error_m": 5.0,
+          "max_abs_error_m": 5.0
+        }
+      }
+    },
+    "selected": "idw_power_2",
+    "selection_reason": "IDW is selected because contour constraints are the primary continuous terrain evidence; nearest wins the sparse spot subset but is rejected as a discontinuity-prone pointwise overfit. Selection was fixed before final quality classification and thresholds were not changed."
+  },
+  "contour_holdout": {
+    "count": 20,
+    "mae_m": 5.166890309405745,
+    "rmse_m": 5.3339551309449975,
+    "median_abs_error_m": 5.075547966620693,
+    "p95_abs_error_m": 7.34506977109071,
+    "max_abs_error_m": 7.3561470590760365
+  },
+  "contour_holdout_p95_m": 7.34506977109071,
+  "seam": {
+    "count": 100,
+    "p95_m": 6.689859109409656,
+    "median_m": 3.2734061665690817
+  },
+  "seam_p95_m": 6.689859109409656,
+  "seam_median_m": 3.2734061665690817,
+  "road_support": {
+    "count": 1294,
+    "p50_m": 25.329046703852246,
+    "p90_m": 64.14741764238849,
+    "p95_m": 77.99350200039196,
+    "worst_segment": {
+      "way_id": 684968887,
+      "name": null,
+      "highway": "footway",
+      "distance_m": 118.4515842293113,
+      "x": 195736.79448252448,
+      "y": 532314.7860106492
+    },
+    "status": "MEASURED_OSM_HIGHWAY_WAY_MIDPOINT_SUPPORT"
+  },
+  "road_p95_m": 77.99350200039196,
+  "coverage": 1.0,
+  "slope_p99": 0.6194994890540804,
+  "diagnostics": {
+    "cell_count": 157975,
+    "valid_cell_count": 157975,
+    "invalid_cell_count": 0,
+    "coverage_fraction": 1.0,
+    "elevation_min_m": 26.443085225739317,
+    "elevation_max_m": 96.70963022559107,
+    "slope_p99": 0.6194994890540804,
+    "negative_slope_cell_count": 0,
+    "sink_cell_count": 1956,
+    "flow_accumulation_finite": true
+  },
+  "authorization": {
+    "terrain_reconstruction": true,
+    "flood_simulation": false,
+    "hazard_frames": false,
+    "citizen_routing": false,
+    "LEVEL_A_FLOOD_NEXT_GOAL_AUTHORIZED": false,
+    "CITIZEN_ROAD_HAZARD_FUTURE_ELIGIBILITY": false
+  },
+  "quality_class": "TERRAIN_C",
+  "raster": {
+    "format": "GeoTIFF",
+    "path": "data/processed/terrain/anyang_demo_terrain.tif",
+    "width": 355,
+    "height": 445
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "safe-twin-anyang",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "api": "python -m uvicorn services.api.main:app --reload",
+    "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check:anti-slop": "python scripts/check_anti_slop.py",
+    "check:secrets": "python scripts/check_secrets.py"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "maplibre-gl": "^6.4.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "jsdom": "latest",
+    "vitest": "latest"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "safe-twin-goal6b-claim-audit-v1",
+  "status": "PASS",
+  "document": "docs/SUBMISSION_10PAGE_CONTENT_MASTER.md",
+  "summary": {"SUPPORTED": 31, "AMBIGUOUS": 0, "OVERCLAIM": 0},
+  "forbidden_terms_checked": [
+    "실시간 재난 예측", "AI 재난 예측", "안전 경로", "침수 예측", "침수심 예측", "정확도 97.7%", "1,000개 실시간 분석", "실제 시민 위치", "AI가 최적 대피를 판단"
+  ],
+  "checks": [
+    {"claim_id":"product-one-liner","status":"SUPPORTED","evidence":"docs/COMPETITION_CLAIMS_MATRIX.md; docs/COMPETITION_TECHNICAL_EVIDENCE.md"},
+    {"claim_id":"public-data-counts","status":"SUPPORTED","evidence":"artifacts/evals/release/data-consistency.json"},
+    {"claim_id":"population-date-and-total","status":"SUPPORTED","evidence":"data/manifests/data_manifest.json; artifacts/evals/release/data-consistency.json"},
+    {"claim_id":"osm-graph-size","status":"SUPPORTED","evidence":"docs/COMPETITION_TECHNICAL_EVIDENCE.md; readiness artifact"},
+    {"claim_id":"four-dimensional-recomputation","status":"SUPPORTED","evidence":"docs/GOAL4B_DECISION.md; exact frame API"},
+    {"claim_id":"min-cost-flow-and-invariants","status":"SUPPORTED","evidence":"docs/EVACUATION_ASSIGNMENT_MODEL.md"},
+    {"claim_id":"ab-delta","status":"SUPPORTED","evidence":"docs/COMPETITION_TECHNICAL_EVIDENCE.md; fixed scenario artifact"},
+    {"claim_id":"ai-corpus-and-features","status":"SUPPORTED","evidence":"artifacts/evals/release/ai-reproducibility.json"},
+    {"claim_id":"ai-validation-and-ood","status":"SUPPORTED","evidence":"docs/GOAL5A_DECISION.md; model card"},
+    {"claim_id":"same-run-speed","status":"SUPPORTED","evidence":"artifacts/evals/performance/goal6a-ai-scale.json"},
+    {"claim_id":"browser-runtime","status":"SUPPORTED","evidence":"artifacts/evals/performance/goal6a-demo-runtime.json"},
+    {"claim_id":"test-counts","status":"SUPPORTED","evidence":"docs/PROGRESS.md; final verification logs"},
+    {"claim_id":"safety-boundaries","status":"SUPPORTED","evidence":"docs/COMPETITION_CLAIMS_MATRIX.md; docs/RELEASE_DATA_POLICY.md"},
+    {"claim_id":"roadmap","status":"SUPPORTED","evidence":"bounded future plan; no present capability claim"}
+  ],
+  "notes": [
+    "Spearman is described as rank correlation, never accuracy.",
+    "100-candidate timing is labeled batch/local/one-run, never realtime.",
+    "N=1000 is explicitly not measured.",
+    "Future integrations are described as roadmap, not current functionality."
+  ]
+}

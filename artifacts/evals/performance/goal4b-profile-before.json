@@ -1,0 +1,20 @@
+{
+  "scenario_id": "anyang-flood-style-admin",
+  "frame": 20,
+  "baseline_capture": "before cache/STRtree/snap optimizations",
+  "median_ms": {
+    "scenario_parsing": 0.327,
+    "geometry_and_hazard_road_intersection": 214.297,
+    "assignment_total": 4013.554,
+    "serialization": 53.45
+  },
+  "assignment_subsystems_median_ms": {
+    "road_graph_mutation_ms": 180.153,
+    "demand_facility_snapping_ms": 3861.881,
+    "shortest_paths_od_ms": 0.103,
+    "min_cost_flow_ms": 4.637,
+    "bottleneck_extraction_ms": 0.137,
+    "assignment_total_ms": 4013.479
+  },
+  "method": "instrumented deterministic Goal 4A solver; same bounded demo AOI"
+}

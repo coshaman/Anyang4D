@@ -1,0 +1,15 @@
+{
+  "schema_version": "deployment-smoke-v1",
+  "environment": "local same-origin production artifact",
+  "base_url": "http://127.0.0.1:8080",
+  "public_https": false,
+  "public_url": null,
+  "observed": {
+    "/healthz": 200,
+    "/": 200,
+    "/api/release/readiness": 200,
+    "/api/admin/modes": 200
+  },
+  "readiness": "READY",
+  "note": "No public HTTPS claim: hosting authentication and external deployment remain human actions."
+}

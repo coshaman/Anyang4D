@@ -1,0 +1,47 @@
+{
+  "scenario_id": "anyang-flood-style-admin",
+  "same_bounded_demo_aoi": true,
+  "cold_compile": {
+    "frame_count": 4,
+    "timings_ms": [
+      12107.379399996717,
+      9912.251200003084,
+      13735.271900019143
+    ],
+    "summary": {
+      "median_ms": 12107.379,
+      "p90_ms": 13735.272,
+      "p95_ms": 13735.272,
+      "max_ms": 13735.272
+    }
+  },
+  "cached_timeline_frame_retrieval": {
+    "repetitions": 10,
+    "summary": {
+      "median_ms": 2.761,
+      "p90_ms": 9.576,
+      "p95_ms": 9.576,
+      "max_ms": 9.576
+    }
+  },
+  "compiled_ab_compare": {
+    "repetitions": 5,
+    "summary": {
+      "median_ms": 3.982,
+      "p90_ms": 7.376,
+      "p95_ms": 7.376,
+      "max_ms": 7.376
+    }
+  },
+  "memory": {
+    "peak_traced_bytes": 127823,
+    "retained_traced_bytes": 83632
+  },
+  "optimization": [
+    "cached demand/facility snaps",
+    "cached active graph by closed-road signature",
+    "STRtree hazard candidate filtering",
+    "state-payload cache keyed by actual computational state"
+  ],
+  "semantic_policy": "exact deterministic NetworkX min-cost flow; no approximation"
+}

@@ -1,0 +1,25 @@
+{
+  "provenance": "SYNTHETIC",
+  "field_kind": "RELATIVE_HAZARD",
+  "seed": 7,
+  "split": "single synthetic fixture; no Anyang validation",
+  "baseline": {
+    "mae": 0.1268126568962892,
+    "rmse": 0.15606678126922743,
+    "wet_dry_iou": 0.32748538011695905,
+    "temporal_non_decrease_fraction": 1.0
+  },
+  "persistence": {
+    "mae": 0.06961906906160091,
+    "rmse": 0.08907738016458851,
+    "wet_dry_iou": 0.6530612244897959,
+    "temporal_non_decrease_fraction": 1.0
+  },
+  "backend": "safetwin-deterministic-level-a-v1",
+  "checkpoint": "deterministic baseline has no learned weights",
+  "limitations": [
+    "synthetic target is not water depth",
+    "no drainage or calibration",
+    "not an Anyang result"
+  ]
+}

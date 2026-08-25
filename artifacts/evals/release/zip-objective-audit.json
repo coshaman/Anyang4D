@@ -1,0 +1,41 @@
+{
+  "schema_version": "safe-twin-zip-objective-audit-v1",
+  "status": "FINAL_PRODUCT_READY_PENDING_HUMAN_ACTIONS",
+  "implemented": {
+    "zip_pack_extracted": true,
+    "goal_0_foundation": true,
+    "goal_1_data_audit": true,
+    "goal_2_real_data_citizen_ui": true,
+    "goal_3_flood_gate_documented": true,
+    "goal_4_5_6_admin_simulation": true,
+    "goal_5_capacity_admin_engine": true,
+    "goal_7_optional_modules_decided": true,
+    "goal_8_ui_release_checks": true,
+    "goal_9_release_audit": true
+  },
+  "closed_research_branches": {
+    "native_2020_plus_1m_or_5m_dem": false,
+    "real_terrain_level_a": false,
+    "aligned_official_or_authorized_rainfall": false
+  },
+  "release_gates": {
+    "terrain_dependency_for_release": true,
+    "admin_what_if_core": true,
+    "exact_capacity_engine": true,
+    "ai_exact_verification": true,
+    "terrain_rainfall_dependency_closed": true
+  },
+  "remaining": [],
+  "human_actions": [
+    "GitHub/hosting authorization",
+    "official-form identity fields",
+    "handwritten signatures",
+    "enrollment certificates"
+  ],
+  "evidence": {
+    "manifest": "data/manifests/data_manifest.json",
+    "terrain_gate": "services/api/flood_readiness.py",
+    "goal_7_decision": "docs/GOAL7_DECISION.md",
+    "release_audit": "artifacts/evals/release/goal6a-release-audit.json"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "contour_count": 700,
+  "spot_height_count": 587,
+  "valid_constraint_count": 1287,
+  "contour_length_m": 173723.501777,
+  "contour_length_km_per_km2": 19.458212,
+  "spot_height_density_per_km2": 65.747986,
+  "bounds_m": {
+    "west": 194717.1409604602,
+    "south": 530242.4180758583,
+    "east": 197489.37008281559,
+    "north": 533462.941948805
+  }
+}

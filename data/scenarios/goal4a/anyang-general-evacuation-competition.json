@@ -1,0 +1,525 @@
+{
+  "scenario_id": "anyang-general-evacuation-competition",
+  "title": "안양 인접 2개 영역 대피 경쟁",
+  "disaster_type": "GENERAL_EVACUATION",
+  "start_time": "2026-08-22T00:00:00+00:00",
+  "end_time": "2026-08-22T00:30:00+00:00",
+  "timestep_minutes": 10,
+  "provenance": "ADMIN_SCENARIO",
+  "description": "훈련/가정 시나리오",
+  "assumptions": [
+    "가정 hazard geometry는 실제 재난 예측이나 침수심이 아님",
+    "공식 행정동 주민등록 인구 총량을 사용하며 좌표는 SIMULATED_SPATIAL_ALLOCATION demo anchor"
+  ],
+  "hazard_keyframes": [
+    {
+      "time": 0,
+      "geometry": {
+        "kind": "polygon",
+        "coordinates": [
+          [
+            [
+              126.9,
+              37.35
+            ],
+            [
+              126.94,
+              37.35
+            ],
+            [
+              126.94,
+              37.39
+            ],
+            [
+              126.9,
+              37.39
+            ],
+            [
+              126.9,
+              37.35
+            ]
+          ]
+        ]
+      },
+      "label": "첫 번째 가정 영향영역"
+    },
+    {
+      "time": 20,
+      "geometry": {
+        "kind": "multipolygon",
+        "coordinates": [
+          [
+            [
+              [
+                126.9,
+                37.35
+              ],
+              [
+                126.94,
+                37.35
+              ],
+              [
+                126.94,
+                37.39
+              ],
+              [
+                126.9,
+                37.39
+              ],
+              [
+                126.9,
+                37.35
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                126.94,
+                37.35
+              ],
+              [
+                126.99,
+                37.35
+              ],
+              [
+                126.99,
+                37.39
+              ],
+              [
+                126.94,
+                37.39
+              ],
+              [
+                126.94,
+                37.35
+              ]
+            ]
+          ]
+        ]
+      },
+      "label": "두 번째 인접 가정 영향영역 추가"
+    }
+  ],
+  "road_closure_events": [],
+  "facility_events": [],
+  "capacity_overrides": [],
+  "resource_events": [],
+  "demand_units": [
+    {
+      "demand_id": "anyang-dong-01",
+      "label": "안양1동",
+      "latitude": 37.361667,
+      "longitude": 126.903333,
+      "population": 18944,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "안양1동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-02",
+      "label": "안양2동",
+      "latitude": 37.361667,
+      "longitude": 126.92,
+      "population": 22058,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "안양2동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-03",
+      "label": "안양3동",
+      "latitude": 37.361667,
+      "longitude": 126.936667,
+      "population": 14650,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "안양3동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-04",
+      "label": "안양4동",
+      "latitude": 37.361667,
+      "longitude": 126.953333,
+      "population": 6580,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "안양4동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-05",
+      "label": "안양5동",
+      "latitude": 37.361667,
+      "longitude": 126.97,
+      "population": 14592,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "안양5동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-06",
+      "label": "안양6동",
+      "latitude": 37.361667,
+      "longitude": 126.986667,
+      "population": 27220,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "안양6동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-07",
+      "label": "안양7동",
+      "latitude": 37.375,
+      "longitude": 126.903333,
+      "population": 14773,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "안양7동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-08",
+      "label": "명학동",
+      "latitude": 37.375,
+      "longitude": 126.92,
+      "population": 7788,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "명학동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-09",
+      "label": "병목안동",
+      "latitude": 37.375,
+      "longitude": 126.936667,
+      "population": 15478,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "병목안동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-10",
+      "label": "석수1동",
+      "latitude": 37.375,
+      "longitude": 126.953333,
+      "population": 18066,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "석수1동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-11",
+      "label": "석수2동",
+      "latitude": 37.375,
+      "longitude": 126.97,
+      "population": 29296,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "석수2동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-12",
+      "label": "충훈동",
+      "latitude": 37.375,
+      "longitude": 126.986667,
+      "population": 11524,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "충훈동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-13",
+      "label": "박달동",
+      "latitude": 37.388333,
+      "longitude": 126.903333,
+      "population": 13201,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "박달동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-14",
+      "label": "호현동",
+      "latitude": 37.388333,
+      "longitude": 126.92,
+      "population": 19875,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "호현동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-15",
+      "label": "비산1동",
+      "latitude": 37.388333,
+      "longitude": 126.936667,
+      "population": 28084,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "비산1동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-16",
+      "label": "비산2동",
+      "latitude": 37.388333,
+      "longitude": 126.953333,
+      "population": 12854,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "비산2동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-17",
+      "label": "비산3동",
+      "latitude": 37.388333,
+      "longitude": 126.97,
+      "population": 17817,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "비산3동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-18",
+      "label": "부흥동",
+      "latitude": 37.388333,
+      "longitude": 126.986667,
+      "population": 15741,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "부흥동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-19",
+      "label": "달안동",
+      "latitude": 37.401667,
+      "longitude": 126.903333,
+      "population": 9351,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "달안동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-20",
+      "label": "관양동",
+      "latitude": 37.401667,
+      "longitude": 126.92,
+      "population": 31778,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "관양동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-21",
+      "label": "인덕원동",
+      "latitude": 37.401667,
+      "longitude": 126.936667,
+      "population": 17799,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "인덕원동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-22",
+      "label": "부림동",
+      "latitude": 37.401667,
+      "longitude": 126.953333,
+      "population": 26421,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "부림동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-23",
+      "label": "평촌동",
+      "latitude": 37.401667,
+      "longitude": 126.97,
+      "population": 14715,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "평촌동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-24",
+      "label": "평안동",
+      "latitude": 37.401667,
+      "longitude": 126.986667,
+      "population": 22183,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "평안동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-25",
+      "label": "귀인동",
+      "latitude": 37.415,
+      "longitude": 126.903333,
+      "population": 15902,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "귀인동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-26",
+      "label": "호계1동",
+      "latitude": 37.415,
+      "longitude": 126.92,
+      "population": 27088,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "호계1동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-27",
+      "label": "호계2동",
+      "latitude": 37.415,
+      "longitude": 126.936667,
+      "population": 27182,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "호계2동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-28",
+      "label": "호계3동",
+      "latitude": 37.415,
+      "longitude": 126.953333,
+      "population": 23835,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "호계3동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-29",
+      "label": "범계동",
+      "latitude": 37.415,
+      "longitude": 126.97,
+      "population": 14885,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "범계동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-30",
+      "label": "신촌동",
+      "latitude": 37.415,
+      "longitude": 126.986667,
+      "population": 12184,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "신촌동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    },
+    {
+      "demand_id": "anyang-dong-31",
+      "label": "갈산동",
+      "latitude": 37.428333,
+      "longitude": 126.903333,
+      "population": 10279,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "dong_name": "갈산동",
+      "dong_code": null,
+      "allocation_method": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR",
+      "allocation_provenance": "SIMULATED"
+    }
+  ],
+  "affected_demand_ids": [],
+  "evacuation_fraction": 1.0,
+  "affected_demand_rule": "HAZARD_CONTAINMENT_OR_EXPLICIT_SELECTION",
+  "eligible_facility_ids": [],
+  "audit_log": [
+    {
+      "action": "preset-created",
+      "actor": "system",
+      "timestamp": "2026-08-22T03:25:19.762002+00:00",
+      "scenario_id": "anyang-general-evacuation-competition"
+    }
+  ]
+}

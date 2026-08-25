@@ -1,0 +1,46 @@
+{
+  "os": {
+    "system": "Windows",
+    "release": "11",
+    "version": "10.0.26200",
+    "machine": "AMD64"
+  },
+  "python": {
+    "version": "3.12.13",
+    "executable": "C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Scripts\\python.exe"
+  },
+  "cpu": {
+    "logical_count": 18,
+    "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel"
+  },
+  "memory": {
+    "windows_total_bytes": 16671768576,
+    "windows_available_bytes": 1163935744
+  },
+  "disk": {
+    "root": "C:\\Users\\owner\\Documents\\ChatGPT\\Anyang",
+    "free_bytes": 10914086912,
+    "total_bytes": 487124365312
+  },
+  "wsl": {
+    "available": true,
+    "version": "a\ufffd8\ufffd\ufffd\ufffd\u0000\ufffd \u0000p\ufffd\ufffd\ufffd\u0018\ufffd\ufffd\u0175\ufffd\u0232\ufffd.\u0000 \u0000\r\u0000\n\u0000$\ufffdX\ufffd \u0000T\ufffd\u0734:\u0000 \u0000W\u0000s\u0000l\u0000/\u0000E\u0000n\u0000u\u0000m\u0000e\u0000r\u0000a\u0000t\u0000e\u0000D\u0000i\u0000s\u0000t\u0000r\u0000o\u0000s\u0000/\u0000S\u0000e\u0000r\u0000v\u0000i\u0000c\u0000e\u0000/\u0000E\u0000_\u0000A\u0000C\u0000C\u0000E\u0000S\u0000S\u0000D\u0000E\u0000N\u0000I\u0000E\u0000D\u0000\r\u0000\n\u0000"
+  },
+  "docker": {
+    "available": true,
+    "version": "Docker version 29.2.0, build 0b9d198"
+  },
+  "gpu": {
+    "nvidia_smi": false,
+    "details": null
+  },
+  "cuda": {
+    "torch_available": false,
+    "torch_cuda": null
+  },
+  "project_venv": {
+    "path": "C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv",
+    "exists": true,
+    "torch_installed": false
+  }
+}

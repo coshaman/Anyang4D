@@ -1,0 +1,66 @@
+{
+  "schema_version": "goal6a-release-data-consistency-v1",
+  "status": "PASS",
+  "checks": {
+    "processed_counts_match_manifest": true,
+    "api_foundation_matches_processed": true,
+    "api_facility_lists_match_processed": true,
+    "api_local_context_matches_processed": true,
+    "population_matches_processed": true,
+    "source_hashes_present": true,
+    "source_dates_present": true
+  },
+  "counts": {
+    "local_shelters": 224,
+    "national_filtered_shelters": 231,
+    "national_filtered_water": 71,
+    "aeds": 305,
+    "local_water": 46,
+    "response_inventory": 33,
+    "population_units": 31,
+    "population_total": 562143
+  },
+  "sources": {
+    "civil-defense-shelter-national": {
+      "status": "DOWNLOADED",
+      "temporal_coverage": "provider snapshot; �����ͱ������� field",
+      "retrieved_at": "2026-08-20T11:20:17+00:00",
+      "sha256": "812dff739538dbe44db0f096678f2c962ef4109c0c1bdd8b5363fc3b73e52dcb",
+      "license_terms": "�������������� ���� ���� ��Ȯ��"
+    },
+    "emergency-water-national-standard": {
+      "status": "DOWNLOADED",
+      "temporal_coverage": "provider snapshot; data �������� field",
+      "retrieved_at": "2026-08-20T11:17:52+00:00",
+      "sha256": "92bb644e8874c9730eacc92d0266803ec62d087796f17c580dcc19954722425f",
+      "license_terms": "�������������� ���� ���� ��Ȯ��"
+    },
+    "aed-anyang-file": {
+      "status": "DOWNLOADED",
+      "temporal_coverage": "2025-12-22",
+      "retrieved_at": "2026-08-20T11:33:08+00:00",
+      "sha256": "642ba890dbcab650e361d64c0a18e73e366f3bb785e0ad81161c89c1ab0cf672",
+      "license_terms": "���������� �̿�������� ���� ����"
+    },
+    "anyang-administrative-dong-population": {
+      "status": "DOWNLOADED",
+      "temporal_coverage": "2026-07-31",
+      "retrieved_at": "2026-08-22T00:00:00+09:00",
+      "sha256": "2b5e692eb1197c2fef7611e5b1d620b4f1cec5e9dae02b31d9e0e94ee6ad2a66",
+      "license_terms": "�Ⱦ�� �������۹�����óǥ�� ���� Ȯ��"
+    },
+    "osm-anyang-pedestrian-demo": {
+      "status": "DOWNLOADED",
+      "temporal_coverage": "retrieval snapshot 2026-08-20",
+      "retrieved_at": "2026-08-20T11:22:42+00:00",
+      "sha256": "828feb5ec953f051bc5fe1c5f4e43232fa762a4c04e3c4be43c25b0c96729b20",
+      "license_terms": "ODbL 1.0; attribution required"
+    }
+  },
+  "provenance": {
+    "national": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+    "local": "ANYANG_LOCAL_OFFICIAL",
+    "population": "official registered resident population, foreign residents excluded",
+    "population_allocation": "Official dong totals are preserved exactly. Coordinates are bounded demo anchors because the source has no dong polygons; they are not census-grid truth."
+  }
+}

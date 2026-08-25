@@ -1,0 +1,11 @@
+{
+  "final_terrain_class": "TERRAIN_C",
+  "LEVEL_A_FLOOD_NEXT_GOAL_AUTHORIZED": false,
+  "ADMIN_LEVEL_A_FLOOD_ELIGIBLE": false,
+  "CITIZEN_ROAD_HAZARD_FUTURE_ELIGIBILITY": false,
+  "STREET_LEVEL_FLOOD_TERRAIN_PATH": "DROP",
+  "CITIZEN_HAZARD_ROUTING_FROM_TERRAIN": "DROP",
+  "canonical_terrain_decision": "KEEP_EXISTING_AS_FAILED_DIAGNOSTIC_ONLY",
+  "contour_method_quality": "TERRAIN_C",
+  "no_further_terrain_rescue": true
+}

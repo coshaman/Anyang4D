@@ -1,0 +1,16 @@
+{
+  "experiment": "swmm_environment_probe",
+  "provenance": "SYNTHETIC",
+  "product_integration": false,
+  "swmm_executable": null,
+  "pyswmm_available": false,
+  "status": "BLOCKED_ENVIRONMENT",
+  "reason": "No SWMM executable is installed; no Anyang .inp was fabricated.",
+  "required_city_inputs": [
+    "rainfall time series",
+    "subcatchments and imperviousness/infiltration",
+    "nodes, links, outfalls and boundary conditions",
+    "conduit geometry/inverts/roughness",
+    "calibration observations"
+  ]
+}

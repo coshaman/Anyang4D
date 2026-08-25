@@ -1,0 +1,43 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Anyang central dense-network demo AOI",
+        "provenance": "SELECTION_ONLY",
+        "score": 736.382,
+        "shelter_count": 71,
+        "water_count": 10,
+        "osm_node_count": 4382
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              126.946,
+              37.376000000000005
+            ],
+            [
+              126.96600000000001,
+              37.376000000000005
+            ],
+            [
+              126.96600000000001,
+              37.396
+            ],
+            [
+              126.946,
+              37.396
+            ],
+            [
+              126.946,
+              37.376000000000005
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

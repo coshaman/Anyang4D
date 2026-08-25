@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1.0",
+  "local_source_status": "HUMAN_AUTH_REQUIRED",
+  "national_source_status": "DOWNLOADED",
+  "matched": [],
+  "local_only": [],
+  "national_only_count": 231,
+  "ambiguous": [],
+  "capacity_policy": "Use national official maximum capacity when present; retain disagreement/missing-local status until local source is acquired.",
+  "provenance": "OFFICIAL"
+}

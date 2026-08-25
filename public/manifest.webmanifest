@@ -1,0 +1,10 @@
+{
+  "name": "SAFE-Twin 안양",
+  "short_name": "SAFE-Twin 안양",
+  "lang": "ko-KR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f7f8",
+  "theme_color": "#0a6472",
+  "icons": []
+}

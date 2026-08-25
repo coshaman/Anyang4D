@@ -1,0 +1,23 @@
+{
+  "schema_version": "goal6a-demo-runtime-v1",
+  "status": "PASS",
+  "timings": {
+    "demo_route_to_usable_admin": 1558,
+    "timeline_mid_state": 952,
+    "ab_compare": 772,
+    "ai_screen_and_exact_verification": 12258,
+    "export": 204,
+    "network_tile_failure_behavior": "layout and vector/data panels remain visible with tile requests aborted",
+    "screenshots": 7,
+    "measurement_mode": "real browser, real backend, no mocked core requests"
+  },
+  "api": {
+    "base": "http://127.0.0.1:8000",
+    "ai_candidate_count": 100,
+    "exact_verification_required": true
+  },
+  "caveats": [
+    "Timings are one local Windows CPU run; they are not a hosted SLA.",
+    "OSM tile requests were aborted to verify safe offline layout behavior; official/local data and vector overlays remained available."
+  ]
+}

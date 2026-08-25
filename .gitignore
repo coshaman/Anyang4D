@@ -1,0 +1,34 @@
+node_modules/
+dist/
+.env
+.venv/
+.venv-physicsnemo/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+playwright-report/
+test-results/
+artifacts/screenshots/*.png
+*.tsbuildinfo
+artifacts/final/private-source/
+artifacts/final/release/submission/
+SAFE-Twin_Anyang_Codex_Pack/
+docs/(B010)*
+docs/(B080)*
+debug.log
+tmp_hwpx/
+
+# Python virtual environments
+.venv/
+.venv*/
+venv/
+env/
+
+# Generated AI training labels
+data/derived/ai_scenario_surrogate/labels.jsonl
+
+# Private / restricted / local-only
+artifacts/final/private-source/
+data/raw/ngii/
+.env
+.env.*

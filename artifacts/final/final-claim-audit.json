@@ -1,0 +1,21 @@
+{
+  "schema_version": "final-claim-audit-v1",
+  "status": "PASS",
+  "checks": {
+    "high_res_terrain_acquisition_closed": true,
+    "terrain_dependency_false": true,
+    "flood_wording_bounded": true,
+    "private_source_excluded": true,
+    "raw_ngii_excluded_by_policy": true,
+    "osm_attribution_present": true
+  },
+  "allowed_flood_phrase": "가정 침수영역에 따른 영향 시뮬레이션",
+  "forbidden_claims": [
+    "physical flood prediction",
+    "predicted flood depth",
+    "citizen safe route",
+    "AI disaster prediction",
+    "real-time population",
+    "official emergency forecast"
+  ]
+}

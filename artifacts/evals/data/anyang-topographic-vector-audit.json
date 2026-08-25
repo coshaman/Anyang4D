@@ -1,0 +1,3548 @@
+{
+  "schema_version": "0.1.0",
+  "source": "user-supplied NGII 2025 1:1,000 digital topographic map DXF packages",
+  "aoi_wgs84": {
+    "west": 126.946,
+    "south": 37.376,
+    "east": 126.966,
+    "north": 37.396
+  },
+  "minimum_intersecting_sheets": [
+    "37612048",
+    "37612049"
+  ],
+  "audits": [
+    {
+      "dxf": "docs/(B010)수치지도_37612048_2025_00000144791614.dxf",
+      "xml": "docs/(B010)수치지도_37612048_2025_00000144791614.xml",
+      "sha256": "8c91cd9359746d906d50373bb5a2ea8c33ed2ba55eaedca61504681431a3702d",
+      "bytes": 14308715,
+      "sheet_number": "37612048",
+      "production_year": 2025,
+      "format": "DXF",
+      "crs": "EPSG:5186",
+      "scale_denominator": 1000,
+      "xml_bbox_wgs84": {
+        "west": 126.925001,
+        "east": 126.949999,
+        "south": 37.374881,
+        "north": 37.400119
+      },
+      "aoi_intersects": true,
+      "entity_count": 29399,
+      "entity_types": {
+        "CLASS": 35,
+        "TABLE": 9,
+        "VPORT": 1,
+        "ENDTAB": 9,
+        "LTYPE": 11,
+        "LAYER": 132,
+        "STYLE": 5,
+        "APPID": 13,
+        "DIMSTYLE": 1,
+        "BLOCK_RECORD": 49,
+        "BLOCK": 49,
+        "ENDBLK": 49,
+        "LWPOLYLINE": 25177,
+        "ARC": 17,
+        "CIRCLE": 110,
+        "LINE": 23,
+        "TEXT": 2326,
+        "INSERT": 1004,
+        "DICTIONARY": 230,
+        "ACDBDICTIONARYWDFLT": 1,
+        "XRECORD": 43,
+        "SORTENTSTABLE": 1,
+        "ACDBDETAILVIEWSTYLE": 1,
+        "LAYOUT": 2,
+        "MATERIAL": 3,
+        "MLEADERSTYLE": 1,
+        "MLINESTYLE": 1,
+        "ACDBPLACEHOLDER": 1,
+        "SCALE": 33,
+        "ACDBSECTIONVIEWSTYLE": 1,
+        "TABLESTYLE": 1,
+        "VISUALSTYLE": 24,
+        "DICTIONARYVAR": 31,
+        "ACDBDATATABLE": 1,
+        "DMMAPMANAGER": 1,
+        "DMSTYLELIBRARY": 1,
+        "DMSTYLECATEGORY": 1,
+        "CELLSTYLEMAP": 1
+      },
+      "layer_count": 133,
+      "top_layers": [
+        [
+          "B0024120",
+          3826
+        ],
+        [
+          "A0013118",
+          3271
+        ],
+        [
+          "A0023210",
+          2951
+        ],
+        [
+          "B0014116",
+          2785
+        ],
+        [
+          "B0014111",
+          2693
+        ],
+        [
+          "H0049140",
+          1702
+        ],
+        [
+          "C0536117",
+          1629
+        ],
+        [
+          "B0014112",
+          1137
+        ],
+        [
+          "A0033324",
+          1088
+        ],
+        [
+          "F0047224",
+          1032
+        ],
+        [
+          "F0017111",
+          716
+        ],
+        [
+          "",
+          644
+        ],
+        [
+          "B0014113",
+          517
+        ],
+        [
+          "B0014115",
+          500
+        ],
+        [
+          "F0027217",
+          479
+        ],
+        [
+          "F0027132",
+          477
+        ],
+        [
+          "A0013110",
+          427
+        ],
+        [
+          "C0393323",
+          235
+        ],
+        [
+          "A0033332",
+          232
+        ],
+        [
+          "B0024127",
+          218
+        ]
+      ],
+      "elevation_supporting_layers": {
+        "A0013431": {
+          "entity_counts": {
+            "ARC": 8,
+            "LWPOLYLINE": 2,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "A0013432": {
+          "entity_counts": {
+            "ARC": 4,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "A0013433": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014216": {
+          "entity_counts": {
+            "CIRCLE": 2,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014221": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014223": {
+          "entity_counts": {
+            "LWPOLYLINE": 7,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014224": {
+          "entity_counts": {
+            "LWPOLYLINE": 6,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014231": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014232": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014233": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014235": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014311": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 1,
+            "INSERT": 95
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 95,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014321": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014411": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 23
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 23,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014412": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 8
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 8,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014413": {
+          "entity_counts": {
+            "ARC": 4,
+            "LWPOLYLINE": 3,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014414": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 5
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 5,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014416": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 17
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 17,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014421": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 91
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 91,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014422": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014423": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014511": {
+          "entity_counts": {
+            "LWPOLYLINE": 4,
+            "INSERT": 10
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 10,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014512": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 34
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 34,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014524": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "INSERT": 5
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 5,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014526": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 4,
+            "INSERT": 31
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 31,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014527": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 2,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014531": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "CIRCLE": 5,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014533": {
+          "entity_counts": {
+            "CIRCLE": 5,
+            "LWPOLYLINE": 1,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014611": {
+          "entity_counts": {
+            "LWPOLYLINE": 4,
+            "INSERT": 19
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 19,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014615": {
+          "entity_counts": {
+            "LWPOLYLINE": 12,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014626": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 14
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 14,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014631": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 5
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 5,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014632": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014635": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 8
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 8,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014637": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0285311": {
+          "entity_counts": {
+            "LINE": 2,
+            "INSERT": 18
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 18,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0336211": {
+          "entity_counts": {
+            "LINE": 3,
+            "CIRCLE": 3,
+            "ARC": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0346220": {
+          "entity_counts": {
+            "LWPOLYLINE": 5,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0385321": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0423365": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "LINE": 1,
+            "INSERT": 12
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 12,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0433364": {
+          "entity_counts": {
+            "TEXT": 1,
+            "LWPOLYLINE": 1,
+            "INSERT": 5
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 5,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "D0015212": {
+          "entity_counts": {
+            "LINE": 3,
+            "INSERT": 45
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 45,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "D0025216": {
+          "entity_counts": {
+            "LWPOLYLINE": 5,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "E0042326": {
+          "entity_counts": {
+            "LINE": 5,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "F0017111": {
+          "entity_counts": {
+            "LWPOLYLINE": 716
+          },
+          "contour_elevation_count": 716,
+          "contour_elevation_values_m": [
+            30.0,
+            35.0,
+            40.0,
+            45.0,
+            55.0,
+            60.0,
+            65.0,
+            70.0,
+            80.0,
+            85.0,
+            90.0,
+            95.0,
+            105.0,
+            110.0,
+            115.0,
+            120.0,
+            130.0,
+            135.0,
+            140.0,
+            145.0,
+            155.0,
+            160.0,
+            165.0,
+            170.0,
+            180.0,
+            185.0,
+            190.0,
+            195.0,
+            205.0,
+            210.0,
+            215.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0017114": {
+          "entity_counts": {
+            "LWPOLYLINE": 129
+          },
+          "contour_elevation_count": 129,
+          "contour_elevation_values_m": [
+            25.0,
+            50.0,
+            75.0,
+            100.0,
+            125.0,
+            150.0,
+            175.0,
+            200.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0027217": {
+          "entity_counts": {
+            "LINE": 2,
+            "INSERT": 477
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 477,
+          "point_elevation_range_m": [
+            21.48,
+            171.75
+          ]
+        },
+        "G0022322": {
+          "entity_counts": {
+            "CIRCLE": 78,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "G0022323": {
+          "entity_counts": {
+            "LINE": 7,
+            "INSERT": 17
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 17,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "elevation_support_summary": {
+        "has_contour_polylines": true,
+        "has_elevation_points": true,
+        "candidate_contour_layers": [
+          "F0017111",
+          "F0017114"
+        ],
+        "candidate_point_layers": [
+          "A0013431",
+          "A0013432",
+          "A0013433",
+          "B0014216",
+          "B0014221",
+          "B0014223",
+          "B0014224",
+          "B0014231",
+          "B0014232",
+          "B0014233",
+          "B0014235",
+          "B0014311",
+          "B0014321",
+          "B0014411",
+          "B0014412",
+          "B0014413",
+          "B0014414",
+          "B0014416",
+          "B0014421",
+          "B0014422",
+          "B0014423",
+          "B0014511",
+          "B0014512",
+          "B0014524",
+          "B0014526",
+          "B0014527",
+          "B0014531",
+          "B0014533",
+          "B0014611",
+          "B0014615",
+          "B0014626",
+          "B0014631",
+          "B0014632",
+          "B0014635",
+          "B0014637",
+          "C0285311",
+          "C0336211",
+          "C0346220",
+          "C0385321",
+          "C0423365",
+          "C0433364",
+          "D0015212",
+          "D0025216",
+          "E0042326",
+          "F0027217",
+          "G0022322",
+          "G0022323"
+        ]
+      },
+      "xml_evidence": {
+        "production_date": "2025-12-30",
+        "survey_date": "2025-03-25",
+        "title_fragment": "2025년 1대 1000 및 국가기본도 통합구축(수도권북부1지구) - 도엽번호 : 37612048",
+        "restriction": "재배포 금지"
+      }
+    },
+    {
+      "dxf": "docs/(B010)수치지도_37612049_2025_00000281118967.dxf",
+      "xml": "docs/(B010)수치지도_37612049_2025_00000281118967.xml",
+      "sha256": "a5b7084173b141f13025a782e7bcdf33d2855d3a13a1d8486af759dc2899d87d",
+      "bytes": 11805737,
+      "sheet_number": "37612049",
+      "production_year": 2025,
+      "format": "DXF",
+      "crs": "EPSG:5186",
+      "scale_denominator": 1000,
+      "xml_bbox_wgs84": {
+        "west": 126.950001,
+        "east": 126.974999,
+        "south": 37.374886,
+        "north": 37.400114
+      },
+      "aoi_intersects": true,
+      "entity_count": 24586,
+      "entity_types": {
+        "CLASS": 35,
+        "TABLE": 9,
+        "VPORT": 1,
+        "ENDTAB": 9,
+        "LTYPE": 9,
+        "LAYER": 120,
+        "STYLE": 5,
+        "APPID": 13,
+        "DIMSTYLE": 1,
+        "BLOCK_RECORD": 45,
+        "BLOCK": 45,
+        "ENDBLK": 45,
+        "LWPOLYLINE": 21678,
+        "ARC": 16,
+        "CIRCLE": 37,
+        "LINE": 18,
+        "TEXT": 1476,
+        "INSERT": 659,
+        "DICTIONARY": 216,
+        "ACDBDICTIONARYWDFLT": 1,
+        "XRECORD": 43,
+        "SORTENTSTABLE": 1,
+        "ACDBDETAILVIEWSTYLE": 1,
+        "LAYOUT": 2,
+        "MATERIAL": 3,
+        "MLEADERSTYLE": 1,
+        "MLINESTYLE": 1,
+        "ACDBPLACEHOLDER": 1,
+        "SCALE": 33,
+        "ACDBSECTIONVIEWSTYLE": 1,
+        "TABLESTYLE": 1,
+        "VISUALSTYLE": 24,
+        "DICTIONARYVAR": 31,
+        "ACDBDATATABLE": 1,
+        "DMMAPMANAGER": 1,
+        "DMSTYLELIBRARY": 1,
+        "DMSTYLECATEGORY": 1,
+        "CELLSTYLEMAP": 1
+      },
+      "layer_count": 121,
+      "top_layers": [
+        [
+          "A0013118",
+          4828
+        ],
+        [
+          "B0014116",
+          2689
+        ],
+        [
+          "C0536117",
+          2520
+        ],
+        [
+          "B0014111",
+          2414
+        ],
+        [
+          "B0024120",
+          2003
+        ],
+        [
+          "A0023210",
+          1882
+        ],
+        [
+          "H0049140",
+          1043
+        ],
+        [
+          "A0033324",
+          1009
+        ],
+        [
+          "F0047224",
+          824
+        ],
+        [
+          "",
+          612
+        ],
+        [
+          "B0014115",
+          566
+        ],
+        [
+          "F0017111",
+          352
+        ],
+        [
+          "B0014112",
+          345
+        ],
+        [
+          "F0027217",
+          320
+        ],
+        [
+          "F0027132",
+          319
+        ],
+        [
+          "A0013110",
+          306
+        ],
+        [
+          "A0033332",
+          302
+        ],
+        [
+          "C0393323",
+          233
+        ],
+        [
+          "B0024127",
+          214
+        ],
+        [
+          "B0014118",
+          138
+        ]
+      ],
+      "elevation_supporting_layers": {
+        "A0013431": {
+          "entity_counts": {
+            "ARC": 8,
+            "LWPOLYLINE": 2,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "A0013432": {
+          "entity_counts": {
+            "ARC": 4,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014214": {
+          "entity_counts": {
+            "CIRCLE": 2,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014216": {
+          "entity_counts": {
+            "CIRCLE": 2,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014221": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014224": {
+          "entity_counts": {
+            "LWPOLYLINE": 6,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014231": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014232": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014233": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014235": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014311": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 1,
+            "INSERT": 25
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 25,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014321": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 9
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 9,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014411": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 52
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 52,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014412": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 16
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 16,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014413": {
+          "entity_counts": {
+            "ARC": 4,
+            "LWPOLYLINE": 3,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014414": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014416": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 32
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 32,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014421": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 49
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 49,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014422": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014427": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014511": {
+          "entity_counts": {
+            "LWPOLYLINE": 4,
+            "INSERT": 5
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 5,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014512": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014514": {
+          "entity_counts": {
+            "LWPOLYLINE": 5,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014524": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014526": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 4,
+            "INSERT": 20
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 20,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014527": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 2,
+            "INSERT": 5
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 5,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014531": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "CIRCLE": 5,
+            "INSERT": 9
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 9,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014532": {
+          "entity_counts": {
+            "CIRCLE": 5,
+            "LWPOLYLINE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014533": {
+          "entity_counts": {
+            "CIRCLE": 5,
+            "LWPOLYLINE": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014611": {
+          "entity_counts": {
+            "LWPOLYLINE": 4,
+            "INSERT": 19
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 19,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014615": {
+          "entity_counts": {
+            "LWPOLYLINE": 12,
+            "INSERT": 5
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 5,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014626": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 10
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 10,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014631": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014635": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0346220": {
+          "entity_counts": {
+            "LWPOLYLINE": 5,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0423365": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "LINE": 1,
+            "INSERT": 5
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 5,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0433364": {
+          "entity_counts": {
+            "TEXT": 1,
+            "LWPOLYLINE": 1,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "D0015212": {
+          "entity_counts": {
+            "LINE": 3,
+            "INSERT": 17
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 17,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "E0042326": {
+          "entity_counts": {
+            "LINE": 5,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "F0017111": {
+          "entity_counts": {
+            "LWPOLYLINE": 352
+          },
+          "contour_elevation_count": 352,
+          "contour_elevation_values_m": [
+            30.0,
+            35.0,
+            40.0,
+            45.0,
+            55.0,
+            60.0,
+            65.0,
+            70.0,
+            80.0,
+            85.0,
+            90.0,
+            95.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0017114": {
+          "entity_counts": {
+            "LWPOLYLINE": 61
+          },
+          "contour_elevation_count": 61,
+          "contour_elevation_values_m": [
+            50.0,
+            75.0,
+            100.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0017121": {
+          "entity_counts": {
+            "LWPOLYLINE": 1
+          },
+          "contour_elevation_count": 1,
+          "contour_elevation_values_m": [
+            40.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0017124": {
+          "entity_counts": {
+            "LWPOLYLINE": 1
+          },
+          "contour_elevation_count": 1,
+          "contour_elevation_values_m": [
+            50.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0027217": {
+          "entity_counts": {
+            "LINE": 2,
+            "INSERT": 318
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 318,
+          "point_elevation_range_m": [
+            29.16,
+            85.09
+          ]
+        },
+        "H0027311": {
+          "entity_counts": {
+            "LINE": 3,
+            "CIRCLE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            38.15,
+            38.15
+          ]
+        },
+        "H0027312": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "LINE": 4,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            40.89,
+            40.89
+          ]
+        },
+        "H0027313": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            36.59,
+            36.59
+          ]
+        }
+      },
+      "elevation_support_summary": {
+        "has_contour_polylines": true,
+        "has_elevation_points": true,
+        "candidate_contour_layers": [
+          "F0017111",
+          "F0017114",
+          "F0017121",
+          "F0017124"
+        ],
+        "candidate_point_layers": [
+          "A0013431",
+          "A0013432",
+          "B0014214",
+          "B0014216",
+          "B0014221",
+          "B0014224",
+          "B0014231",
+          "B0014232",
+          "B0014233",
+          "B0014235",
+          "B0014311",
+          "B0014321",
+          "B0014411",
+          "B0014412",
+          "B0014413",
+          "B0014414",
+          "B0014416",
+          "B0014421",
+          "B0014422",
+          "B0014427",
+          "B0014511",
+          "B0014512",
+          "B0014514",
+          "B0014524",
+          "B0014526",
+          "B0014527",
+          "B0014531",
+          "B0014532",
+          "B0014533",
+          "B0014611",
+          "B0014615",
+          "B0014626",
+          "B0014631",
+          "B0014635",
+          "C0346220",
+          "C0423365",
+          "C0433364",
+          "D0015212",
+          "E0042326",
+          "F0027217",
+          "H0027311",
+          "H0027312",
+          "H0027313"
+        ]
+      },
+      "xml_evidence": {
+        "production_date": "2025-12-30",
+        "survey_date": "2025-03-25",
+        "title_fragment": "2025년 1대 1000 및 국가기본도 통합구축(수도권북부1지구) - 도엽번호 : 37612049",
+        "restriction": "재배포 금지"
+      }
+    },
+    {
+      "dxf": "docs/(B010)수치지도_37612058_2025_00000652769840.dxf",
+      "xml": "docs/(B010)수치지도_37612058_2025_00000652769840.xml",
+      "sha256": "6a1f5cfc94304296ac4ec2b9f1db2150c20daf961eaf9ee34781057d4f94188f",
+      "bytes": 16629516,
+      "sheet_number": "37612058",
+      "production_year": 2025,
+      "format": "DXF",
+      "crs": "EPSG:5186",
+      "scale_denominator": 1000,
+      "xml_bbox_wgs84": {
+        "west": 126.925001,
+        "east": 126.949999,
+        "south": 37.349881,
+        "north": 37.375119
+      },
+      "aoi_intersects": false,
+      "entity_count": 37094,
+      "entity_types": {
+        "CLASS": 35,
+        "TABLE": 9,
+        "VPORT": 1,
+        "ENDTAB": 9,
+        "LTYPE": 11,
+        "LAYER": 130,
+        "STYLE": 4,
+        "APPID": 13,
+        "DIMSTYLE": 1,
+        "BLOCK_RECORD": 52,
+        "BLOCK": 52,
+        "ENDBLK": 52,
+        "LWPOLYLINE": 32073,
+        "ARC": 17,
+        "CIRCLE": 120,
+        "LINE": 25,
+        "TEXT": 3015,
+        "INSERT": 1093,
+        "DICTIONARY": 233,
+        "ACDBDICTIONARYWDFLT": 1,
+        "XRECORD": 43,
+        "SORTENTSTABLE": 1,
+        "ACDBDETAILVIEWSTYLE": 1,
+        "LAYOUT": 2,
+        "MATERIAL": 3,
+        "MLEADERSTYLE": 1,
+        "MLINESTYLE": 1,
+        "ACDBPLACEHOLDER": 1,
+        "SCALE": 33,
+        "ACDBSECTIONVIEWSTYLE": 1,
+        "TABLESTYLE": 1,
+        "VISUALSTYLE": 24,
+        "DICTIONARYVAR": 31,
+        "ACDBDATATABLE": 1,
+        "DMMAPMANAGER": 1,
+        "DMSTYLELIBRARY": 1,
+        "DMSTYLECATEGORY": 1,
+        "CELLSTYLEMAP": 1
+      },
+      "layer_count": 131,
+      "top_layers": [
+        [
+          "B0024120",
+          5551
+        ],
+        [
+          "A0023210",
+          4798
+        ],
+        [
+          "B0014116",
+          3868
+        ],
+        [
+          "A0013118",
+          3468
+        ],
+        [
+          "B0014111",
+          2936
+        ],
+        [
+          "B0014112",
+          2197
+        ],
+        [
+          "H0049140",
+          2160
+        ],
+        [
+          "F0047224",
+          1664
+        ],
+        [
+          "A0033324",
+          1307
+        ],
+        [
+          "C0536117",
+          1115
+        ],
+        [
+          "B0014113",
+          1087
+        ],
+        [
+          "A0013110",
+          672
+        ],
+        [
+          "",
+          647
+        ],
+        [
+          "F0017111",
+          521
+        ],
+        [
+          "B0014115",
+          510
+        ],
+        [
+          "F0027217",
+          505
+        ],
+        [
+          "F0027132",
+          501
+        ],
+        [
+          "C0393323",
+          390
+        ],
+        [
+          "B0014118",
+          287
+        ],
+        [
+          "H0049154",
+          224
+        ]
+      ],
+      "elevation_supporting_layers": {
+        "A0013431": {
+          "entity_counts": {
+            "ARC": 8,
+            "LWPOLYLINE": 2,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "A0013432": {
+          "entity_counts": {
+            "ARC": 4,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014214": {
+          "entity_counts": {
+            "CIRCLE": 2,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014221": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014223": {
+          "entity_counts": {
+            "LWPOLYLINE": 7,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014224": {
+          "entity_counts": {
+            "LWPOLYLINE": 6,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014231": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014232": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014235": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014311": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 1,
+            "INSERT": 14
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 14,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014411": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 23
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 23,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014412": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 8
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 8,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014413": {
+          "entity_counts": {
+            "ARC": 4,
+            "LWPOLYLINE": 3,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014414": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 5
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 5,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014416": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 10
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 10,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014421": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 106
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 106,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014422": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014423": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014427": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014432": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014511": {
+          "entity_counts": {
+            "LWPOLYLINE": 4,
+            "INSERT": 7
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 7,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014512": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 30
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 30,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014524": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014526": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 4,
+            "INSERT": 27
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 27,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014527": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 2,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014531": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "CIRCLE": 5,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014532": {
+          "entity_counts": {
+            "CIRCLE": 5,
+            "LWPOLYLINE": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014533": {
+          "entity_counts": {
+            "CIRCLE": 5,
+            "LWPOLYLINE": 1,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014611": {
+          "entity_counts": {
+            "LWPOLYLINE": 4,
+            "INSERT": 41
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 41,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014615": {
+          "entity_counts": {
+            "LWPOLYLINE": 12,
+            "INSERT": 12
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 12,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014626": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 18
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 18,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014631": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014632": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014635": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 15
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 15,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014637": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0285311": {
+          "entity_counts": {
+            "LINE": 2,
+            "INSERT": 43
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 43,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0315314": {
+          "entity_counts": {
+            "CIRCLE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0336211": {
+          "entity_counts": {
+            "LINE": 3,
+            "CIRCLE": 3,
+            "ARC": 1,
+            "INSERT": 9
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 9,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0346220": {
+          "entity_counts": {
+            "LWPOLYLINE": 5,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0385321": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0423365": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "LINE": 1,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0433364": {
+          "entity_counts": {
+            "TEXT": 1,
+            "LWPOLYLINE": 1,
+            "INSERT": 18
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 18,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "D0015212": {
+          "entity_counts": {
+            "LINE": 3,
+            "INSERT": 107
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 107,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "D0036351": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "LINE": 2,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "E0042326": {
+          "entity_counts": {
+            "LINE": 5,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "E0072325": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "CIRCLE": 2,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "F0017111": {
+          "entity_counts": {
+            "LWPOLYLINE": 521
+          },
+          "contour_elevation_count": 521,
+          "contour_elevation_values_m": [
+            30.0,
+            35.0,
+            40.0,
+            45.0,
+            55.0,
+            60.0,
+            65.0,
+            70.0,
+            80.0,
+            85.0,
+            90.0,
+            95.0,
+            105.0,
+            110.0,
+            115.0,
+            120.0,
+            130.0,
+            135.0,
+            140.0,
+            145.0,
+            155.0,
+            160.0,
+            165.0,
+            170.0,
+            180.0,
+            185.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0017114": {
+          "entity_counts": {
+            "LWPOLYLINE": 87
+          },
+          "contour_elevation_count": 87,
+          "contour_elevation_values_m": [
+            50.0,
+            75.0,
+            100.0,
+            125.0,
+            150.0,
+            175.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0027217": {
+          "entity_counts": {
+            "LINE": 2,
+            "INSERT": 503
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 503,
+          "point_elevation_range_m": [
+            32.45,
+            155.51
+          ]
+        },
+        "G0022322": {
+          "entity_counts": {
+            "CIRCLE": 78,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "G0022323": {
+          "entity_counts": {
+            "LINE": 7,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "H0027313": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            59.96,
+            59.96
+          ]
+        }
+      },
+      "elevation_support_summary": {
+        "has_contour_polylines": true,
+        "has_elevation_points": true,
+        "candidate_contour_layers": [
+          "F0017111",
+          "F0017114"
+        ],
+        "candidate_point_layers": [
+          "A0013431",
+          "A0013432",
+          "B0014214",
+          "B0014221",
+          "B0014223",
+          "B0014224",
+          "B0014231",
+          "B0014232",
+          "B0014235",
+          "B0014311",
+          "B0014411",
+          "B0014412",
+          "B0014413",
+          "B0014414",
+          "B0014416",
+          "B0014421",
+          "B0014422",
+          "B0014423",
+          "B0014427",
+          "B0014432",
+          "B0014511",
+          "B0014512",
+          "B0014524",
+          "B0014526",
+          "B0014527",
+          "B0014531",
+          "B0014532",
+          "B0014533",
+          "B0014611",
+          "B0014615",
+          "B0014626",
+          "B0014631",
+          "B0014632",
+          "B0014635",
+          "B0014637",
+          "C0285311",
+          "C0315314",
+          "C0336211",
+          "C0346220",
+          "C0385321",
+          "C0423365",
+          "C0433364",
+          "D0015212",
+          "D0036351",
+          "E0042326",
+          "E0072325",
+          "F0027217",
+          "G0022322",
+          "G0022323",
+          "H0027313"
+        ]
+      },
+      "xml_evidence": {
+        "production_date": "2025-12-30",
+        "survey_date": "2025-03-25",
+        "title_fragment": "2025년 1대 1000 및 국가기본도 통합구축(수도권북부1지구) - 도엽번호 : 37612058",
+        "restriction": "재배포 금지"
+      }
+    },
+    {
+      "dxf": "docs/(B010)수치지도_37612059_2025_00000779212951.dxf",
+      "xml": "docs/(B010)수치지도_37612059_2025_00000779212951.xml",
+      "sha256": "f9f4edba42b3adf38071bdda31ef2a168606b58b74163c036727279f01062853",
+      "bytes": 12918122,
+      "sheet_number": "37612059",
+      "production_year": 2025,
+      "format": "DXF",
+      "crs": "EPSG:5186",
+      "scale_denominator": 1000,
+      "xml_bbox_wgs84": {
+        "west": 126.950001,
+        "east": 126.974999,
+        "south": 37.349886,
+        "north": 37.375114
+      },
+      "aoi_intersects": false,
+      "entity_count": 27442,
+      "entity_types": {
+        "CLASS": 35,
+        "TABLE": 9,
+        "VPORT": 1,
+        "ENDTAB": 9,
+        "LTYPE": 10,
+        "LAYER": 109,
+        "STYLE": 5,
+        "APPID": 17,
+        "DIMSTYLE": 1,
+        "BLOCK_RECORD": 43,
+        "BLOCK": 43,
+        "ENDBLK": 43,
+        "LWPOLYLINE": 22929,
+        "CIRCLE": 38,
+        "LINE": 32,
+        "ARC": 5,
+        "TEXT": 2252,
+        "INSERT": 1493,
+        "DICTIONARY": 206,
+        "XRECORD": 48,
+        "ACDBDICTIONARYWDFLT": 1,
+        "SORTENTSTABLE": 1,
+        "ACDBDETAILVIEWSTYLE": 1,
+        "LAYOUT": 2,
+        "MATERIAL": 3,
+        "MLEADERSTYLE": 1,
+        "MLINESTYLE": 1,
+        "ACDBPLACEHOLDER": 1,
+        "SCALE": 33,
+        "ACDBSECTIONVIEWSTYLE": 1,
+        "TABLESTYLE": 2,
+        "VISUALSTYLE": 24,
+        "DICTIONARYVAR": 31,
+        "DMSTYLIZEDENTITIESTABLE": 1,
+        "ACDBDATATABLE": 1,
+        "DMMAPMANAGER": 1,
+        "DMSTYLELIBRARY": 1,
+        "DMMAP": 1,
+        "DMSTYLECATEGORY": 1,
+        "CELLSTYLEMAP": 2,
+        "DMBASEELEMENT": 1,
+        "DMDEFAULTSTYLE": 1,
+        "DMSTYLEREFERENCE": 1,
+        "DMSURROGATESTYLESETS": 1
+      },
+      "layer_count": 111,
+      "top_layers": [
+        [
+          "B0014111",
+          3515
+        ],
+        [
+          "B0024120",
+          3231
+        ],
+        [
+          "B0014116",
+          3205
+        ],
+        [
+          "A0013118",
+          2604
+        ],
+        [
+          "A0023210",
+          2202
+        ],
+        [
+          "C0536117",
+          1632
+        ],
+        [
+          "H0049140",
+          1389
+        ],
+        [
+          "F0047224",
+          1189
+        ],
+        [
+          "A0033324",
+          868
+        ],
+        [
+          "F0027217",
+          663
+        ],
+        [
+          "F0027132",
+          662
+        ],
+        [
+          "",
+          606
+        ],
+        [
+          "B0014118",
+          571
+        ],
+        [
+          "F0017111",
+          509
+        ],
+        [
+          "B0014112",
+          488
+        ],
+        [
+          "B0014311",
+          486
+        ],
+        [
+          "A0013110",
+          349
+        ],
+        [
+          "B0024127",
+          302
+        ],
+        [
+          "B0014115",
+          286
+        ],
+        [
+          "F0047225",
+          244
+        ]
+      ],
+      "elevation_supporting_layers": {
+        "A0013432": {
+          "entity_counts": {
+            "ARC": 4,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014216": {
+          "entity_counts": {
+            "CIRCLE": 2,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014223": {
+          "entity_counts": {
+            "LWPOLYLINE": 7,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014224": {
+          "entity_counts": {
+            "LWPOLYLINE": 6,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014231": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014235": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014311": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 1,
+            "INSERT": 477
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 477,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014321": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014411": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 14
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 14,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014412": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014414": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014416": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 8
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 8,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014421": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 44
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 44,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014422": {
+          "entity_counts": {
+            "LWPOLYLINE": 2,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014512": {
+          "entity_counts": {
+            "TEXT": 1,
+            "CIRCLE": 1,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014514": {
+          "entity_counts": {
+            "LWPOLYLINE": 5,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014524": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "INSERT": 17
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 17,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014526": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 4,
+            "INSERT": 42
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 42,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014527": {
+          "entity_counts": {
+            "LWPOLYLINE": 8,
+            "CIRCLE": 2,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014531": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "CIRCLE": 5,
+            "INSERT": 3
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 3,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014532": {
+          "entity_counts": {
+            "CIRCLE": 5,
+            "LWPOLYLINE": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014533": {
+          "entity_counts": {
+            "CIRCLE": 5,
+            "LWPOLYLINE": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014611": {
+          "entity_counts": {
+            "LWPOLYLINE": 4,
+            "INSERT": 16
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 16,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014615": {
+          "entity_counts": {
+            "LWPOLYLINE": 12,
+            "INSERT": 6
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 6,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014626": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014631": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 2
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 2,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014632": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "B0014635": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "TEXT": 1,
+            "INSERT": 4
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 4,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0285311": {
+          "entity_counts": {
+            "LINE": 2,
+            "INSERT": 72
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 72,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0336211": {
+          "entity_counts": {
+            "LINE": 3,
+            "CIRCLE": 3,
+            "ARC": 1,
+            "INSERT": 7
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 7,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0423365": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "LINE": 1,
+            "INSERT": 10
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 10,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "C0433364": {
+          "entity_counts": {
+            "TEXT": 1,
+            "LWPOLYLINE": 1,
+            "INSERT": 11
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 11,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "D0015211": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "D0015212": {
+          "entity_counts": {
+            "LINE": 3,
+            "INSERT": 25
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 25,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "D0036351": {
+          "entity_counts": {
+            "LWPOLYLINE": 1,
+            "LINE": 2,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "E0042326": {
+          "entity_counts": {
+            "LINE": 5,
+            "INSERT": 18
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 18,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "F0017111": {
+          "entity_counts": {
+            "LWPOLYLINE": 509
+          },
+          "contour_elevation_count": 509,
+          "contour_elevation_values_m": [
+            30.0,
+            35.0,
+            40.0,
+            45.0,
+            55.0,
+            60.0,
+            65.0,
+            70.0,
+            80.0,
+            85.0,
+            90.0,
+            95.0,
+            105.0,
+            110.0,
+            115.0,
+            120.0,
+            130.0,
+            135.0,
+            140.0,
+            145.0,
+            155.0,
+            160.0,
+            165.0,
+            170.0,
+            180.0,
+            185.0,
+            190.0,
+            195.0,
+            205.0,
+            210.0,
+            215.0,
+            220.0,
+            230.0,
+            235.0,
+            240.0,
+            245.0,
+            255.0,
+            260.0,
+            265.0,
+            270.0,
+            280.0,
+            285.0,
+            290.0,
+            295.0,
+            305.0,
+            310.0,
+            315.0,
+            320.0,
+            330.0,
+            335.0,
+            340.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0017114": {
+          "entity_counts": {
+            "LWPOLYLINE": 165
+          },
+          "contour_elevation_count": 165,
+          "contour_elevation_values_m": [
+            50.0,
+            75.0,
+            100.0,
+            125.0,
+            150.0,
+            175.0,
+            200.0,
+            225.0,
+            250.0,
+            275.0,
+            300.0,
+            325.0
+          ],
+          "point_elevation_count": 0,
+          "point_elevation_range_m": null
+        },
+        "F0027217": {
+          "entity_counts": {
+            "LINE": 2,
+            "INSERT": 661
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 661,
+          "point_elevation_range_m": [
+            27.26,
+            157.25
+          ]
+        },
+        "G0022323": {
+          "entity_counts": {
+            "LINE": 7,
+            "INSERT": 10
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 10,
+          "point_elevation_range_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "H0027311": {
+          "entity_counts": {
+            "LINE": 3,
+            "CIRCLE": 1,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            133.33,
+            133.33
+          ]
+        },
+        "H0027312": {
+          "entity_counts": {
+            "CIRCLE": 1,
+            "LINE": 4,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            53.03,
+            53.03
+          ]
+        },
+        "H0027313": {
+          "entity_counts": {
+            "LWPOLYLINE": 3,
+            "INSERT": 1
+          },
+          "contour_elevation_count": 0,
+          "contour_elevation_values_m": [],
+          "point_elevation_count": 1,
+          "point_elevation_range_m": [
+            44.95,
+            44.95
+          ]
+        }
+      },
+      "elevation_support_summary": {
+        "has_contour_polylines": true,
+        "has_elevation_points": true,
+        "candidate_contour_layers": [
+          "F0017111",
+          "F0017114"
+        ],
+        "candidate_point_layers": [
+          "A0013432",
+          "B0014216",
+          "B0014223",
+          "B0014224",
+          "B0014231",
+          "B0014235",
+          "B0014311",
+          "B0014321",
+          "B0014411",
+          "B0014412",
+          "B0014414",
+          "B0014416",
+          "B0014421",
+          "B0014422",
+          "B0014512",
+          "B0014514",
+          "B0014524",
+          "B0014526",
+          "B0014527",
+          "B0014531",
+          "B0014532",
+          "B0014533",
+          "B0014611",
+          "B0014615",
+          "B0014626",
+          "B0014631",
+          "B0014632",
+          "B0014635",
+          "C0285311",
+          "C0336211",
+          "C0423365",
+          "C0433364",
+          "D0015211",
+          "D0015212",
+          "D0036351",
+          "E0042326",
+          "F0027217",
+          "G0022323",
+          "H0027311",
+          "H0027312",
+          "H0027313"
+        ]
+      },
+      "xml_evidence": {
+        "production_date": "2025-12-30",
+        "survey_date": "2025-03-25",
+        "title_fragment": "2025년 1대 1000 및 국가기본도 통합구축(수도권북부1지구) - 도엽번호 : 37612059",
+        "restriction": "재배포 금지"
+      }
+    }
+  ],
+  "interpretation": {
+    "current_official_vector_source": true,
+    "not_a_dem": true,
+    "candidate_elevation_layers": [
+      "F0017111",
+      "F0017114",
+      "F0027217"
+    ],
+    "terrain_derivation_status": "AUDIT_COMPLETE_DERIVATION_NOT_YET_RUN",
+    "provenance_if_derived": "DERIVED_TERRAIN_FROM_TOPOGRAPHIC_VECTORS"
+  }
+}

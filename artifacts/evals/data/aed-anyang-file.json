@@ -1,0 +1,61 @@
+{
+  "path": "C:/Users/owner/Documents/ChatGPT/Anyang/data/raw/data_go_kr/aed_anyang/source.csv",
+  "encoding": "cp949",
+  "raw_row_count": 305,
+  "anyang_row_count": 305,
+  "columns": [
+    "설치기관명",
+    "소재지도로명주소",
+    "전화번호",
+    "데이터관리부서",
+    "데이터기준일자"
+  ],
+  "coordinate_columns": {
+    "latitude": null,
+    "longitude": null
+  },
+  "coordinate_valid_count": 0,
+  "projected_coordinate_columns": {
+    "x": null,
+    "y": null
+  },
+  "projected_coordinate_valid_count": 0,
+  "numeric_quality": {
+    "capacity": {
+      "column": null,
+      "nonempty_count": 0,
+      "numeric_valid_count": 0,
+      "invalid_or_null_rate": 1.0
+    }
+  },
+  "null_rates": {
+    "설치기관명": 0.0,
+    "소재지도로명주소": 0.0,
+    "전화번호": 0.01639344262295082,
+    "데이터관리부서": 0.0,
+    "데이터기준일자": 0.0
+  },
+  "anyang_sample_records": [
+    {
+      "설치기관명": "밝음나눔안과",
+      "소재지도로명주소": "경기도 안양시 만안구 안양로 307, 금상타워 7,8층 (안양동)",
+      "전화번호": "031-360-7542",
+      "데이터관리부서": "안양시 만안구보건소",
+      "데이터기준일자": "2025-12-22"
+    },
+    {
+      "설치기관명": "안양예술고등학교",
+      "소재지도로명주소": "경기도 안양시 만안구 양화로25번길 40",
+      "전화번호": "070-5077-0561",
+      "데이터관리부서": "안양시 만안구보건소",
+      "데이터기준일자": "2025-12-22"
+    },
+    {
+      "설치기관명": "현대건설월곶판교선제6공구건설공사현장사무실",
+      "소재지도로명주소": "경기도 안양시 만안구 장내로143번길 15, 연성빌딩 4층 (안양동)",
+      "전화번호": "031-468-9372",
+      "데이터관리부서": "안양시 만안구보건소",
+      "데이터기준일자": "2025-12-22"
+    }
+  ]
+}

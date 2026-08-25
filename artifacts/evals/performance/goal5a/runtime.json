@@ -1,0 +1,21 @@
+{
+  "scenario_count": 20,
+  "top_k": 5,
+  "ai_batch": {
+    "median_ms": 32.93,
+    "p95_ms": 38.589,
+    "throughput_per_second": 30.367
+  },
+  "exact_all": {
+    "median_ms": 30910.94,
+    "p95_ms": 30910.94,
+    "throughput_per_second": 0.032
+  },
+  "ai_plus_exact_top_k": {
+    "elapsed_ms": 15593.216,
+    "scenarios_per_second": 1.283
+  },
+  "speedup_exact_all_vs_hybrid": 1.982,
+  "exact_solver_calls_avoided": 15,
+  "exact_reference": "goal4b-exact-reference-v1"
+}

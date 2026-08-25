@@ -1,0 +1,26 @@
+{
+  "node_count": 16745,
+  "edge_count": 19439,
+  "component_count": 27,
+  "largest_component_node_count": 16437,
+  "largest_component_fraction": 0.9816064496864736,
+  "walkable_highway_way_counts": {
+    "primary": 100,
+    "tertiary": 309,
+    "path": 125,
+    "residential": 896,
+    "primary_link": 53,
+    "pedestrian": 130,
+    "footway": 822,
+    "service": 1179,
+    "unclassified": 43,
+    "living_street": 172,
+    "tertiary_link": 56,
+    "steps": 123,
+    "track": 8,
+    "secondary_link": 1
+  },
+  "path": "C:/Users/owner/Documents/ChatGPT/Anyang/data/raw/openstreetmap/anyang_pedestrian_demo/overpass.json",
+  "element_count": 22134,
+  "columns": []
+}

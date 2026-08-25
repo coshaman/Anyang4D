@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "sources": [
+    {
+      "id": "civil-defense-shelter-national",
+      "status": "DOWNLOADED",
+      "role": "evacuation eligibility and capacity",
+      "count": 231,
+      "provenance": "OFFICIAL"
+    },
+    {
+      "id": "anyang-local-emergency-shelter",
+      "status": "HUMAN_AUTH_REQUIRED",
+      "role": "shelter crosswalk",
+      "count": null,
+      "provenance": "STALE_OR_UNKNOWN",
+      "reason": "local 213-row file is not present"
+    },
+    {
+      "id": "emergency-water-national-standard",
+      "status": "DOWNLOADED",
+      "role": "official response-resource context, not evacuation capacity",
+      "count": 71,
+      "provenance": "OFFICIAL",
+      "capacity_fields": "not present in source"
+    },
+    {
+      "id": "anyang-local-emergency-water",
+      "status": "HUMAN_AUTH_REQUIRED",
+      "role": "water capacity crosswalk",
+      "count": null,
+      "provenance": "STALE_OR_UNKNOWN",
+      "reason": "local 46-row file is not present"
+    },
+    {
+      "id": "aed-anyang-file",
+      "status": "DOWNLOADED",
+      "role": "119 context only; not evacuation capacity",
+      "count": 305,
+      "provenance": "OFFICIAL",
+      "coordinates": "missing in source"
+    },
+    {
+      "id": "anyang-administrative-dong-population",
+      "status": "DOWNLOADED",
+      "role": "official demand units",
+      "count": 31,
+      "total_population": 562143,
+      "provenance": "OFFICIAL",
+      "source_period": "2026-07-31",
+      "allocation_policy": "SIMULATED_SPATIAL_ALLOCATION_UNIFORM_DONG_ANCHOR; no dong polygons in source"
+    },
+    {
+      "id": "earthquake-outdoor-shelter",
+      "status": "HUMAN_AUTH_REQUIRED",
+      "role": "earthquake eligibility",
+      "count": null,
+      "provenance": "STALE_OR_UNKNOWN"
+    },
+    {
+      "id": "fire-water-facilities",
+      "status": "HUMAN_AUTH_REQUIRED",
+      "role": "fire context",
+      "count": null,
+      "provenance": "STALE_OR_UNKNOWN"
+    },
+    {
+      "id": "drainage-pump-stations",
+      "status": "NOT_YET_ATTEMPTED",
+      "role": "official infrastructure context",
+      "count": null,
+      "provenance": "STALE_OR_UNKNOWN",
+      "reason": "no login-free Anyang official file identified during Goal 4A acquisition"
+    },
+    {
+      "id": "flood-response-material-inventory",
+      "status": "NOT_YET_ATTEMPTED",
+      "role": "admin resource layer",
+      "count": null,
+      "provenance": "STALE_OR_UNKNOWN",
+      "reason": "no login-free Anyang official file identified during Goal 4A acquisition"
+    },
+    {
+      "id": "osm-anyang-pedestrian-demo",
+      "status": "DOWNLOADED",
+      "role": "interactive scenario road graph",
+      "count": null,
+      "provenance": "OFFICIAL"
+    }
+  ],
+  "population_policy": "Official 2026-07-31 dong totals are used as demand; coordinates are explicitly SIMULATED_SPATIAL_ALLOCATION anchors, not census-grid truth.",
+  "terrain_policy": "TERRAIN_C remains diagnostic-only; no terrain-derived flood state is used."
+}

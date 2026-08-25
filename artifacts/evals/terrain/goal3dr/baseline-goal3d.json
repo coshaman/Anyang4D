@@ -1,0 +1,9 @@
+{
+  "source": "artifacts/evals/terrain/goal3d/quality.json",
+  "method": "idw_power_2",
+  "spot_holdout": {"mae_m": 6.353661357843425, "rmse_m": 7.437990345117697, "p95_abs_error_m": 13.065270565069026},
+  "contour_holdout": {"mae_m": 5.166890309405745, "rmse_m": 5.3339551309449975, "p95_abs_error_m": 7.34506977109071},
+  "seam": {"median_m": 3.2734061665690817, "p95_m": 6.689859109409656},
+  "road_support": {"p50_m": 25.329046703852246, "p90_m": 64.14741764238849, "p95_m": 77.99350200039196},
+  "quality_class": "TERRAIN_C"
+}

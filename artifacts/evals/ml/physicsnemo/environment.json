@@ -1,0 +1,19 @@
+{
+  "environment": ".venv-physicsnemo",
+  "platform": "Windows 11 native",
+  "python": "3.12.13",
+  "requested_packages": {
+    "torch": "2.13.0",
+    "nvidia-physicsnemo": "2.1.1"
+  },
+  "installation_path": "pip base install, no optional extras",
+  "status": "BLOCKED_INSTALLATION",
+  "torch_import": "DLL load failed while importing torch._C after wheel installation stalled",
+  "physicsnemo_import": "not installed; pip did not complete",
+  "gpu": "none detected by hardware audit",
+  "wsl": "available but no NVIDIA GPU/driver path detected",
+  "docker": "available but NVIDIA Container Toolkit not detected",
+  "reason": "Two materially similar native pip installation attempts stalled during wheel installation; no further blind retries.",
+  "official_install_reference": "https://docs.nvidia.com/physicsnemo/26.05/getting-started/installation.html",
+  "next_safe_path": "Use the deterministic SAFE-Twin-owned Level-A backend; revisit PhysicsNeMo in a Linux/NVIDIA environment with approved driver/toolkit."
+}

@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "final_terrain_class": true,
+    "street_level_flood_terrain_path": true,
+    "terrain_derived_flood_disabled": true,
+    "national_shelter_count": true,
+    "national_water_count": true,
+    "local_shelter_count": true,
+    "local_water_count": true,
+    "local_inventory_count": true,
+    "crosswalk_preserves_both_sources": true,
+    "national_explicit_provenance": true,
+    "local_explicit_provenance": true
+  },
+  "all_pass": true,
+  "policy": {
+    "terrain": "TERRAIN_C",
+    "street_level_flood": "DROP",
+    "citizen_routing_from_terrain": "DROP",
+    "ai": "DROP"
+  }
+}

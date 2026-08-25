@@ -1,0 +1,17 @@
+{
+  "shelter": {
+    "raw_rows": 18829,
+    "broad_substring_rows": 235,
+    "strict_anyangsi_rows": 231
+  },
+  "emergency_water": {
+    "raw_rows": 11030,
+    "broad_substring_rows": 83,
+    "strict_anyangsi_rows": 71
+  },
+  "rule": "Operational facility records require 안양시 in the relevant address fields; substring-only matches such as 안양천 are excluded.",
+  "processed_counts": {
+    "CIVIL_DEFENSE_SHELTER": 231,
+    "EMERGENCY_WATER": 71
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "scenario_id": "anyang-flood-style-admin",
+  "frame": 20,
+  "graph_nodes": 16745,
+  "graph_edges": 19439,
+  "demand_units": 31,
+  "facility_count": 302,
+  "samples": 3,
+  "median_ms": {
+    "scenario_parsing": 0.44,
+    "geometry_and_hazard_road_intersection": 63.683,
+    "assignment_total": 9.6,
+    "serialization": 123.901
+  },
+  "assignment_subsystems_median_ms": {
+    "road_graph_mutation_ms": 2.497,
+    "demand_facility_snapping_ms": 1.537,
+    "shortest_paths_od_ms": 0.098,
+    "min_cost_flow_ms": 5.863,
+    "bottleneck_extraction_ms": 0.301,
+    "assignment_total_ms": 9.463
+  },
+  "profiler_top20_cumulative": "         22915 function calls (22908 primitive calls) in 0.029 seconds\n\n   Ordered by: cumulative time\n   List reduced from 104 to 20 due to restriction <20>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.003    0.003    0.029    0.029 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\services\\simulator\\engine.py:151(solve_assignment)\n     10/5    0.000    0.000    0.016    0.003 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\utils\\backends.py:959(__call__)\n        1    0.000    0.000    0.016    0.016 <class 'networkx.utils.decorators.argmap'> compilation 12:1(argmap_min_cost_flow_9)\n        1    0.000    0.000    0.016    0.016 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\algorithms\\flow\\mincost.py:102(min_cost_flow)\n        1    0.000    0.000    0.016    0.016 <class 'networkx.utils.decorators.argmap'> compilation 17:1(argmap_network_simplex_13)\n        1    0.002    0.002    0.016    0.016 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\algorithms\\flow\\networksimplex.py:328(network_simplex)\n        2    0.002    0.001    0.005    0.002 {built-in method builtins.sorted}\n      401    0.002    0.000    0.003    0.000 {built-in method builtins.min}\n      169    0.001    0.000    0.003    0.000 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\algorithms\\flow\\networksimplex.py:266(find_entering_edges)\n     3521    0.003    0.000    0.003    0.000 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\services\\simulator\\engine.py:154(<genexpr>)\n      168    0.001    0.000    0.002    0.000 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\classes\\digraph.py:666(add_edge)\n        1    0.001    0.001    0.002    0.002 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\algorithms\\flow\\networksimplex.py:15(__init__)\n      168    0.001    0.000    0.002    0.000 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\algorithms\\flow\\networksimplex.py:120(find_cycle)\n     3262    0.001    0.000    0.001    0.000 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\algorithms\\flow\\networksimplex.py:257(reduced_cost)\n      168    0.000    0.000    0.001    0.000 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\algorithms\\flow\\networksimplex.py:318(find_leaving_edge)\n     3738    0.001    0.000    0.001    0.000 {method 'get' of 'dict' objects}\n     2041    0.001    0.000    0.001    0.000 {method 'append' of 'list' objects}\n      160    0.001    0.000    0.001    0.000 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\services\\simulator\\engine.py:265(_nearest_node)\n      171    0.001    0.000    0.001    0.000 {method 'update' of 'dict' objects}\n      336    0.000    0.000    0.001    0.000 C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\.venv\\Lib\\site-packages\\networkx\\algorithms\\flow\\networksimplex.py:108(trace_path)\n\n\n",
+  "method": "instrumented deterministic Goal 4A solver; same bounded demo AOI"
+}

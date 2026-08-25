@@ -1,0 +1,166 @@
+{
+  "schema_version": "0.1.0",
+  "source_count": 4,
+  "unique_source_sha256": [
+    "40873ee25879aa52ee6665f534f0083d3ab7ca1c21bbaf5ad7aa7f3dff954598"
+  ],
+  "duplicate_source_bytes": true,
+  "records": [
+    {
+      "source_zip": "docs/(B080)공개DEM_37612049_img_2025.zip",
+      "source_sha256": "40873ee25879aa52ee6665f534f0083d3ab7ca1c21bbaf5ad7aa7f3dff954598",
+      "source_bytes": 292134,
+      "extracted_img": "data/raw/ngii/anyang_dem_zips/(B080)공개DEM_37612049_img_2025/37612/37612.img",
+      "driver": "HFA",
+      "width": 254,
+      "height": 316,
+      "count": 1,
+      "dtype": [
+        "float32"
+      ],
+      "crs": "EPSG:5179",
+      "transform": [
+        90.0,
+        0.0,
+        933390.0,
+        0.0,
+        -90.0,
+        1944720.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bounds": [
+        933390.0,
+        1916280.0,
+        956250.0,
+        1944720.0
+      ],
+      "nodata": -9999.0,
+      "res": [
+        90.0,
+        90.0
+      ],
+      "min_elevation_m": -4.5276055335998535,
+      "max_elevation_m": 597.3775024414062,
+      "masked_cells": 0
+    },
+    {
+      "source_zip": "docs/(B080)공개DEM_37612058_img_2025.zip",
+      "source_sha256": "40873ee25879aa52ee6665f534f0083d3ab7ca1c21bbaf5ad7aa7f3dff954598",
+      "source_bytes": 292134,
+      "extracted_img": "data/raw/ngii/anyang_dem_zips/(B080)공개DEM_37612058_img_2025/37612/37612.img",
+      "driver": "HFA",
+      "width": 254,
+      "height": 316,
+      "count": 1,
+      "dtype": [
+        "float32"
+      ],
+      "crs": "EPSG:5179",
+      "transform": [
+        90.0,
+        0.0,
+        933390.0,
+        0.0,
+        -90.0,
+        1944720.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bounds": [
+        933390.0,
+        1916280.0,
+        956250.0,
+        1944720.0
+      ],
+      "nodata": -9999.0,
+      "res": [
+        90.0,
+        90.0
+      ],
+      "min_elevation_m": -4.5276055335998535,
+      "max_elevation_m": 597.3775024414062,
+      "masked_cells": 0
+    },
+    {
+      "source_zip": "docs/(B080)공개DEM_37612059_img_2025.zip",
+      "source_sha256": "40873ee25879aa52ee6665f534f0083d3ab7ca1c21bbaf5ad7aa7f3dff954598",
+      "source_bytes": 292134,
+      "extracted_img": "data/raw/ngii/anyang_dem_zips/(B080)공개DEM_37612059_img_2025/37612/37612.img",
+      "driver": "HFA",
+      "width": 254,
+      "height": 316,
+      "count": 1,
+      "dtype": [
+        "float32"
+      ],
+      "crs": "EPSG:5179",
+      "transform": [
+        90.0,
+        0.0,
+        933390.0,
+        0.0,
+        -90.0,
+        1944720.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bounds": [
+        933390.0,
+        1916280.0,
+        956250.0,
+        1944720.0
+      ],
+      "nodata": -9999.0,
+      "res": [
+        90.0,
+        90.0
+      ],
+      "min_elevation_m": -4.5276055335998535,
+      "max_elevation_m": 597.3775024414062,
+      "masked_cells": 0
+    },
+    {
+      "source_zip": "docs/(B080)공개DEM_37612_img_2025.zip",
+      "source_sha256": "40873ee25879aa52ee6665f534f0083d3ab7ca1c21bbaf5ad7aa7f3dff954598",
+      "source_bytes": 292134,
+      "extracted_img": "data/raw/ngii/anyang_dem_zips/(B080)공개DEM_37612_img_2025/37612/37612.img",
+      "driver": "HFA",
+      "width": 254,
+      "height": 316,
+      "count": 1,
+      "dtype": [
+        "float32"
+      ],
+      "crs": "EPSG:5179",
+      "transform": [
+        90.0,
+        0.0,
+        933390.0,
+        0.0,
+        -90.0,
+        1944720.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bounds": [
+        933390.0,
+        1916280.0,
+        956250.0,
+        1944720.0
+      ],
+      "nodata": -9999.0,
+      "res": [
+        90.0,
+        90.0
+      ],
+      "min_elevation_m": -4.5276055335998535,
+      "max_elevation_m": 597.3775024414062,
+      "masked_cells": 0
+    }
+  ]
+}

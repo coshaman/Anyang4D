@@ -1,0 +1,51 @@
+{
+  "scenario_id": "anyang-demo-synthetic",
+  "times": [
+    0,
+    5,
+    10,
+    15
+  ],
+  "field_kind": "RELATIVE_HAZARD",
+  "crs": "EPSG:5174",
+  "transform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0
+  ],
+  "grid_resolution_m": 1.0,
+  "provenance": "SYNTHETIC",
+  "fidelity_level": "A",
+  "backend": "safetwin-deterministic-level-a-v1",
+  "assumptions": [
+    "lower relative elevation and local depression increase hazard",
+    "rainfall accumulates without modeled recession",
+    "no drainage, sewer, inlet, building blockage, roughness, or calibrated loss model"
+  ],
+  "limitations": [
+    "relative scenario hazard only; not predicted water depth"
+  ],
+  "bbox": null,
+  "frame_files": [
+    {
+      "time": 0,
+      "file": "frame-0000-0.npz"
+    },
+    {
+      "time": 5,
+      "file": "frame-0001-5.npz"
+    },
+    {
+      "time": 10,
+      "file": "frame-0002-10.npz"
+    },
+    {
+      "time": 15,
+      "file": "frame-0003-15.npz"
+    }
+  ],
+  "warning": "내부 검증용 자료이며 시민용 안양 홍수 결과가 아닙니다."
+}

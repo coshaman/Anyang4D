@@ -1,0 +1,175 @@
+{
+  "schema_version": "goal6a-ai-scale-v1",
+  "status": "PASS",
+  "candidate_sizes": [
+    20,
+    100,
+    160,
+    500
+  ],
+  "skipped_sizes": {
+    "1000": "not measured: deterministic pre-solver feature extraction exceeded a practical release benchmark window; no extrapolation is reported"
+  },
+  "results": [
+    {
+      "candidate_count": 20,
+      "top_k": 5,
+      "candidate_generation": {
+        "elapsed_ms": 410.213,
+        "throughput_per_second": 48.755
+      },
+      "feature_generation": {
+        "elapsed_ms": 1830.597,
+        "throughput_per_second": 10.925
+      },
+      "ai_inference": {
+        "median_ms": 117.643,
+        "p95_ms": 119.421,
+        "throughput_per_second": 8.5
+      },
+      "ranking": {
+        "elapsed_ms": 117.643,
+        "supported_predictions": 17,
+        "unsupported_predictions": 3
+      },
+      "exact_top_k_verification": {
+        "elapsed_ms": 15675.091,
+        "verified_count": 5,
+        "authoritative_result": true
+      },
+      "exact_all": {
+        "measured": true,
+        "elapsed_ms": 32167.964,
+        "candidate_count": 20
+      },
+      "total_ai_plus_exact_top_k": {
+        "elapsed_ms": 18033.545,
+        "throughput_per_second": 1.109
+      },
+      "peak_tracemalloc_mb": 0.199,
+      "seed": 5,
+      "model_version": "goal5a-scenario-triage-v1"
+    },
+    {
+      "candidate_count": 100,
+      "top_k": 5,
+      "candidate_generation": {
+        "elapsed_ms": 389.714,
+        "throughput_per_second": 256.598
+      },
+      "feature_generation": {
+        "elapsed_ms": 10859.419,
+        "throughput_per_second": 9.209
+      },
+      "ai_inference": {
+        "median_ms": 702.412,
+        "p95_ms": 754.763,
+        "throughput_per_second": 1.424
+      },
+      "ranking": {
+        "elapsed_ms": 702.412,
+        "supported_predictions": 81,
+        "unsupported_predictions": 19
+      },
+      "exact_top_k_verification": {
+        "elapsed_ms": 20359.967,
+        "verified_count": 5,
+        "authoritative_result": true
+      },
+      "exact_all": {
+        "measured": false,
+        "reason": "skipped beyond N=20 to avoid unnecessary exact-solver cost"
+      },
+      "total_ai_plus_exact_top_k": {
+        "elapsed_ms": 32311.513,
+        "throughput_per_second": 3.095
+      },
+      "peak_tracemalloc_mb": 0.392,
+      "seed": 5,
+      "model_version": "goal5a-scenario-triage-v1"
+    },
+    {
+      "candidate_count": 160,
+      "top_k": 5,
+      "candidate_generation": {
+        "elapsed_ms": 65.64,
+        "throughput_per_second": 2437.531
+      },
+      "feature_generation": {
+        "elapsed_ms": 16653.006,
+        "throughput_per_second": 9.608
+      },
+      "ai_inference": {
+        "median_ms": 1099.476,
+        "p95_ms": 1155.219,
+        "throughput_per_second": 0.91
+      },
+      "ranking": {
+        "elapsed_ms": 1099.476,
+        "supported_predictions": 131,
+        "unsupported_predictions": 29
+      },
+      "exact_top_k_verification": {
+        "elapsed_ms": 17790.467,
+        "verified_count": 5,
+        "authoritative_result": true
+      },
+      "exact_all": {
+        "measured": false,
+        "reason": "skipped beyond N=20 to avoid unnecessary exact-solver cost"
+      },
+      "total_ai_plus_exact_top_k": {
+        "elapsed_ms": 35608.589,
+        "throughput_per_second": 4.493
+      },
+      "peak_tracemalloc_mb": 0.544,
+      "seed": 5,
+      "model_version": "goal5a-scenario-triage-v1"
+    },
+    {
+      "candidate_count": 500,
+      "top_k": 5,
+      "candidate_generation": {
+        "elapsed_ms": 111.287,
+        "throughput_per_second": 4492.884
+      },
+      "feature_generation": {
+        "elapsed_ms": 45290.31,
+        "throughput_per_second": 11.04
+      },
+      "ai_inference": {
+        "median_ms": 3156.459,
+        "p95_ms": 3287.461,
+        "throughput_per_second": 0.317
+      },
+      "ranking": {
+        "elapsed_ms": 3156.459,
+        "supported_predictions": 390,
+        "unsupported_predictions": 110
+      },
+      "exact_top_k_verification": {
+        "elapsed_ms": 15216.9,
+        "verified_count": 5,
+        "authoritative_result": true
+      },
+      "exact_all": {
+        "measured": false,
+        "reason": "skipped beyond N=20 to avoid unnecessary exact-solver cost"
+      },
+      "total_ai_plus_exact_top_k": {
+        "elapsed_ms": 63774.956,
+        "throughput_per_second": 7.84
+      },
+      "peak_tracemalloc_mb": 1.383,
+      "seed": 5,
+      "model_version": "goal5a-scenario-triage-v1"
+    }
+  ],
+  "measurement_notes": [
+    "All candidate and feature generation is actual deterministic CPU work.",
+    "AI inference and exact top-K timings are actual measurements.",
+    "Exact-all is measured only for N=20; it is explicitly skipped for larger N.",
+    "Peak memory is tracemalloc Python allocation peak, not total OS RSS."
+  ],
+  "exact_reference": "goal4b-exact-reference-v1"
+}

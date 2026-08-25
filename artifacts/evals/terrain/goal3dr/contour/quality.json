@@ -1,0 +1,88 @@
+{
+  "method": "contour_aware_distance",
+  "method_principle": "nearest lower/upper distinct contour isolines; interpolate by true point-to-isoline distance without treating contour vertices as independent observations",
+  "source_year": 2025,
+  "source_crs": "EPSG:5186",
+  "provenance": "DERIVED_TERRAIN_FROM_TOPOGRAPHIC_VECTORS",
+  "grid_spacing_m": 10.0,
+  "spot_holdout": {
+    "count": 100,
+    "mae_m": 2.354709044729968,
+    "rmse_m": 3.0722457464828903,
+    "median_abs_error_m": 2.116596990312953,
+    "p95_abs_error_m": 6.183550774273058,
+    "max_abs_error_m": 11.411577490924245
+  },
+  "contour_holdout": {
+    "count": 20,
+    "mae_m": 7.786596298102471,
+    "rmse_m": 8.58597623224452,
+    "median_abs_error_m": 7.213463392731889,
+    "p95_abs_error_m": 12.45150533600204,
+    "max_abs_error_m": 12.593093785512423
+  },
+  "contour_holdout_p95_m": 12.45150533600204,
+  "seam": {
+    "count": 100,
+    "median_m": 1.3835730583303167,
+    "p95_m": 5.4088597629345045
+  },
+  "seam_p95_m": 5.4088597629345045,
+  "seam_median_m": 1.3835730583303167,
+  "road_support": {
+    "count": 1294,
+    "p50_m": 25.232103817342576,
+    "p90_m": 63.913382708756515,
+    "p95_m": 77.94188708245163,
+    "worst_segment": {
+      "way_id": 684968887,
+      "name": null,
+      "highway": "footway",
+      "distance_m": 118.4515842293113,
+      "x": 195736.79448252448,
+      "y": 532314.7860106492
+    },
+    "status": "MEASURED_OSM_HIGHWAY_WAY_MIDPOINT_SUPPORT"
+  },
+  "road_p95_m": 77.94188708245163,
+  "coverage": 1.0,
+  "slope_p99": 0.4805444988415438,
+  "diagnostics": {
+    "cell_count": 39694,
+    "valid_cell_count": 39694,
+    "invalid_cell_count": 0,
+    "coverage_fraction": 1.0,
+    "elevation_min_m": 25.027912139892578,
+    "elevation_max_m": 99.99317169189453,
+    "slope_p99": 0.4805444988415438,
+    "negative_slope_cell_count": 0,
+    "sink_cell_count": 667,
+    "flow_direction_counts": {
+      "NW": 12383,
+      "N": 1564,
+      "NE": 6699,
+      "W": 1787,
+      "FLAT": 693,
+      "E": 1383,
+      "SW": 7950,
+      "S": 1229,
+      "SE": 6006
+    },
+    "flow_accumulation_max": 2693.0,
+    "flow_accumulation_finite": true
+  },
+  "quality_class": "TERRAIN_C",
+  "authorization": {
+    "flood_simulation": false,
+    "hazard_frames": false,
+    "citizen_routing": false
+  },
+  "runtime_seconds": 303.4868814999936,
+  "peak_traced_memory_mb": 209.1680326461792,
+  "raster": {
+    "format": "GeoTIFF",
+    "path": "artifacts/evals/terrain/goal3dr/contour/terrain.tif",
+    "width": 178,
+    "height": 223
+  }
+}

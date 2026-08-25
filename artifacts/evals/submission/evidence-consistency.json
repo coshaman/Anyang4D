@@ -1,0 +1,64 @@
+{
+  "schema_version": "safe-twin-goal6b-evidence-consistency-v1",
+  "status": "PASS",
+  "authority": {
+    "data": "artifacts/evals/release/data-consistency.json",
+    "ai": "artifacts/evals/release/ai-reproducibility.json plus Goal 5A evaluation artifacts",
+    "performance": "artifacts/evals/performance/goal6a-ai-scale.json",
+    "browser_runtime": "artifacts/evals/performance/goal6a-demo-runtime.json",
+    "wording": "docs/COMPETITION_CLAIMS_MATRIX.md"
+  },
+  "resolved_discrepancies": [
+    {
+      "field": "100_candidate_ai_plus_exact_runtime",
+      "stale_value": "23.401 s in docs/COMPETITION_ONE_PAGE.md",
+      "authoritative_value": "24.889 s",
+      "unit": "seconds",
+      "resolution": "23.401 s had no matching final artifact. The final browser artifact records representative_ai_screen_and_exact_verification_ms=24889 and latest warm run=12408 ms. The one-page document was corrected to use 24.889 s and label it a local one-run measurement, not a realtime SLA."
+    },
+    {
+      "field": "shelter_crosswalk_availability",
+      "stale_value": "local source unavailable in docs/ANYANG_SHELTER_CROSSWALK.md",
+      "authoritative_value": "local 224, national 231; 24 exact, 147 strong, 53 local-only, 60 national-only, 0 ambiguous",
+      "resolution": "The stale document was corrected to match artifacts/evals/data/goal4b-shelter-crosswalk.json and the processed local source. Sources remain separate and are not summed."
+    }
+  ],
+  "verified_values": {
+    "local_shelters": 224,
+    "national_filtered_shelters": 231,
+    "local_water": 46,
+    "national_filtered_water": 71,
+    "response_inventory": 33,
+    "aeds": 305,
+    "population_units": 31,
+    "population_total": 562143,
+    "population_reference_date": "2026-07-31",
+    "osm_nodes": 16745,
+    "osm_edges": 19439,
+    "ai_scenarios": 160,
+    "ai_features": 28,
+    "validation_spearman": 0.977020,
+    "validation_recall_at_20": 0.95,
+    "ood_spearman": 0.964430,
+    "ood_recall_at_20": 0.85,
+    "n20_exact_all_ms": 32167.964,
+    "n20_ai_plus_exact_top5_ms": 18033.545,
+    "n20_speedup_rounded": 1.78,
+    "browser_representative_100_ai_plus_exact_s": 24.889,
+    "browser_latest_warm_100_ai_plus_exact_s": 12.408,
+    "cold_start_s": 15.380,
+    "ab_available_shelters_delta": -1,
+    "ab_assignment_cost_delta_m": 1001955.9,
+    "ab_assigned_unserved_delta": 0,
+    "python_tests": 91,
+    "vitest_tests": 5,
+    "playwright_tests": 18
+  },
+  "status_rules": [
+    "24.889 s is a representative real-browser measurement; 12.408 s is labeled latest warm and is not substituted into the conservative headline.",
+    "The 1.78x claim uses only same-run N=20 measurements; it is not generalized to N=1000.",
+    "N=1000 was not measured and no extrapolation is reported.",
+    "Official population totals and simulated spatial anchors are not conflated.",
+    "Local and national facilities are not operationally merged or summed."
+  ]
+}

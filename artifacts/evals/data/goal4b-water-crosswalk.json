@@ -1,0 +1,3032 @@
+{
+  "schema_version": "0.1.0",
+  "local_count": 46,
+  "national_count": 71,
+  "counts": {
+    "EXACT_MATCH": 0,
+    "STRONG_MATCH": 7,
+    "AMBIGUOUS": 0,
+    "LOCAL_ONLY": 39,
+    "NATIONAL_ONLY": 64
+  },
+  "matches": [
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:1",
+        "name": "범계초등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 동안로 90(호계동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 508.0,
+        "available_persons": 20320,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 508.0,
+        "local_available_persons": 20320
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:2",
+        "name": "천지유황탕 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 경수대로 619(호계동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 650.0,
+        "available_persons": 26000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 650.0,
+        "local_available_persons": 26000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:3",
+        "name": "아시아시멘트 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 안양천동로 108(호계동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 370.0,
+        "available_persons": 14800,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 370.0,
+        "local_available_persons": 14800
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:4",
+        "name": "호계초등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 경수대로707번길 27(호계동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 268.0,
+        "available_persons": 10720,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 268.0,
+        "local_available_persons": 10720
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:5",
+        "name": "호계평촌더샵아이파크아파트 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 경수대로610번길 36(호계동, 평촌더샵 아이파크)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 164.0,
+        "available_persons": 6560,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 164.0,
+        "local_available_persons": 6560
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:6",
+        "name": "민백어린이공원 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 부림로 22(평촌동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 130.0,
+        "available_persons": 5200,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 130.0,
+        "local_available_persons": 5200
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:7",
+        "name": "평촌중학교 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 관평로 127(평촌동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 260.0,
+        "available_persons": 10400,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 260.0,
+        "local_available_persons": 10400
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:8",
+        "name": "한림대성심병원 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 관평로170번길 22(평촌동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 500.0,
+        "available_persons": 20000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 500.0,
+        "local_available_persons": 20000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "STRONG_MATCH",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:9",
+        "name": "평촌본사우나",
+        "address": "경기도 안양시 동안구 흥안대로456번길 11(평촌동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 250.0,
+        "available_persons": 10000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": {
+        "id": "emergency-water-national-standard:20df532d434f84ab",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "평촌본사우나",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39482187775199,
+        "longitude": 126.97648783163812,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 흥안대로456번길 11 (평촌동, 평촌 본 프라자)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 250.0,
+        "local_available_persons": 10000,
+        "national_capacity": null
+      },
+      "chosen_operational_value": "PRESERVE_LOCAL_RESPONSE_CAPACITY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:10",
+        "name": "부안초등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 달안로 113(관양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 200.0,
+        "available_persons": 8000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 200.0,
+        "local_available_persons": 8000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:11",
+        "name": "한가람신라아파트 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 달안로 124(관양동, 한가람신라아파트)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 100.0,
+        "available_persons": 4000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 100.0,
+        "local_available_persons": 4000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:12",
+        "name": "훼미리사우나 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 관평로170번길 43(관양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 280.0,
+        "available_persons": 11200,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 280.0,
+        "local_available_persons": 11200
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:13",
+        "name": "인덕원역 민방위 비상급수시설(유출지하수)",
+        "address": "경기도 안양시 동안구 관양동 903-2",
+        "use": "생활용수",
+        "capacity_tons_per_day": 872.0,
+        "available_persons": 34880,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 872.0,
+        "local_available_persons": 34880
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:14",
+        "name": "인덕원초등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 관양로 311(관양동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 262.0,
+        "available_persons": 10480,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 262.0,
+        "local_available_persons": 10480
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:15",
+        "name": "힐스테이트 인덕원베르텍스 아파트 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 평촌동 41-23",
+        "use": "음용수",
+        "capacity_tons_per_day": 219.0,
+        "available_persons": 8760,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 219.0,
+        "local_available_persons": 8760
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:16",
+        "name": "달안초등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 동안로 178(비산동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 284.0,
+        "available_persons": 11360,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 284.0,
+        "local_available_persons": 11360
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:17",
+        "name": "한양스포츠센터 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 동안로 194(비산동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 200.0,
+        "available_persons": 8000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 200.0,
+        "local_available_persons": 8000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:18",
+        "name": "은하수벽산아파트 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 시민대로159번길 62(비산동, 은하수벽산아파트)",
+        "use": "음용수",
+        "capacity_tons_per_day": 350.0,
+        "available_persons": 14000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 350.0,
+        "local_available_persons": 14000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:19",
+        "name": "은하수청구아파트 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 시민대로159번길 59(비산동, 은하수청구아파트)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 100.0,
+        "available_persons": 4000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 100.0,
+        "local_available_persons": 4000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:20",
+        "name": "관악부영아파트 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 학의로 46(비산동, 관악부영아파트)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 200.0,
+        "available_persons": 8000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 200.0,
+        "local_available_persons": 8000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:21",
+        "name": "비산양묘장 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 평촌대로427번길 60-58(비산동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 191.0,
+        "available_persons": 7640,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 191.0,
+        "local_available_persons": 7640
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:22",
+        "name": "안양종합운동장(수영장) 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 평촌대로 389(비산동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 219.0,
+        "available_persons": 8760,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 219.0,
+        "local_available_persons": 8760
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:23",
+        "name": "미륭체육공원 민방위 비상급수시설",
+        "address": "경기도 안양시 동안구 관악대로 164(비산동, 미륭아파트)",
+        "use": "음용수",
+        "capacity_tons_per_day": 117.0,
+        "available_persons": 4680,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 117.0,
+        "local_available_persons": 4680
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:24",
+        "name": "박달2동행정복지센터 민방위 비상급수시설(유출지하수)",
+        "address": "경기도 안양시 만안구 박달로 470(박달동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 180.0,
+        "available_persons": 7200,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 180.0,
+        "local_available_persons": 7200
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:25",
+        "name": "호현마을 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 박달로 287(박달동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 100.0,
+        "available_persons": 4000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 100.0,
+        "local_available_persons": 4000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:26",
+        "name": "박달초등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 삼봉로 38(박달동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 250.0,
+        "available_persons": 10000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 250.0,
+        "local_available_persons": 10000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "STRONG_MATCH",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:27",
+        "name": "(주)노루페인트 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 박달로 351(박달동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 600.0,
+        "available_persons": 24000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": {
+        "id": "emergency-water-national-standard:b15ba3d5e2150a66",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "(주)노루페인트 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 박달로 351 (박달동, 주식회사 노루페인트)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 600.0,
+        "local_available_persons": 24000,
+        "national_capacity": null
+      },
+      "chosen_operational_value": "PRESERVE_LOCAL_RESPONSE_CAPACITY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:28",
+        "name": "충훈약수터 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 석수로212번길 31(석수동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 100.0,
+        "available_persons": 4000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 100.0,
+        "local_available_persons": 4000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "STRONG_MATCH",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:29",
+        "name": "SK안양충전소 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 안양로 575(석수동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 100.0,
+        "available_persons": 4000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": {
+        "id": "emergency-water-national-standard:aeb8f422b5292838",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "SK안양충전소 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 안양로 575 (석수동, LPG안양충전소)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 100.0,
+        "local_available_persons": 4000,
+        "national_capacity": null
+      },
+      "chosen_operational_value": "PRESERVE_LOCAL_RESPONSE_CAPACITY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:30",
+        "name": "수리산 천주교 성지 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 병목안로 394(안양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 300.0,
+        "available_persons": 12000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 300.0,
+        "local_available_persons": 12000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:31",
+        "name": "양지초등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 병목안로130번길 69(안양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 110.0,
+        "available_persons": 4400,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 110.0,
+        "local_available_persons": 4400
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:32",
+        "name": "신안중학교 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 능곡로 78(안양동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 432.0,
+        "available_persons": 17280,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 432.0,
+        "local_available_persons": 17280
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:33",
+        "name": "신안초등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 능곡로 52(안양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 277.0,
+        "available_persons": 11080,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 277.0,
+        "local_available_persons": 11080
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "STRONG_MATCH",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:34",
+        "name": "성문고등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 성결대학로64번길 9(안양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 100.0,
+        "available_persons": 4000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": {
+        "id": "emergency-water-national-standard:2480a1db48cd879d",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "성문고등학교 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 성문길 1, 성문중,고등학교 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2026-03-20 21:56:58",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 100.0,
+        "local_available_persons": 4000,
+        "national_capacity": null
+      },
+      "chosen_operational_value": "PRESERVE_LOCAL_RESPONSE_CAPACITY"
+    },
+    {
+      "classification": "STRONG_MATCH",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:35",
+        "name": "삼표산업 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 안양천서로 45(안양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 166.0,
+        "available_persons": 6640,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": {
+        "id": "emergency-water-national-standard:042ae0752d9daa5f",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "삼표산업 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 안양천서로 45 (안양동, 주식회사 삼표)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 166.0,
+        "local_available_persons": 6640,
+        "national_capacity": null
+      },
+      "chosen_operational_value": "PRESERVE_LOCAL_RESPONSE_CAPACITY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:36",
+        "name": "신성고등학교 민방위 비상급수시설(5)",
+        "address": "경기도 안양시 만안구 소곡로 93(안양동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 519.0,
+        "available_persons": 20760,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 519.0,
+        "local_available_persons": 20760
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:37",
+        "name": "신성고등학교 민방위 비상급수시설(4)",
+        "address": "경기도 안양시 만안구 소곡로 93(안양동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 519.0,
+        "available_persons": 20760,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 519.0,
+        "local_available_persons": 20760
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:38",
+        "name": "신성고등학교 민방위 비상급수시설(3)",
+        "address": "경기도 안양시 만안구 소곡로 93(안양동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 370.0,
+        "available_persons": 14800,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 370.0,
+        "local_available_persons": 14800
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:39",
+        "name": "신성고등학교 민방위 비상급수시설(2)",
+        "address": "경기도 안양시 만안구 소곡로 93(안양동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 370.0,
+        "available_persons": 14800,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 370.0,
+        "local_available_persons": 14800
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:40",
+        "name": "신성고등학교 민방위 비상급수시설(1)",
+        "address": "경기도 안양시 만안구 소곡로 93(안양동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 370.0,
+        "available_persons": 14800,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 370.0,
+        "local_available_persons": 14800
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:41",
+        "name": "안양소방서(119안전센터) 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 현충로 55(안양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 156.0,
+        "available_persons": 6240,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 156.0,
+        "local_available_persons": 6240
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "STRONG_MATCH",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:42",
+        "name": "샘안양병원 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 삼덕로 9(안양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 260.0,
+        "available_persons": 10400,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": {
+        "id": "emergency-water-national-standard:6c1526afb28f9059",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "샘안양병원 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 삼덕로 9 (안양동, 안양샘병원)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 260.0,
+        "local_available_persons": 10400,
+        "national_capacity": null
+      },
+      "chosen_operational_value": "PRESERVE_LOCAL_RESPONSE_CAPACITY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:43",
+        "name": "2001아웃렛 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 안양동 627-287 2001아울렛",
+        "use": "생활용수",
+        "capacity_tons_per_day": 200.0,
+        "available_persons": 8000,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 200.0,
+        "local_available_persons": 8000
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:44",
+        "name": "안양서초등학교 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 양화로37번길 32(안양동)",
+        "use": "음용수",
+        "capacity_tons_per_day": 273.0,
+        "available_persons": 10920,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 273.0,
+        "local_available_persons": 10920
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "LOCAL_ONLY",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:45",
+        "name": "엔터식스 안양역점(유출지하수)",
+        "address": "경기도 안양시 만안구 만안로 232(안양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 82.0,
+        "available_persons": 3280,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": null,
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 82.0,
+        "local_available_persons": 3280
+      },
+      "chosen_operational_value": "LOCAL_RESPONSE_RESOURCE_ONLY"
+    },
+    {
+      "classification": "STRONG_MATCH",
+      "local": {
+        "resource_id": "anyang-local-emergency-water:46",
+        "name": "삼원프라자호텔 민방위 비상급수시설",
+        "address": "경기도 안양시 만안구 장내로139번길 7(안양동)",
+        "use": "생활용수",
+        "capacity_tons_per_day": 288.0,
+        "available_persons": 11520,
+        "provenance": "ANYANG_LOCAL_OFFICIAL"
+      },
+      "national": {
+        "id": "emergency-water-national-standard:b3b666f003770e59",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "삼원프라자호텔 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 장내로139번길 7 (안양동, 삼원프라자호텔)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "local_capacity_tons_per_day": 288.0,
+        "local_available_persons": 11520,
+        "national_capacity": null
+      },
+      "chosen_operational_value": "PRESERVE_LOCAL_RESPONSE_CAPACITY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:edda96cbd3ef2f2c",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "삼진목욕탕",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.40404586414906,
+        "longitude": 126.95747381963932,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 관평로 312, 지하1층 (관양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:05b9bbca285b8136",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "동성아파트 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 전파로61번길 20 (안양동, 동성2차APT)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:b04ec0cfbe8c99ba",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "신성고등학교 민방위 비상급수시설2",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 소곡로 93 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:790fdedbc608e1a1",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "민방위비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 현충로 55 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2026-01-14 21:56:55",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:8b15d8ef13a91b38",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "안양소방서 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 현충로 55, 안양119안전센터 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:3be8530ee4330b48",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "박달초등학교 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 삼봉로 38 (박달동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:cf0592d61b9286ed",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "신안초등학교 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.38994540581791,
+        "longitude": 126.91524016478391,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 능곡로 52 (안양동, 신안초등학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:4a38153dbdd6cd5a",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "신안중학교 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.388683199775635,
+        "longitude": 126.91537410546665,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 능곡로 78 (안양동, 신안중학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:bb0c43f6195451bb",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "양지초등학교 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39197592646451,
+        "longitude": 126.90462949292939,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 병목안로130번길 69 (안양동, 양지초등학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:f03c17106462ff2f",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "충훈약수터 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 석수로212번길 31, 청란공원 (석수동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:537235afdf8d7ea5",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "호현마을 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 박달로 287 (박달동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:a40742931a1ad08c",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "신성고등학교 민방위 비상급수시설1",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 소곡로 93-0 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:5be7cf57a2f3a44b",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "2001아울렛 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 안양로 275 (안양동, 2001아울렛)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:a9165a739716beac",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "수리산천주교성지 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 병목안로 394 (안양동, 천주교수리산성지)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:d2e69d9b161980e5",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "박달2동 행정복지센터",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 박달로 470, 박달2동 행정복지센터 (박달동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:87cbae42f68ae89b",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "엔터식스 안양점",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 만안로 232, 엔터식스 안양점 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:fa2b8e37f393c7bb",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "종합운동장 수영장 입구",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.405375650876415,
+        "longitude": 126.94671625976937,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 평촌대로 389 (비산동, 안양종합운동장)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:d1e42b63bb30859c",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "인덕원초교",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39699135814837,
+        "longitude": 126.97946326748203,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 관양로 311 (관양동, 인덕원초등학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:8bc3433a1d0cf492",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "벽산아파트",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39250854670889,
+        "longitude": 126.94717547290318,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 시민대로159번길 62 (비산동, 은하수벽산아파트)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:70589ff01715cffa",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "청구아파트",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.391638487689875,
+        "longitude": 126.94623587375065,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 시민대로159번길 59 (비산동, 은하수청구아파트)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2026-06-16 03:03:03",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:5728b086dcc10f8f",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "달안초교",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.394305017942635,
+        "longitude": 126.95011629321027,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 동안로 178 (비산동, 달안초등학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:293b55a416048c9b",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "범계초교",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.38720818946509,
+        "longitude": 126.9539009616621,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 동안로 90 (호계동, 범계초등학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:ce2405f50ed36bd8",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "평촌중학교",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.3885381800224,
+        "longitude": 126.96175229280817,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 관평로 127 (평촌동, 평촌중학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:867981109c88974a",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "비산 양묘장",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 평촌대로 60-55 (비산동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:2d417d53b2746a1e",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "부안초교",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39803294680877,
+        "longitude": 126.95447890871965,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 달안로 113 (관양동, 부안초등학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:6f84f2e7a536dc80",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "호계초교",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.38398122088263,
+        "longitude": 126.95038092370207,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 경수대로707번길 27 (호계동, 호계초등학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:e01f964df1be83cd",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "부영아파트",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.3964894521831,
+        "longitude": 126.94536270999939,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 학의로 46 (비산동, 관악부영아파트)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:9d953a4c96788995",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "민백어린이공원",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.38627466931789,
+        "longitude": 126.970020922972,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 부림로 22 (평촌동, 민백초등학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:599d52ee243b4b35",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "미륭체육공원",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 관악대로 164 (비산동, 미륭아파트)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2026-04-18 03:03:03",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:aa10f13fa7dc40d7",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "아세아시멘트",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.38938904292625,
+        "longitude": 126.94258718928613,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 전파로 88 (호계동, 신원비젼타워)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:ba8a3d46b94d449b",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "신성고등학교 민방위 비상급수시설3",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 소곡로 93 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:87a78628c5fa0d74",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "신성고등학교 민방위 비상급수시설4",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 소곡로 93 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:325cadaad8691e25",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "신성고등학교 민방위 비상급수시설5",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 소곡로 93 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:f721990707e7ed14",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "안양서초등학교 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.397227372330896,
+        "longitude": 126.91097036327798,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 양화로37번길 32-0 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:5d13804ee38a9f51",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "한림대학교 성심병원",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.391513538107,
+        "longitude": 126.96182319202632,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 관평로170번길 22 (평촌동, 한림대학교성심병원)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:19f8c8e2a0055f98",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "훼밀리월드 훼미리사우나",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39330530989415,
+        "longitude": 126.96318673348628,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 관평로170번길 43 (관양동, 훼미리타운)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:e5df5b3bb15f9965",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "천지유황탕",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.37769634644104,
+        "longitude": 126.95491579517446,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 경수대로 619 (호계동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:2abd43cff6ecb7cd",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "한양스포츠센터 수영장",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39651220183772,
+        "longitude": 126.94894571932457,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 달안로 61 (비산동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:c1e5ed049fc740b7",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "한가람신라아파트",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39702570150229,
+        "longitude": 126.95680629344318,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 달안로 124 (관양동, 한가람신라아파트)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:2b1d0b31187c3130",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "호계평촌더샵아이파크",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.376639411337344,
+        "longitude": 126.9582669976925,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 경수대로610번길 36 (호계동, 평촌더샵아이파크)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:8df7f4cc7c7be8ac",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "인덕원역",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39724197182894,
+        "longitude": 126.97257931058387,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 관양동 903-3 인덕원역 6번 집수정",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:af3a8754d7ba6a70",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "힐스테이트인덕원베르텍스",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 흥안대로434번길 19 (평촌동, 힐스테이트인덕원역베르텍스)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:193b675a18119852",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "안양여상 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 양화로37번길 36 (안양동, 안양외국어고등학교,안양여자상업고등학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:9da78f51c2f55b18",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "연성대학교 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39748453302743,
+        "longitude": 126.90920346618621,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 양화로71번길 37 (안양동, 연성대학교)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:3e73fa8005d1ac69",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "장미아파트 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시만안구 석수동  389번지",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:ac7f6ab5bf4f30ba",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "서울목욕탕 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시만안구 안양동  841번지 1호",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:75bef42481fc7e59",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "정수목욕탕 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시만안구 안양동  152번지 52호",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:1041b380fe07d40a",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "안양월드 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.401290282667446,
+        "longitude": 126.91314209994336,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 안양로329번길 108 (안양동, 안양월드)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:844958cef5d89c22",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "청수원목욕탕 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시만안구 안양동  714번지 35호",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:f95a4448afb6fdfd",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "신안목욕탕 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시만안구 안양동  856번지 12호",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:82a646de3545f709",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "박달금호아파트 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 삼봉로 61 (박달동, 금호타운)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:5df67779465f4259",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "대가한우촌 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시만안구 안양동  1128번지 3호",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:3a9796d2596138f7",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "우성1차아파트 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시만안구 안양동  735번지",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:c3d754ceef3cf846",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "원두막 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 병목안로378번길 52 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:9cfc8aa2bb163f94",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "이레농산 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시만안구 석수동  556번지",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:d025e2f6e63106f8",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "예촌 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 만안로 123 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:b555201c30b1fcc1",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "감나무집 민방위 비상급수시설",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 만안구 수리산로 14 (안양동)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:00d866048183c90b",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "대도아파트",
+        "category": "EMERGENCY_WATER",
+        "latitude": 37.39281609420574,
+        "longitude": 126.97657791286458,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 흥안대로434번길 19 (평촌동, 대도아파트)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:c414b053dde1b5f5",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "호계주공아파트",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 경수대로596번길 13 (호계동, 주공아파트)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:fd2ced74c6e6ce67",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "농가(3)",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시동안구 비산동  22번지  0006호",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:200f767358804cab",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "오성제지(5호정)",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시동안구 관양동  813번지",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:0c1b874ecdf05c38",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "오뚜기",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시동안구 평촌동  160번지",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:2441fe08403e8680",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "대한전선",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시동안구 관양동  785번지",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    },
+    {
+      "classification": "NATIONAL_ONLY",
+      "local": null,
+      "national": {
+        "id": "emergency-water-national-standard:4b591cda0539853c",
+        "source_dataset_id": "emergency-water-national-standard",
+        "name": "평화의집",
+        "category": "EMERGENCY_WATER",
+        "latitude": null,
+        "longitude": null,
+        "source_crs": "EPSG:5174",
+        "address": "경기도 안양시 동안구 임곡로 60 (비산동, 사회복지법인평화복지재단)",
+        "provider": "행정안전부 / LocalData / 공공데이터포털",
+        "source_update_timestamp": "2025-12-15 16:15:28",
+        "retrieval_timestamp": "2026-08-20T11:17:51+00:00",
+        "provenance": "OFFICIAL",
+        "source_provenance": "NATIONAL_OFFICIAL_FILTERED_ANYANG",
+        "raw_source_reference": "data/raw/localdata/emergency_water/source.csv",
+        "capacity": null,
+        "operating_info": "사용중지",
+        "access_info": null,
+        "disaster_suitability": "민방위 급수시설",
+        "data_quality_flags": [
+          "PROJECTED_COORDINATES_MISSING",
+          "NO_CAPACITY_FIELD_IN_SOURCE"
+        ]
+      },
+      "capacity_fields": {
+        "national_capacity": null
+      },
+      "chosen_operational_value": "NATIONAL_CONTEXT_ONLY"
+    }
+  ],
+  "capacity_policy": "Only local official fields are used as RESPONSE_RESOURCE_CAPACITY; never as evacuation shelter capacity.",
+  "provenance": "ANYANG_LOCAL_OFFICIAL vs NATIONAL_OFFICIAL_FILTERED_ANYANG"
+}

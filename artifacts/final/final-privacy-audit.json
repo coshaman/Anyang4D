@@ -1,0 +1,8 @@
+{
+  "schema_version": "final-privacy-audit-v1",
+  "status": "PASS_WITH_EXCLUDED_PRIVATE_SOURCE",
+  "public_scan_findings": [],
+  "excluded_private_source": "C:\\Users\\owner\\Documents\\ChatGPT\\Anyang\\artifacts\\final\\private-source",
+  "excluded_private_source_present": true,
+  "policy": "private-source is never part of the public release tree; missing identity fields are not guessed"
+}

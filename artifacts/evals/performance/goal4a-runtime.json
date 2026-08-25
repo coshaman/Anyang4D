@@ -1,0 +1,40 @@
+{
+  "scenario_id": "anyang-flood-style-admin",
+  "graph": "bounded OSM demo snapshot",
+  "demand_units": 31,
+  "total_demand": 562143,
+  "frames": [
+    {
+      "time_minute": 0,
+      "elapsed_ms": 7002.0,
+      "changed_roads": 1028,
+      "assigned": 397795,
+      "unserved": 164348
+    },
+    {
+      "time_minute": 10,
+      "elapsed_ms": 6793.18,
+      "changed_roads": 1028,
+      "assigned": 397795,
+      "unserved": 164348
+    },
+    {
+      "time_minute": 20,
+      "elapsed_ms": 4941.06,
+      "changed_roads": 3520,
+      "assigned": 349076,
+      "unserved": 213067
+    },
+    {
+      "time_minute": 30,
+      "elapsed_ms": 5106.37,
+      "changed_roads": 3520,
+      "assigned": 349076,
+      "unserved": 213067
+    }
+  ],
+  "median_ms": 5949.77,
+  "max_ms": 7002.0,
+  "method": "cached road geometry + demand-origin single-source Dijkstra + deterministic min-cost flow",
+  "interpretation": "benchmark evidence for the bounded administrative demo AOI; not a whole-city real-time SLA"
+}

@@ -1,0 +1,11 @@
+{
+  "experiment": "physicsnemo_swe_minimal",
+  "provenance": "SYNTHETIC",
+  "product_integration": false,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch_available": false,
+  "physicsnemo_available": false,
+  "status": "BLOCKED_ENVIRONMENT",
+  "reason": "PyTorch and/or PhysicsNeMo is not installed in the project environment; no flood result was produced.",
+  "expected_check": "one forward/loss step on a synthetic shallow-water tensor with finite loss"
+}
