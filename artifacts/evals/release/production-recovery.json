@@ -8,12 +8,12 @@
   "AI_DEMO_READY": true,
   "PUBLIC_READYZ_PASS": false,
   "public_https_smoke": {"status": "NOT_RUN", "reason": "hosting authentication and public deployment are unavailable in this workspace", "public_url": null},
-  "local_production_url": "http://127.0.0.1:8092",
+  "local_production_url": "http://127.0.0.1:8093",
   "http_contract": {"healthz": 200, "readyz": 200, "release_readiness": 200, "scenarios": 200, "resources": 200, "aed": 200, "route_post": 200, "aed_records": 305, "route_geometry_points": 3},
-  "playwright_production_container_count": 0,
+  "playwright_production_container_count": 2,
   "playwright_production_parity_count": 2,
   "pytest_count": 99,
-  "pytest_skipped_container_count": 1,
+  "pytest_skipped_container_count": 0,
   "vitest_count": 5,
-  "note": "Local production-parity artifact served the built Vite dist through FastAPI; Docker daemon was unavailable, so the Docker runtime count remains 0 and this is not a public HTTPS claim. MapLibre worker asset was explicitly bundled and verified after a prior worker 404 audit."
+  "note": "Built image and real Docker container passed the HTTP production-parity test and two no-mock Playwright production tests. First container startup exposed and then fixed a TypeError in the manifest assertion. Public HTTPS smoke remains unrun because no Render URL or hosting authentication is available; this is not a public HTTPS claim. MapLibre worker asset was explicitly bundled and verified after a prior worker 404 audit."
 }

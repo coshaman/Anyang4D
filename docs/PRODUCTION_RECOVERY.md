@@ -18,4 +18,4 @@ The deployed shell was not a valid production-parity test target. The FastAPI im
 
 `tests/e2e/production-recovery.spec.ts` ran against the FastAPI-served built `dist` at `http://127.0.0.1:8092` with no mocked Goal4/Goal5 APIs: 2 passed. HTTP parity checks passed for `/healthz`, `/readyz`, readiness, scenarios, resources, AED (305 records), and POST route (nonempty geometry). The Vite build emitted `dist/assets/maplibre-gl-worker-*.mjs`.
 
-The Docker daemon was unavailable on this host (`dockerDesktopLinuxEngine` pipe not found), so a Docker image build and real public HTTPS smoke were not possible here. No public URL is claimed until a human starts/authenticates Docker/hosting and runs the same gate.
+The Docker image was then built successfully and the real container passed the HTTP production-parity test and both no-mock Playwright production tests. The first container attempt exposed a startup assertion bug (`TypeError: exceptions must derive from BaseException`); the assertion now exits only when artifacts are missing. Real public HTTPS smoke remains unrun because no Render URL or hosting authentication is available. No public URL is claimed.
