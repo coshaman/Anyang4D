@@ -17,6 +17,7 @@ from .modes import router as modes_router
 from .optional_modules import router as optional_modules_router
 from .flood_readiness import router as flood_readiness_router
 from .readiness import readiness_payload
+from services.release.version import release_version
 
 
 app = FastAPI(title="SAFE-Twin Anyang API", version="0.1.0")
@@ -103,6 +104,11 @@ def data_sources() -> dict:
 @app.get("/api/release/readiness")
 def release_readiness() -> dict:
     return readiness_payload()
+
+
+@app.get("/api/release/version")
+def release_version_endpoint() -> dict[str, str]:
+    return release_version()
 
 
 @app.post("/api/routes")

@@ -25,6 +25,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
   onSelectRef.current = onSelect;
   const onMapClickRef = useRef(onMapClick);
   onMapClickRef.current = onMapClick;
+  const dynamicProps = useRef({ geojson: null as typeof geojson | null, hazardGeometry, hazardLabel, changedRoads, walkingRoute });
 
   const geojson = {
     type: "FeatureCollection" as const,
@@ -34,6 +35,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       properties: { id: facility.id, name: facility.name ?? "이름 미상", category: facility.category, load: facilityLoads[facility.id] ?? 0 }
     }))
   };
+  dynamicProps.current = { geojson, hazardGeometry, hazardLabel, changedRoads, walkingRoute };
 
   useEffect(() => {
     if (!container.current || map.current || typeof window === "undefined" || !(window as Window & { WebGLRenderingContext?: unknown }).WebGLRenderingContext || !maplibregl?.Map) return;
@@ -52,13 +54,15 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       }
     });
     map.current = instance;
+    (window as Window & { __SAFE_TWIN_MAP__?: MapInstance }).__SAFE_TWIN_MAP__ = instance;
     instance.addControl(new maplibregl.NavigationControl({ showCompass: true }), "top-right");
     instance.addControl(new maplibregl.GeolocateControl({ positionOptions: { enableHighAccuracy: true }, trackUserLocation: false }), "top-right");
     instance.on("load", () => {
-      instance.addSource("facilities", { type: "geojson", data: geojson, cluster: true, clusterMaxZoom: 14, clusterRadius: 44 });
-      instance.addSource("scenario-hazard", { type: "geojson", data: hazardGeometry ? { type: "Feature", geometry: hazardToGeoJson(hazardGeometry), properties: { label: hazardLabel ?? "시나리오 영역" } } : emptyFeatureCollection });
-      instance.addSource("scenario-closures", { type: "geojson", data: roadGeoJson(changedRoads) });
-      instance.addSource("walking-route", { type: "geojson", data: routeGeoJson(walkingRoute) });
+      const current = dynamicProps.current;
+      instance.addSource("facilities", { type: "geojson", data: current.geojson ?? geojson, cluster: true, clusterMaxZoom: 14, clusterRadius: 44 });
+      instance.addSource("scenario-hazard", { type: "geojson", data: current.hazardGeometry ? { type: "Feature", geometry: hazardToGeoJson(current.hazardGeometry), properties: { label: current.hazardLabel ?? "시나리오 영역" } } : emptyFeatureCollection });
+      instance.addSource("scenario-closures", { type: "geojson", data: roadGeoJson(current.changedRoads) });
+      instance.addSource("walking-route", { type: "geojson", data: routeGeoJson(current.walkingRoute) });
       instance.addLayer({ id: "scenario-hazard-fill", type: "fill", source: "scenario-hazard", paint: { "fill-color": "#c77a24", "fill-opacity": 0.22 } });
       instance.addLayer({ id: "scenario-hazard-line", type: "line", source: "scenario-hazard", paint: { "line-color": "#8b4f12", "line-width": 3, "line-dasharray": [2, 1] } });
       instance.addLayer({ id: "scenario-closures-line", type: "line", source: "scenario-closures", paint: { "line-color": "#9b2c2c", "line-width": 4, "line-dasharray": [1, 1] } });
@@ -67,6 +71,11 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       instance.addLayer({ id: "facility-clusters", type: "circle", source: "facilities", filter: ["has", "point_count"], paint: { "circle-color": "#0a6472", "circle-radius": ["step", ["get", "point_count"], 18, 50, 24, 100, 30], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
       instance.addLayer({ id: "facility-cluster-count", type: "symbol", source: "facilities", filter: ["has", "point_count"], layout: { "text-field": "{point_count_abbreviated}", "text-size": 13 }, paint: { "text-color": "#ffffff" } });
       instance.addLayer({ id: "facility-points", type: "circle", source: "facilities", filter: ["!", ["has", "point_count"]], paint: { "circle-color": "#0a6472", "circle-radius": ["step", ["get", "load"], 7, 1, 9, 100, 11], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+      if (current.walkingRoute && current.walkingRoute.geometry.length > 1) {
+        const bounds = new maplibregl.LngLatBounds();
+        current.walkingRoute.geometry.forEach((point) => bounds.extend([point.longitude, point.latitude]));
+        instance.fitBounds(bounds, { padding: 64, maxZoom: 16, duration: 0 });
+      }
       instance.on("click", "facility-clusters", (event: MapMouseEvent) => {
         const feature = instance.queryRenderedFeatures(event.point, { layers: ["facility-clusters"] })[0];
         const clusterId = feature?.properties?.cluster_id;
@@ -85,7 +94,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       instance.on("mouseleave", "facility-points", () => { instance.getCanvas().style.cursor = ""; });
       instance.on("click", (event: MapMouseEvent) => onMapClickRef.current?.({ latitude: event.lngLat.lat, longitude: event.lngLat.lng }));
     });
-    return () => { instance.remove(); map.current = null; };
+    return () => { instance.remove(); map.current = null; const debugWindow = window as Window & { __SAFE_TWIN_MAP__?: MapInstance }; if (debugWindow.__SAFE_TWIN_MAP__ === instance) delete debugWindow.__SAFE_TWIN_MAP__; };
     // The source data is updated in the effect below.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

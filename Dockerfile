@@ -1,5 +1,8 @@
 FROM node:22-alpine AS web-build
 WORKDIR /app
+ARG SAFE_TWIN_GIT_COMMIT=unknown
+ARG SAFE_TWIN_BUILD_TIMESTAMP=unknown
+ENV VITE_FRONTEND_BUILD_ID=$SAFE_TWIN_GIT_COMMIT
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY index.html vite.config.ts tsconfig.json ./
@@ -12,6 +15,9 @@ RUN npm run build
 FROM python:3.12-slim AS runtime
 WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PORT=8080
+ARG SAFE_TWIN_GIT_COMMIT=unknown
+ARG SAFE_TWIN_BUILD_TIMESTAMP=unknown
+ENV SAFE_TWIN_GIT_COMMIT=$SAFE_TWIN_GIT_COMMIT SAFE_TWIN_BUILD_TIMESTAMP=$SAFE_TWIN_BUILD_TIMESTAMP SAFE_TWIN_FRONTEND_BUILD_ID=$SAFE_TWIN_GIT_COMMIT
 COPY requirements.lock.txt ./
 RUN pip install --no-cache-dir -r requirements.lock.txt
 COPY services ./services

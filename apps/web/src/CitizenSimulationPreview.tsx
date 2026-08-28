@@ -36,7 +36,7 @@ export function CitizenSimulationPreview({ onBack }: { onBack: () => void }) {
     getJson<{ items: Scenario[] }>("/scenarios")
       .then(({ items }) => {
         if (!active) return;
-        const preferred = items.find((item) => item.scenario_id === "anyang-general-evacuation-competition") ?? items[0];
+        const preferred = items.find((item) => item.scenario_id === "anyang-civil-defense-outage") ?? items[0];
         setScenarios(items);
         setScenario(preferred ?? null);
       })
