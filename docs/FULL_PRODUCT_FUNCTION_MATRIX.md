@@ -145,7 +145,7 @@ Audit date: 2026-08-29. Public target: `https://anyang4d.onrender.com`. “Publi
 | AB08 | A/B | Shelter delta | Compare | Delta visible | AdminSimulator.tsx | compare | facilities | not tested | PASS | PASS | PUBLIC_FUNCTIONAL | session | PUBLIC_FUNCTIONAL | P0 | local AB screenshot | |
 | AB09 | A/B | Road delta | Compare | Delta visible | AdminSimulator.tsx | compare | roads | not tested | PASS | PASS | PUBLIC_FUNCTIONAL | session | PUBLIC_FUNCTIONAL | P0 | local AB screenshot | |
 | AB10 | A/B | Why explanation | Compare | Causes visible | AdminSimulator.tsx | compare | causal inputs | not tested | PASS | PASS | CODE_ONLY | session | CODE_ONLY | P1 | local AB screenshot | |
-| AB11 | A/B | Reproducibility | Repeat fixed A/B | Same result | engine.py | compare | fixed presets | not tested | PASS | PASS | PUBLIC_FUNCTIONAL | read-only | PUBLIC_FUNCTIONAL | P0 | local run | public admin blocked |
+| AB11 | A/B | Reproducibility | Repeat fixed A/B | Same result | engine.py | compare | fixed presets | not tested | PASS | PASS | CODE_ONLY | read-only | CODE_ONLY | P0 | local run | public repeat not separately tested |
 | E01 | Export | Button | Find JSON export | Visible | AdminSimulator.tsx | export | scenario | visibility | PASS | PASS | PUBLIC_BROKEN | read-only | PUBLIC_BROKEN | P1 | public admin | |
 | E02 | Export | Server export | Click | Server response | AdminSimulator.tsx | GET export | scenario | API | PASS | PASS | CODE_ONLY | read-only | CODE_ONLY | P1 | source/tests | |
 | E03 | Export | Download | Click | Browser download | AdminSimulator.tsx | export | browser | e2e | PASS | PASS | CODE_ONLY | file | CODE_ONLY | P1 | e2e | |

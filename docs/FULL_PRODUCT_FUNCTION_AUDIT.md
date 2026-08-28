@@ -6,7 +6,7 @@ Audit date: 2026-08-29. Target: `https://anyang4d.onrender.com`. Scope was audit
 
 | Area | Total | Public Functional | Broken | Missing | Partial / unverified | Intentionally Disabled |
 |---|---:|---:|---:|---:|---:|---:|
-| All listed features | 179 | 61 | 27 | 0 | 91 | 0 |
+| All listed features | 179 | 60 | 27 | 0 | 92 | 0 |
 
 “Partial / unverified” includes `CODE_ONLY`, `LOCAL_FUNCTIONAL` without public proof, `VISUALLY_INEFFECTIVE`, and `PERSISTENCE_LIMITED`. This is deliberately conservative: a green API or a visible button is not a functional pass.
 
@@ -30,7 +30,7 @@ Audit date: 2026-08-29. Target: `https://anyang4d.onrender.com`. Scope was audit
 
 Each ID is listed once; details for every FAIL/PARTIAL group are below and the complete evidence columns are in `docs/FULL_PRODUCT_FUNCTION_MATRIX.md`.
 
-### PASS — public functional (61)
+### PASS — public functional (60)
 
 `C01 C02 C03 C04 C05 C06 C07 C10 C11 C12 R01 R02 S01 S02 S04 A01 A06 RR01 RR02 PD01 PD03 PD05 PD06 PD07 PD08 PD10`
 
@@ -38,7 +38,7 @@ Each ID is listed once; details for every FAIL/PARTIAL group are below and the c
 
 `R03 R06 R07 R08 R09 R10 R11 R12 R15 A02 A03 A04 A05 A07 A10 A11 A12 A13 A14 A15 A16 A17 A19 T01 N01 N06 D01 H01 RC01 F01 AB01 AB02 E01 AI01 AI02 AI05 AI07 AI08 AI09 AI10 AI11 AI12 M03 M04`
 
-### PARTIAL / locally proven only / visually ineffective (91)
+### PARTIAL / locally proven only / visually ineffective (92)
 
 `C08 C09 R04 R05 R13 R14 S07 A08 A18 T02 T03 T04 T05 T06 T08 T10 T11 T12 N02 N03 N04 N05 N07 N08 N09 N10 N11 N12 D02 D03 D04 D05 H02 H03 H04 H05 H06 H07 H08 H09 H10 H11 H12 RC03 RC04 RC05 RC06 RC07 RC08 F02 F03 F04 F05 F06 F07 F08 F09 F10 F11 RR03 RR04 RR05 RR06 AB03 AB04 AB05 AB06 AB07 AB08 AB09 AB10 AB11 E02 E03 E04 E05 E06 E07 AI03 AI04 AI06 PD02 PD04 PD09 M01 M02 M08 S03 S05 S06 S08 S09 S10 S11 S12 S13 S14 S15 S16 S17 T09 RC02 M05 M06 M07 T07 N13 N14 D06`
 
