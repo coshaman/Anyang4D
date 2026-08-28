@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react";
 import * as maplibregl from "maplibre-gl";
+import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
 import type { Map as MapInstance, MapMouseEvent } from "maplibre-gl";
 import type { Facility } from "./realData";
+
+maplibregl.setWorkerUrl(maplibreWorkerUrl);
 
 type Props = {
   facilities: Facility[];
