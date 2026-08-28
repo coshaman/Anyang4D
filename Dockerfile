@@ -7,6 +7,8 @@ COPY public ./public
 COPY apps ./apps
 COPY data/processed ./data/processed
 COPY data/manifests ./data/manifests
+COPY data/processed/anyang_facilities.json ./data/processed/anyang_facilities/json
+COPY data/manifests/data_manifest.json ./data/manifests/data_manifest.json
 RUN npm run build
 
 FROM python:3.12-slim AS runtime
