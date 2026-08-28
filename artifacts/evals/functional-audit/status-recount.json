@@ -2,7 +2,7 @@
   "source": "docs/FULL_PRODUCT_FUNCTION_MATRIX.md",
   "primary_status_column": "Status",
   "row_count": 179,
-  "counts": {"PUBLIC_FUNCTIONAL":26,"PUBLIC_BROKEN":44,"CODE_ONLY":87,"VISUALLY_INEFFECTIVE":18,"LOCAL_FUNCTIONAL":1,"PERSISTENCE_LIMITED":3,"INTENTIONALLY_DISABLED":0,"NOT_APPLICABLE":0},
-  "aggregate_buckets": {"public_functional":26,"broken":44,"missing":0,"partial_or_unverified":109,"intentionally_disabled":0},
+  "counts": {"PUBLIC_FUNCTIONAL":61,"PUBLIC_BROKEN":27,"CODE_ONLY":77,"VISUALLY_INEFFECTIVE":10,"LOCAL_FUNCTIONAL":1,"PERSISTENCE_LIMITED":3,"INTENTIONALLY_DISABLED":0,"NOT_APPLICABLE":0},
+  "aggregate_buckets": {"public_functional":61,"broken":27,"missing":0,"partial_or_unverified":91,"intentionally_disabled":0},
   "method": "Parsed every feature row's Status cell; partial_or_unverified is CODE_ONLY + VISUALLY_INEFFECTIVE + LOCAL_FUNCTIONAL + PERSISTENCE_LIMITED."
 }

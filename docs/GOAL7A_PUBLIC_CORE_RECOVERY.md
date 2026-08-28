@@ -1,6 +1,6 @@
 # Goal 7A — Public Core Recovery
 
-Status: implementation and local regression complete; Render deployment verification pending.
+Status: public P0 workflows recovered; release fingerprint injection remains a hosting-configuration follow-up.
 
 ## Root-cause record
 
@@ -31,16 +31,18 @@ Status: implementation and local regression complete; Render deployment verifica
 ### Deployment identity and cache
 
 - Code changed: added `GET /api/release/version`, Docker ARG/ENV propagation for commit/build identity, shared frontend build ID injection, and bumped the service-worker shell cache from v2 to v3. Existing API bypass and network-first navigation behavior remain enforced.
-- The public deployment must be rechecked after push; no public result is claimed before the live version endpoint and no-mock suite pass.
+- Public `/api/release/version` is live after the push, but Render reports `unknown` for both API commit and frontend build ID because the service does not inject the Docker build ARG. The unsafe alternative of sending `.git` history in the build context was rejected.
 
 ## Regression evidence
 
 - Python: `100 passed, 1 skipped, 40 warnings`.
 - Vitest: `5 passed`.
 - New no-mock P0 E2E against local production dist: `4 passed` after route-source assertion and real frame-difference assertion.
+- Public Render no-mock E2E: `3 passed` in the first four-test run; the remaining A/B test passed on isolated retry after a transient Render 502 during cold-start. Direct readiness, scenario, and frame checks subsequently returned 200/READY.
+- Public evidence: `artifacts/evals/goal7a/public-route-base.png`, `public-route-result.png`, `public-citizen-simulation.png`, `public-admin-ready.png`, `public-ab-result.png`, and `public-citizen-frames.json`.
 - Docker: unavailable in this host because Docker Desktop's Linux engine named pipe was absent; prior production-container evidence remains in `docs/PRODUCTION_RECOVERY.md`, but this Goal 7A change set still needs a fresh Docker run.
-- Public Render: pending deployment of this change set.
+- Public Render: deployed from commit `732db92c07ae1ff1b76c466794519a5b9f94e548`; `/healthz` and `/readyz` are healthy and the live release endpoint is present. Fingerprint SHA equality is not proven because Render returns `unknown`.
 
 ## Release gate
 
-Do not classify as `P0_PUBLIC_CORE_A` until the five required public workflows pass: citizen route, citizen simulation visible change, admin READY, admin playback visible change, and A/B comparison. Until then the classification remains `P0_PUBLIC_CORE_C`.
+The five required public workflows pass: citizen route, citizen simulation visible change, admin READY, admin playback visible change, and A/B comparison. Functional classification is `P0_PUBLIC_CORE_A`; deployment identity remains an explicit hosting gate until Render supplies the pushed SHA.
