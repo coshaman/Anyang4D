@@ -1,0 +1,19 @@
+{
+  "schema_version": "production-recovery-v1",
+  "PRODUCTION_API_READY": true,
+  "ROUTE_GEOMETRY_VISIBLE": true,
+  "AED_LIST_USABLE": true,
+  "CITIZEN_SIMULATION_READY": true,
+  "ADMIN_DEMO_READY": true,
+  "AI_DEMO_READY": true,
+  "PUBLIC_READYZ_PASS": false,
+  "public_https_smoke": {"status": "NOT_RUN", "reason": "hosting authentication and public deployment are unavailable in this workspace", "public_url": null},
+  "local_production_url": "http://127.0.0.1:8091",
+  "http_contract": {"healthz": 200, "readyz": 200, "release_readiness": 200, "scenarios": 200, "resources": 200, "aed": 200, "route_post": 200, "aed_records": 305, "route_geometry_points": 3},
+  "playwright_production_container_count": 0,
+  "playwright_production_parity_count": 2,
+  "pytest_count": 99,
+  "pytest_skipped_container_count": 1,
+  "vitest_count": 5,
+  "note": "Local production-parity artifact served the built Vite dist through FastAPI; Docker daemon was unavailable, so the Docker runtime count remains 0 and this is not a public HTTPS claim."
+}

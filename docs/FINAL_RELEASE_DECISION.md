@@ -6,6 +6,8 @@
 
 The product is technically release-ready on the validated Goal 4B/5A/6A/6B core. FINAL_RELEASE_B reflects remaining human-only actions: GitHub/hosting authorization if a public account is used, participant identity fields, handwritten signatures, and enrollment certificates. The missing high-resolution DEM is not a release blocker and is permanently closed.
 
+Production recovery is locally verified in `artifacts/evals/release/production-recovery.json`. `PUBLIC_READYZ_PASS=false` remains honest until a real public HTTPS deployment is authenticated and tested; this document must not be read as public deployment proof.
+
 ## Release gate
 
 - Same-origin production artifact: `Dockerfile` serves Vite `dist` and FastAPI on one port.

@@ -3,6 +3,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
@@ -31,6 +32,14 @@ app.include_router(flood_readiness_router)
 @app.get("/healthz")
 def healthz() -> dict:
     return {"status": "ok", "service": "safe-twin-anyang", "product_scope": "FINAL_RELEASE_4D_ADMIN_WHAT_IF"}
+
+
+@app.get("/readyz")
+def readyz() -> dict:
+    payload = readiness_payload()
+    if payload["status"] != "READY":
+        raise HTTPException(status_code=503, detail={"status": payload["status"], "mandatory_checks": payload["mandatory_checks"]})
+    return {"status": "ready", "mandatory_checks": payload["mandatory_checks"]}
 
 SOURCE_AVAILABILITY = {
     "CIVIL_DEFENSE_SHELTER": {"status": "DOWNLOADED", "data": "real", "count": 231},
@@ -110,4 +119,10 @@ def routes(request: RouteRequest) -> dict:
 
 DIST = Path(__file__).resolve().parents[2] / "dist"
 if DIST.exists():
+    @app.get("/admin", include_in_schema=False)
+    @app.get("/simulate", include_in_schema=False)
+    @app.get("/about-data", include_in_schema=False)
+    def spa_entry() -> FileResponse:
+        return FileResponse(DIST / "index.html")
+
     app.mount("/", StaticFiles(directory=DIST, html=True), name="web")

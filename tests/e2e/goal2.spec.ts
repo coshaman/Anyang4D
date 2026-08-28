@@ -30,6 +30,15 @@ test("AED flow keeps 119 first and preserves missing coordinates", async ({ page
   expect(await seriousAxe(page)).toEqual([]);
 });
 
+test("coordinate-bearing facility draws the basic walking route line", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "대피소" }).click();
+  await page.getByRole("button", { name: /대피소/ }).last().click();
+  await page.getByRole("button", { name: "기본 도보 경로 보기" }).click();
+  await expect(page.getByTestId("walking-route-line")).toBeVisible({ timeout: 30000 });
+  await expect(page.getByText(/기본 도보 경로.*예상.*출처/)).toBeVisible();
+});
+
 test("large text, geolocation denial, offline state, and preview shell are honest", async ({ page }, testInfo) => {
   await page.goto("/");
   await page.getByRole("button", { name: "큰 글씨" }).click();

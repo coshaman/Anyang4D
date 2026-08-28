@@ -26,5 +26,6 @@ packages = ["packages", "packages.contracts", "services", "services.api", "scrip
 dev = ["pytest==9.1.1", "httpx==0.27.2"]
 
 [tool.pytest.ini_options]
+markers = ["production_container: requires a running built production container"]
 pythonpath = ["."]
 testpaths = ["tests"]

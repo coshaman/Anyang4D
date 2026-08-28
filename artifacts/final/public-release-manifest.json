@@ -20,7 +20,7 @@
     "terrain-derived flood depth and citizen hazard routing"
   ],
   "excluded_private_source_file_count": 25,
-  "public_file_count_scanned": 452,
+  "public_file_count_scanned": 458,
   "checks": {
     "high_res_terrain_acquisition_closed": true,
     "terrain_dependency_false": true,

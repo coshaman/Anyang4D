@@ -15,6 +15,7 @@ nav { display: flex; align-items: center; gap: 6px; }
 .nav-link { min-height: 48px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: #53636a; padding: 0 14px; cursor: pointer; }
 .nav-link.active, .nav-link:hover { color: #0a6472; border-bottom-color: #0a6472; }
 .text-toggle, .location-button, .secondary-button, .route-button, .back-button { min-height: 48px; border: 1px solid #9db3b8; border-radius: 8px; background: white; color: #20464d; cursor: pointer; padding: 0 16px; font-weight: 700; }
+.map-route-legend { margin: 6px 0 0; color: #1457a6; font-size: .82rem; }
 .main-layout { width: min(1500px, 92vw); flex: 1; margin: 26px auto 42px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; }
 .content-column, .support-panel { min-width: 0; }
 .status-banner, .offline-banner { display: flex; gap: 12px; align-items: baseline; padding: 11px 14px; border-left: 4px solid #0a6472; background: #eaf5f5; color: #20464d; }
