@@ -49,9 +49,19 @@ describe("SAFE-Twin real citizen shell", () => {
   it("shows administrative what-if controls without citizen hazard claims", async () => {
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: "관리자 시뮬레이터" }));
-    expect(await screen.findByRole("heading", { name: "안양 4D 도시상태 시뮬레이터" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: "안양 안전 운영 도구" })).toBeInTheDocument();
     expect(screen.getByText("훈련/가정 시나리오")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "현재 시간에 hazard keyframe 추가" })).toBeInTheDocument();
     expect(screen.getByText(/시민 emergency routing이 아닙니다/)).toBeInTheDocument();
+  });
+
+  it("separates simulation and advanced analysis workspaces", async () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: "관리자 시뮬레이터" }));
+    await screen.findByRole("heading", { name: "안양 안전 운영 도구" });
+    expect(screen.getByRole("button", { name: "현재 시간에 hazard keyframe 추가" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "고급 분석" }));
+    expect(screen.queryByRole("button", { name: "현재 시간에 hazard keyframe 추가" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "배포 진단" })).toBeInTheDocument();
   });
 });

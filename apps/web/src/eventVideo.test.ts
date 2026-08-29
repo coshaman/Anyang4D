@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildStoryboard, sceneAtTime } from "./eventVideoModel";
+import { buildStoryboard, canExportWebm, sceneAtTime } from "./eventVideoModel";
 import { createEventPlan, addEventNode, addRoutePoint } from "./eventPlan";
 
 describe("deterministic evacuation video storyboard", () => {
@@ -14,5 +14,10 @@ describe("deterministic evacuation video storyboard", () => {
     expect(storyboard[3].points).toEqual(plan.groups[0].route);
     expect(sceneAtTime(storyboard, 0.99)).toBe(0);
     expect(sceneAtTime(storyboard, 3.01)).toBe(1);
+  });
+
+  it("reports whether the browser can export WebM", () => {
+    expect(canExportWebm(false, false)).toBe(false);
+    expect(canExportWebm(true, true)).toBe(true);
   });
 });

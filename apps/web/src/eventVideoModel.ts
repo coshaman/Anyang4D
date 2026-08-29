@@ -25,3 +25,7 @@ export function sceneAtTime(storyboard: StoryboardScene[], elapsedSeconds: numbe
   }
   return Math.max(0, storyboard.length - 1);
 }
+
+export function canExportWebm(hasMediaRecorder: boolean, hasCaptureStream: boolean) {
+  return hasMediaRecorder && hasCaptureStream;
+}
