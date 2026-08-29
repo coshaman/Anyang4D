@@ -46,6 +46,6 @@ export function EventPublicPage({ plan: suppliedPlan }: { plan?: EventPlan }) {
     </section>
     <section className="event-actions"><h2>비상 행동</h2><ul>{plan.emergencyInstructions.map((item) => <li key={item}>{item}</li>)}</ul>{plan.organizerContact && <p>행사 문의 · {plan.organizerContact}</p>}<a className="primary-emergency" href="tel:119">☎ <span><strong>위급 시 119 신고</strong><small>위치를 설명하고 안내를 따르세요.</small></span></a></section>
     <section className="event-share"><h2>이 안내 공유</h2>{qrFailed && <p className="qr-fallback" role="status">QR 이미지를 불러오지 못했습니다. 아래 공개 URL을 복사하거나 브라우저로 열어 공유하세요.</p>}<img src={buildQrImageUrl(shareUrl)} onError={() => setQrFailed(true)} alt="행사 대피 안내 공개 URL QR 코드" width="240" height="240" style={qrFailed ? { display: "none" } : undefined} /><code>{shareUrl}</code><button type="button" onClick={() => void navigator.clipboard?.writeText(shareUrl)}>공개 URL 복사</button></section>
-    <EventVideo plan={plan} groupId={groupId} />
+    <EventVideo plan={plan} groupId={plan.videoConfig?.groupId ?? groupId} />
   </main>;
 }

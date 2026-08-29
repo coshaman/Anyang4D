@@ -3,7 +3,7 @@ export type OutdoorPoint = { latitude: number; longitude: number };
 export type EventRepresentation = "OUTDOOR" | "INDOOR";
 export type OptionalFacilityKind = "AED" | "EXTINGUISHER" | "STAIRS" | "RESTRICTED_ZONE";
 export type EventGroup = { id: string; name: string; start: EventPoint | null; exit: EventPoint | null; assembly: EventPoint | null; route: EventPoint[]; outdoorStart: OutdoorPoint | null; outdoorExit: OutdoorPoint | null; outdoorAssembly: OutdoorPoint | null; outdoorRoute: OutdoorPoint[]; routeLabel: string; color: string };
-export type EventVideoConfig = { title: string; sceneDurationSeconds: number; textSize: "standard" | "large" | "compact"; narration: "caption" | "tts-preview"; logoDataUrl?: string };
+export type EventVideoConfig = { title: string; sceneDurationSeconds: number; textSize: "standard" | "large" | "compact"; narration: "caption" | "tts-preview"; logoDataUrl?: string; groupId?: string };
 export type EventPlan = {
   version: 1;
   slug: string;

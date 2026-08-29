@@ -75,4 +75,16 @@ describe("event organizer workflow", () => {
       videoConfig: { title: "대피 안내 영상", sceneDurationSeconds: 5, textSize: "large", narration: "tts-preview" },
     }));
   });
+
+  it("stores the selected group for the evacuation video", () => {
+    const onPreview = vi.fn();
+    render(<EventOrganizer onPreview={onPreview} />);
+    fireEvent.change(screen.getByLabelText("행사명"), { target: { value: "행사" } });
+    fireEvent.change(screen.getByLabelText("행사 장소"), { target: { value: "장소" } });
+    fireEvent.click(screen.getByRole("button", { name: "다음" }));
+    fireEvent.click(screen.getByRole("button", { name: "다음" }));
+    fireEvent.change(screen.getByLabelText("영상용 구역"), { target: { value: "C" } });
+    fireEvent.click(screen.getAllByRole("button", { name: "계획 미리보기" }).at(-1)!);
+    expect(onPreview).toHaveBeenCalledWith(expect.objectContaining({ videoConfig: expect.objectContaining({ groupId: "C" }) }));
+  });
 });
