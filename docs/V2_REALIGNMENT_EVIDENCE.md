@@ -14,6 +14,7 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - 시민 경로: OSM 그래프 기반 경로 geometry, 출발/목적지 marker, 거리·예상 시간·fit bounds·오류 상태와 대안 경로를 제공한다.
 - 경로 성능: OSM payload와 parsed graph를 프로세스 수명 동안 캐시하고, 전체 k-shortest 탐색 대신 bounded 우회 edge probe로 두 번째 실제 후보를 찾는다.
 - 행사 계획: 야외/실내 선택, PNG/JPEG/SVG/PDF 입력, image-local 도면 pan/zoom, A/B/C 구역별 노드·수동 경로, 선택적 AED/소화기/계단/제한구역, 조직자 연락처를 지원한다.
+- 야외 행사 경로: 실내 이미지 좌표와 분리된 위경도 시작·출구·경로를 MapLibre 클릭으로 지정하고, 공개 지도와 결정론적 영상 좌표로 전달한다.
 - 공개 행사: `/event/{slug}`에서 구역, 출구, 집결지, 비상 행동, 연락처, QR-ready URL, 실내 도면/야외 MapLibre 지도를 제공한다.
 - 영상: 동일 `EventPlan`에서 6장면 1920×1080 canvas를 만들고 play/pause/restart/fullscreen/WebM export를 제공한다. 영상 제목, 로고, 장면 길이, 문자 크기, 캡션/브라우저 음성 미리듣기 프리셋을 저장한다. WebM은 화면과 자막만 authoritative export이며 브라우저 음성은 미리듣기 convenience다.
 - 관리자: `행사 안내`, `재난 시뮬레이션`, `고급 분석` workspace와 지도 클릭 기반 도로 선택을 제공한다.

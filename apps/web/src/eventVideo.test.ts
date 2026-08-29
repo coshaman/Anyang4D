@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { buildStoryboard, canExportWebm, sceneAtTime, sceneProgress } from "./eventVideoModel";
-import { createEventPlan, addEventNode, addRoutePoint } from "./eventPlan";
+import { addEventNode, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, createEventPlan } from "./eventPlan";
 
 describe("deterministic evacuation video storyboard", () => {
   it("contains six scenes and carries the group route into route scenes", () => {
@@ -26,5 +26,16 @@ describe("deterministic evacuation video storyboard", () => {
     expect(sceneProgress(storyboard, 9.1).progress).toBeGreaterThan(0);
     expect(sceneProgress(storyboard, 9.1).progress).toBeLessThan(1);
     expect(sceneProgress(storyboard, 13).index).toBe(4);
+  });
+
+  it("projects an outdoor route into one shared video coordinate system", () => {
+    let plan = createEventPlan("야외 행사", "캠퍼스", "OUTDOOR");
+    plan = addOutdoorNode(plan, "A", "start", { latitude: 37.4, longitude: 126.95 });
+    plan = addOutdoorNode(plan, "A", "exit", { latitude: 37.402, longitude: 126.954 });
+    plan = addOutdoorRoutePoint(plan, "A", { latitude: 37.401, longitude: 126.952 });
+    const route = buildStoryboard(plan)[3].points;
+    expect(route).toHaveLength(1);
+    expect(route[0].x).toBeGreaterThan(120);
+    expect(route[0].y).toBeGreaterThan(120);
   });
 });

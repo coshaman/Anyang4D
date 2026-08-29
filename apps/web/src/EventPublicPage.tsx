@@ -25,6 +25,8 @@ export function EventPublicPage({ plan: suppliedPlan }: { plan?: EventPlan }) {
   const group = plan.groups.find((item) => item.id === groupId) ?? plan.groups[0];
   const shareUrl = buildEventShareUrl(plan);
   const points = [group?.start, group?.exit, group?.assembly, ...plan.optionalFacilities.map((item) => item.point)].filter((point): point is EventPoint => Boolean(point));
+  const outdoorRoute = group?.outdoorRoute ?? [];
+  const outdoorGeometry = group?.outdoorStart && group?.outdoorExit ? [group.outdoorStart, ...outdoorRoute, group.outdoorExit] : [];
   return <main className="event-public" aria-label="공개 행사 대피 안내">
     <p className="section-kicker">행사 대피 안내</p>
     <h1>{plan.name}</h1>
@@ -32,11 +34,11 @@ export function EventPublicPage({ plan: suppliedPlan }: { plan?: EventPlan }) {
     <p className="event-public-notice">이 안내 경로는 행사 운영자가 지정한 경로입니다. 현장 안내요원의 지시를 우선하세요.</p>
     <label className="admin-field">현재 구역<select aria-label="현재 위치/구역" value={groupId} onChange={(event) => setGroupId(event.target.value)}>{plan.groups.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>
     <section className="event-map-panel" aria-label="행사 대피 지도">
-      {plan.representation === "INDOOR" ? <FloorPlanCanvas width={800} height={500} imageUrl={plan.floorPlan?.mimeType === "application/pdf" ? undefined : plan.floorPlan?.dataUrl} points={points} route={group?.route ?? []} onPointAdd={() => undefined} /> : <div className="event-outdoor-map"><MapView facilities={[]} onSelect={() => undefined} currentLocation={null} /><p>야외 행사 지도 · 운영자 지정 경로 {group?.route.length ?? 0}점</p></div>}
+      {plan.representation === "INDOOR" ? <FloorPlanCanvas width={800} height={500} imageUrl={plan.floorPlan?.mimeType === "application/pdf" ? undefined : plan.floorPlan?.dataUrl} points={points} route={group?.route ?? []} onPointAdd={() => undefined} /> : <div className="event-outdoor-map"><MapView facilities={[]} onSelect={() => undefined} currentLocation={null} walkingRoute={outdoorGeometry.length > 1 ? { geometry: outdoorGeometry, origin: group!.outdoorStart!, destination: group!.outdoorExit! } : null} /><p>야외 행사 지도 · 운영자 지정 경로 {outdoorRoute.length}점</p></div>}
       <dl className="event-route-facts">
         <div><dt>현재 위치/구역</dt><dd>{group?.name ?? "미지정"}</dd></div>
-        <div><dt>출구</dt><dd>{group?.exit ? "지정됨" : "미지정"}</dd></div>
-        <div><dt>집결지</dt><dd>{group?.assembly ? "지정됨" : "미지정"}</dd></div>
+        <div><dt>출구</dt><dd>{group?.exit || group?.outdoorExit ? "지정됨" : "미지정"}</dd></div>
+        <div><dt>집결지</dt><dd>{group?.assembly || group?.outdoorAssembly ? "지정됨" : "미지정"}</dd></div>
       </dl>
       {plan.optionalFacilities.length > 0 && <ul className="event-facilities" aria-label="행사 안전 지점">{plan.optionalFacilities.map((item, index) => <li key={`${item.kind}-${index}`}>{facilityLabels[item.kind]}{item.label ? ` · ${item.label}` : ""}</li>)}</ul>}
     </section>

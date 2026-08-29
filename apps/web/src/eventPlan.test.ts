@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addEventNode, addRoutePoint, buildEventShareUrl, createEventPlan, decodeEventPlan, encodeEventPlan, removeLastRoutePoint, updateEventGroup, type EventPoint } from "./eventPlan";
+import { addEventNode, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, buildEventShareUrl, createEventPlan, decodeEventPlan, encodeEventPlan, removeLastRoutePoint, updateEventGroup, type EventPoint } from "./eventPlan";
 
 describe("event evacuation plan contract", () => {
   it("creates a group plan and preserves image-local points through URL encoding", () => {
@@ -33,5 +33,16 @@ describe("event evacuation plan contract", () => {
     const next = removeLastRoutePoint(plan, "A");
     expect(next.groups.find((group) => group.id === "A")?.route).toEqual([{ x: 1, y: 2 }]);
     expect(next.groups.find((group) => group.id === "B")?.route).toEqual([{ x: 9, y: 9 }]);
+  });
+
+  it("keeps outdoor map coordinates separate from indoor image coordinates", () => {
+    const plan = createEventPlan("야외 행사", "안양 캠퍼스", "OUTDOOR");
+    const withStart = addOutdoorNode(plan, "A", "start", { latitude: 37.4, longitude: 126.95 });
+    const withExit = addOutdoorNode(withStart, "A", "exit", { latitude: 37.401, longitude: 126.952 });
+    const withRoute = addOutdoorRoutePoint(withExit, "A", { latitude: 37.4005, longitude: 126.951 });
+    expect(withRoute.groups[0].outdoorStart).toEqual({ latitude: 37.4, longitude: 126.95 });
+    expect(withRoute.groups[0].outdoorExit).toEqual({ latitude: 37.401, longitude: 126.952 });
+    expect(withRoute.groups[0].outdoorRoute).toEqual([{ latitude: 37.4005, longitude: 126.951 }]);
+    expect(withRoute.groups[0].start).toBeNull();
   });
 });
