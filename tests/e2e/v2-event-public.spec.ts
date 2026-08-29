@@ -12,5 +12,13 @@ test("public event page exposes share QR and advances deterministic video scenes
   await page.waitForTimeout(3500);
   const after = await page.getByTestId("event-video-canvas").getAttribute("data-scene-index");
   expect(after).not.toBe(before);
+  await page.getByRole("button", { name: "일시정지" }).click();
+  const downloadPromise = page.waitForEvent("download", { timeout: 10000 });
+  await page.getByRole("button", { name: "WebM 내보내기" }).click();
+  const download = await downloadPromise;
+  const downloadPath = await download.path();
+  expect(downloadPath).toBeTruthy();
+  const fileSize = (await import("node:fs/promises")).stat(downloadPath as string).then((stats) => stats.size);
+  expect(await fileSize).toBeGreaterThan(0);
   await page.screenshot({ path: "artifacts/evals/v2/screenshots/event-public-video-1280.png", fullPage: true });
 });
