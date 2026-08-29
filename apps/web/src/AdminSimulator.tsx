@@ -171,6 +171,13 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
     void saveScenario({ ...scenario, facility_events: events }, "시설을 훈련 시나리오에서 폐쇄했습니다.");
   }
 
+  function selectFacility(facility: Facility) {
+    setFacilityId(facility.id);
+    const current = frame?.facilities?.find((item: Scenario) => item.facility_id === facility.id);
+    setCapacity(current?.effective_capacity ?? facility.capacity ?? 100);
+    setStatus(`${facility.name || facility.id} 시설을 선택했습니다. 가용 여부와 용량을 편집할 수 있습니다.`);
+  }
+
   function overrideFacilityCapacity() {
     if (!scenario || !facilityId) return;
     const overrides = [...(scenario.capacity_overrides || []), { start_minute: time, end_minute: scenario.frame_times.at(-1) ?? time + 10, facility_id: facilityId, capacity, reason: "훈련 시나리오 용량 조정", provenance: "ADMIN_SCENARIO" }];
@@ -243,7 +250,7 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
 
   const hazard = hazardForMap(frame?.hazard?.geometry);
   return <main className="admin-page" aria-label="안양 행정 4D 시나리오 시뮬레이터">
-    <div className="admin-map-placeholder"><MapView facilities={shelters} onSelect={() => undefined} currentLocation={null} hazardGeometry={hazard} hazardLabel={frame?.hazard?.label} onMapClick={onMapClick} changedRoads={frame?.roads?.changed ?? []} facilityLoads={Object.fromEntries((frame?.facilities ?? []).map((item: Scenario) => [item.facility_id, item.load ?? 0]))} facilityLoadRatios={Object.fromEntries((frame?.facilities ?? []).map((item: Scenario) => [item.facility_id, item.effective_capacity ? (item.load ?? 0) / item.effective_capacity : 0]))} evacuationFlow={frame?.evacuation_flow ?? []} /></div>
+    <div className="admin-map-placeholder"><MapView facilities={shelters} onSelect={selectFacility} currentLocation={null} hazardGeometry={hazard} hazardLabel={frame?.hazard?.label} onMapClick={onMapClick} changedRoads={frame?.roads?.changed ?? []} facilityLoads={Object.fromEntries((frame?.facilities ?? []).map((item: Scenario) => [item.facility_id, item.load ?? 0]))} facilityLoadRatios={Object.fromEntries((frame?.facilities ?? []).map((item: Scenario) => [item.facility_id, item.effective_capacity ? (item.load ?? 0) / item.effective_capacity : 0]))} evacuationFlow={frame?.evacuation_flow ?? []} /></div>
     <aside className="admin-pane">
       <button className="back-button" type="button" onClick={onBack}>← 시민 화면</button>
       <p className="section-kicker">관리자 workspace</p><h1>안양 안전 운영 도구</h1><nav className="workspace-tabs" aria-label="관리자 작업공간"><button type="button" aria-pressed={workspace === "event"} onClick={() => { setWorkspace("event"); window.location.href = "/event-admin"; }}>행사 안내</button><button type="button" aria-pressed={workspace === "simulation"} onClick={() => setWorkspace("simulation")}>재난 시뮬레이션</button><button type="button" aria-pressed={workspace === "advanced"} onClick={() => setWorkspace("advanced")}>고급 분석</button></nav>{demoMode && <p className="scenario-assumption" role="status">대회 데모 모드 · 30초 설명용 GENERAL_EVACUATION preset</p>}

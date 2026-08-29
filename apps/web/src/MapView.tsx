@@ -141,7 +141,10 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       });
       instance.on("mouseenter", "facility-points", () => { instance.getCanvas().style.cursor = "pointer"; });
       instance.on("mouseleave", "facility-points", () => { instance.getCanvas().style.cursor = ""; });
-      instance.on("click", (event: MapMouseEvent) => onMapClickRef.current?.({ latitude: event.lngLat.lat, longitude: event.lngLat.lng }));
+      instance.on("click", (event: MapMouseEvent) => {
+        const clickedFacility = instance.queryRenderedFeatures(event.point, { layers: ["facility-points"] }).length > 0;
+        if (!clickedFacility) onMapClickRef.current?.({ latitude: event.lngLat.lat, longitude: event.lngLat.lng });
+      });
     });
     return () => { instance.remove(); map.current = null; const debugWindow = window as Window & { __SAFE_TWIN_MAP__?: MapInstance }; if (debugWindow.__SAFE_TWIN_MAP__ === instance) delete debugWindow.__SAFE_TWIN_MAP__; };
     // The source data is updated in the effect below.
