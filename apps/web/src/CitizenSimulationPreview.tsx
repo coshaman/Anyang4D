@@ -13,6 +13,7 @@ type Frame = {
   facilities: Array<{ facility_id: string; load: number; available: boolean }>;
   available_shelter_count: number;
   assignment: { evacuation_demand: number; assigned: number; unserved: number; average_assigned_travel_distance_m: number | null };
+  evacuation_flow?: Array<{ demand_node_id: string; shelter_id: string; assigned_demand: number; load_ratio: number; geometry: { type: "LineString"; coordinates: number[][] } }>;
   terrain_authorized: boolean;
   citizen_guidance_authorized: boolean;
   computation_status: string;
@@ -74,7 +75,7 @@ export function CitizenSimulationPreview({ onBack }: { onBack: () => void }) {
     {scenarios.length > 0 && <label className="admin-field">시나리오<select value={scenario?.scenario_id ?? ""} onChange={(event) => { setScenario(scenarios.find((item) => item.scenario_id === event.target.value) ?? null); setTimeIndex(0); }}><option value="" disabled>시나리오 선택</option>{scenarios.map((item) => <option key={item.scenario_id} value={item.scenario_id}>{item.title}</option>)}</select></label>}
     {scenario && <>
       <div className="training-controls"><button className="secondary-button" type="button" onClick={() => setPlaying((value) => !value)}>{playing ? "일시정지" : "재생"}</button><label htmlFor="training-time">시간 {time}분</label><input id="training-time" type="range" min="0" max={Math.max(0, scenario.frame_times.length - 1)} value={timeIndex} onChange={(event) => setTimeIndex(Number(event.target.value))} aria-label="훈련 시나리오 시간" /></div>
-      <MapView facilities={shelterFacilities} onSelect={() => undefined} currentLocation={null} hazardGeometry={frame?.hazard.geometry} hazardLabel={frame?.hazard.label} changedRoads={frame?.roads.changed} facilityLoads={loadById} />
+      <MapView facilities={shelterFacilities} onSelect={() => undefined} currentLocation={null} hazardGeometry={frame?.hazard.geometry} hazardLabel={frame?.hazard.label} changedRoads={frame?.roads.changed} facilityLoads={loadById} evacuationFlow={frame?.evacuation_flow} />
       {frame && <section className="training-results" aria-label="훈련 계산 결과"><h2>{scenario.title}</h2><p className="provenance-line">계산 상태 · {frame.computation_status} · {frame.hazard.provenance}</p><dl><div><dt>대피 수요</dt><dd>{frame.assignment.evacuation_demand.toLocaleString()}명</dd></div><div><dt>배정</dt><dd>{frame.assignment.assigned.toLocaleString()}명</dd></div><div><dt>미배정</dt><dd>{frame.assignment.unserved.toLocaleString()}명</dd></div><div><dt>가용 대피소</dt><dd>{frame.available_shelter_count}곳</dd></div><div><dt>통행 제한</dt><dd>{frame.roads.changed_count}개</dd></div></dl><p className="notice-text">이 결과는 가정 조건의 계산값입니다. terrain 기반 시민 hazard routing과 공식 대피 지시는 연결되어 있지 않습니다.</p></section>}
     </>}
     {!scenario && !error && <p className="loading-state">훈련 시나리오를 불러오는 중입니다…</p>}

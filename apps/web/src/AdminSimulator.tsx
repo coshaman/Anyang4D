@@ -229,7 +229,7 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
 
   const hazard = hazardForMap(frame?.hazard?.geometry);
   return <main className="admin-page" aria-label="안양 행정 4D 시나리오 시뮬레이터">
-    <div className="admin-map-placeholder"><MapView facilities={shelters} onSelect={() => undefined} currentLocation={null} hazardGeometry={hazard} hazardLabel={frame?.hazard?.label} onMapClick={onMapClick} changedRoads={frame?.roads?.changed ?? []} facilityLoads={Object.fromEntries((frame?.facilities ?? []).map((item: Scenario) => [item.facility_id, item.load ?? 0]))} /></div>
+    <div className="admin-map-placeholder"><MapView facilities={shelters} onSelect={() => undefined} currentLocation={null} hazardGeometry={hazard} hazardLabel={frame?.hazard?.label} onMapClick={onMapClick} changedRoads={frame?.roads?.changed ?? []} facilityLoads={Object.fromEntries((frame?.facilities ?? []).map((item: Scenario) => [item.facility_id, item.load ?? 0]))} facilityLoadRatios={Object.fromEntries((frame?.facilities ?? []).map((item: Scenario) => [item.facility_id, item.effective_capacity ? (item.load ?? 0) / item.effective_capacity : 0]))} evacuationFlow={frame?.evacuation_flow ?? []} /></div>
     <aside className="admin-pane">
       <button className="back-button" type="button" onClick={onBack}>← 시민 화면</button>
       <p className="section-kicker">행정 What-if 엔진</p><h1>안양 4D 도시상태 시뮬레이터</h1>{demoMode && <p className="scenario-assumption" role="status">대회 데모 모드 · 30초 설명용 GENERAL_EVACUATION preset</p>}

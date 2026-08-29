@@ -40,4 +40,13 @@ def build_presets(facilities: list[dict[str, Any]], demand_units: list[dict[str,
         outage["facility_events"] = [{"start_minute": 10, "end_minute": 30, "facility_id": first_shelter, "available": False, "reason": "훈련 시나리오에서 대피시설 폐쇄", "provenance": "ADMIN_SCENARIO"}]
     general = _base("anyang-general-evacuation-competition", "안양 인접 2개 영역 대피 경쟁", "GENERAL_EVACUATION", demand_units)
     general["hazard_keyframes"] = [{"time": 0, "label": "첫 번째 가정 영향영역", "geometry": {"kind": "polygon", "coordinates": [[[126.9, 37.35], [126.94, 37.35], [126.94, 37.39], [126.9, 37.39], [126.9, 37.35]]]}}, {"time": 20, "label": "두 번째 인접 가정 영향영역 추가", "geometry": {"kind": "multipolygon", "coordinates": [[[[126.9, 37.35], [126.94, 37.35], [126.94, 37.39], [126.9, 37.39], [126.9, 37.35]]], [[[126.94, 37.35], [126.99, 37.35], [126.99, 37.39], [126.94, 37.39], [126.94, 37.35]]]]}}]
-    return [Scenario.from_dict(item) for item in [flood, earthquake, fire, outage, general]]
+    v2_demo = _base("anyang-v2-four-state-demo", "안양 4D 네 상태 시각화 데모", "GENERAL_EVACUATION", demand_units)
+    v2_demo["hazard_keyframes"] = [
+        {"time": 0, "label": "0분 · 초기 영향영역", "geometry": {"kind": "polygon", "coordinates": [[[126.925, 37.375], [126.945, 37.375], [126.945, 37.39], [126.925, 37.39], [126.925, 37.375]]]}},
+        {"time": 10, "label": "10분 · 동쪽으로 확장", "geometry": {"kind": "polygon", "coordinates": [[[126.925, 37.375], [126.96, 37.375], [126.96, 37.395], [126.925, 37.395], [126.925, 37.375]]]}},
+        {"time": 20, "label": "20분 · 북쪽 영역 추가", "geometry": {"kind": "multipolygon", "coordinates": [[[[126.925, 37.375], [126.96, 37.375], [126.96, 37.395], [126.925, 37.395], [126.925, 37.375]]], [[[126.94, 37.395], [126.975, 37.395], [126.975, 37.42], [126.94, 37.42], [126.94, 37.395]]]]}},
+        {"time": 30, "label": "30분 · 넓은 최종 영향영역", "geometry": {"kind": "polygon", "coordinates": [[[126.91, 37.365], [126.985, 37.365], [126.985, 37.425], [126.91, 37.425], [126.91, 37.365]]]}},
+    ]
+    if first_shelter:
+        v2_demo["facility_events"] = [{"start_minute": 20, "end_minute": 31, "facility_id": first_shelter, "available": False, "reason": "4D 데모에서 시설 상태 변화", "provenance": "ADMIN_SCENARIO"}]
+    return [Scenario.from_dict(item) for item in [flood, earthquake, fire, outage, general, v2_demo]]

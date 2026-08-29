@@ -18,6 +18,16 @@ type Props = {
   facilityLoads?: Record<string, number>;
   walkingRoute?: { geometry: Array<{ latitude: number; longitude: number }>; origin: { latitude: number; longitude: number }; destination: { latitude: number; longitude: number } } | null;
   buildings?: Building[];
+  evacuationFlow?: EvacuationFlow[];
+  facilityLoadRatios?: Record<string, number>;
+};
+
+export type EvacuationFlow = {
+  demand_node_id: string;
+  shelter_id: string;
+  assigned_demand: number;
+  load_ratio: number;
+  geometry: { type: "LineString"; coordinates: number[][] };
 };
 
 export type Building = {
@@ -43,7 +53,11 @@ export function buildBuildingExtrusionLayer() {
   return { id: "building-extrusion", type: "fill-extrusion" as const, source: "buildings", minzoom: 10, paint: { "fill-extrusion-color": "#679b9a", "fill-extrusion-height": ["get", "height_m"], "fill-extrusion-base": 0, "fill-extrusion-opacity": 0.72 } } as FillExtrusionLayerSpecification;
 }
 
-export function MapView({ facilities, onSelect, currentLocation, hazardGeometry = null, hazardLabel = null, onMapClick, changedRoads = [], facilityLoads = {}, walkingRoute = null, buildings = osmBuildings.map(normalizeBuilding) }: Props) {
+export function buildEvacuationFlowGeoJson(flows: EvacuationFlow[]) {
+  return { type: "FeatureCollection" as const, features: flows.map((flow) => ({ type: "Feature" as const, geometry: flow.geometry, properties: { demand_node_id: flow.demand_node_id, shelter_id: flow.shelter_id, assigned_demand: flow.assigned_demand, load_ratio: flow.load_ratio } })) };
+}
+
+export function MapView({ facilities, onSelect, currentLocation, hazardGeometry = null, hazardLabel = null, onMapClick, changedRoads = [], facilityLoads = {}, walkingRoute = null, buildings = osmBuildings.map(normalizeBuilding), evacuationFlow = [], facilityLoadRatios = {} }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<MapInstance | null>(null);
   const onSelectRef = useRef(onSelect);
@@ -58,7 +72,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
     features: facilities.filter((facility) => facility.latitude !== null && facility.longitude !== null).map((facility) => ({
       type: "Feature" as const,
       geometry: { type: "Point" as const, coordinates: [facility.longitude as number, facility.latitude as number] },
-      properties: { id: facility.id, name: facility.name ?? "이름 미상", category: facility.category, load: facilityLoads[facility.id] ?? 0 }
+      properties: { id: facility.id, name: facility.name ?? "이름 미상", category: facility.category, load: facilityLoads[facility.id] ?? 0, load_ratio: facilityLoadRatios[facility.id] ?? evacuationFlow.find((flow) => flow.shelter_id === facility.id)?.load_ratio ?? 0 }
     }))
   };
   dynamicProps.current = { geojson, hazardGeometry, hazardLabel, changedRoads, walkingRoute };
@@ -90,6 +104,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       instance.addSource("scenario-closures", { type: "geojson", data: roadGeoJson(current.changedRoads) });
       instance.addSource("walking-route", { type: "geojson", data: routeGeoJson(current.walkingRoute) });
       instance.addSource("buildings", { type: "geojson", data: buildBuildingGeoJson(buildings) });
+      instance.addSource("evacuation-flow", { type: "geojson", data: buildEvacuationFlowGeoJson(evacuationFlow) });
       instance.addLayer({ id: "scenario-hazard-fill", type: "fill", source: "scenario-hazard", paint: { "fill-color": "#c77a24", "fill-opacity": 0.22 } });
       instance.addLayer({ id: "scenario-hazard-line", type: "line", source: "scenario-hazard", paint: { "line-color": "#8b4f12", "line-width": 3, "line-dasharray": [2, 1] } });
       instance.addLayer({ id: "scenario-closures-line", type: "line", source: "scenario-closures", paint: { "line-color": "#9b2c2c", "line-width": 4, "line-dasharray": [1, 1] } });
@@ -97,9 +112,10 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       instance.addLayer({ id: "walking-route-points", type: "circle", source: "walking-route", filter: ["==", ["geometry-type"], "Point"], paint: { "circle-color": ["match", ["get", "role"], "origin", "#16805b", "#b34a3c"], "circle-radius": 8, "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
       instance.addLayer({ id: "building-footprints", type: "fill", source: "buildings", paint: { "fill-color": "#8ab8b2", "fill-opacity": 0.26 } });
       instance.addLayer(buildBuildingExtrusionLayer());
+      instance.addLayer({ id: "evacuation-flow-lines", type: "line", source: "evacuation-flow", paint: { "line-color": "#d26a2e", "line-opacity": 0.78, "line-width": ["interpolate", ["linear"], ["get", "assigned_demand"], 1, 1.5, 100, 3, 1000, 8] } });
       instance.addLayer({ id: "facility-clusters", type: "circle", source: "facilities", filter: ["has", "point_count"], paint: { "circle-color": "#0a6472", "circle-radius": ["step", ["get", "point_count"], 18, 50, 24, 100, 30], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
       instance.addLayer({ id: "facility-cluster-count", type: "symbol", source: "facilities", filter: ["has", "point_count"], layout: { "text-field": "{point_count_abbreviated}", "text-size": 13 }, paint: { "text-color": "#ffffff" } });
-      instance.addLayer({ id: "facility-points", type: "circle", source: "facilities", filter: ["!", ["has", "point_count"]], paint: { "circle-color": "#0a6472", "circle-radius": ["step", ["get", "load"], 7, 1, 9, 100, 11], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+      instance.addLayer({ id: "facility-points", type: "circle", source: "facilities", filter: ["!", ["has", "point_count"]], paint: { "circle-color": "#0a6472", "circle-radius": ["interpolate", ["linear"], ["get", "load_ratio"], 0, 7, 0.5, 10, 1, 14, 1.5, 18], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
       if (current.walkingRoute && current.walkingRoute.geometry.length > 1) {
         const bounds = new maplibregl.LngLatBounds();
         current.walkingRoute.geometry.forEach((point) => bounds.extend([point.longitude, point.latitude]));
@@ -132,6 +148,11 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
     const source = map.current?.getSource("buildings") as maplibregl.GeoJSONSource | undefined;
     source?.setData(buildBuildingGeoJson(buildings));
   }, [buildings]);
+
+  useEffect(() => {
+    const source = map.current?.getSource("evacuation-flow") as maplibregl.GeoJSONSource | undefined;
+    source?.setData(buildEvacuationFlowGeoJson(evacuationFlow));
+  }, [evacuationFlow]);
 
   useEffect(() => {
     const instance = map.current;
@@ -172,7 +193,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
     }
   }, [currentLocation]);
 
-  return <div className="map-wrap"><div className="map-camera-controls" aria-label="지도 보기 조작"><button type="button" data-testid="map-2d-toggle" aria-pressed={viewMode === "2D"} onClick={() => setViewMode("2D")}>2D</button><button type="button" data-testid="map-3d-toggle" aria-pressed={viewMode === "3D"} onClick={() => setViewMode("3D")}>3D</button><button type="button" onClick={() => map.current?.easeTo({ pitch: Math.min(75, (map.current.getPitch?.() ?? 0) + 12), duration: 350 })}>기울이기</button><button type="button" onClick={() => map.current?.rotateTo((map.current.getBearing?.() ?? 0) + 30, { duration: 350 })}>회전</button><button type="button" onClick={() => map.current?.easeTo({ bearing: 0, pitch: viewMode === "3D" ? 52 : 0, duration: 400 })}>북쪽</button></div><div ref={container} className="real-map" aria-label={`안양 실제 지도 ${viewMode} 보기`} />{viewMode === "3D" && <p className="map-3d-note" role="status">3D 건물 높이 · OSM 태그 우선 · 미상 높이는 평면 표시</p>}{walkingRoute && <p className="map-route-legend" data-testid="walking-route-line" aria-label="기본 도보 경로 지도 레이어">파란 선: 기본 도보 네트워크 경로 · 재난 안전경로 아님</p>}<p className="map-attribution">© OpenStreetMap contributors · 지도 타일 제공 약관을 확인하세요.</p></div>;
+  return <div className="map-wrap"><div className="map-camera-controls" aria-label="지도 보기 조작"><button type="button" data-testid="map-2d-toggle" aria-pressed={viewMode === "2D"} onClick={() => setViewMode("2D")}>2D</button><button type="button" data-testid="map-3d-toggle" aria-pressed={viewMode === "3D"} onClick={() => setViewMode("3D")}>3D</button><button type="button" onClick={() => map.current?.easeTo({ pitch: Math.min(75, (map.current.getPitch?.() ?? 0) + 12), duration: 350 })}>기울이기</button><button type="button" onClick={() => map.current?.rotateTo((map.current.getBearing?.() ?? 0) + 30, { duration: 350 })}>회전</button><button type="button" onClick={() => map.current?.easeTo({ bearing: 0, pitch: viewMode === "3D" ? 52 : 0, duration: 400 })}>북쪽</button></div><div ref={container} className="real-map" aria-label={`안양 실제 지도 ${viewMode} 보기`} />{viewMode === "3D" && <p className="map-3d-note" role="status">3D 건물 높이 · OSM 태그 우선 · 미상 높이는 평면 표시</p>}{evacuationFlow.length > 0 && <p className="map-flow-legend" role="status">대피 수요 이동 · 선 굵기 = 배정 수요</p>}{walkingRoute && <p className="map-route-legend" data-testid="walking-route-line" aria-label="기본 도보 경로 지도 레이어">파란 선: 기본 도보 네트워크 경로 · 재난 안전경로 아님</p>}<p className="map-attribution">© OpenStreetMap contributors · 지도 타일 제공 약관을 확인하세요.</p></div>;
 }
 
 const emptyFeatureCollection = { type: "FeatureCollection" as const, features: [] };

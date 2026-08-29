@@ -126,8 +126,24 @@ def _frame_payload_cached(scenario_json: str, time_minute: int) -> dict[str, Any
     road_by_id = {str(road["edge_id"]): road for road in _roads(graph, coords)}
     changed_roads = [state.__dict__ | {"a": road_by_id[state.edge_id]["a"], "b": road_by_id[state.edge_id]["b"]} for state in frame.roads.values() if not state.available and state.edge_id in road_by_id]
     facility_states = [state.__dict__ | {"load": assignment["facility_load"].get(state.facility_id, 0)} for state in frame.facilities.values() if state.facility_id in assignment["facility_load"] or not state.available]
+    demand_by_id = {unit.demand_id: unit for unit in evacuation_units}
+    facility_by_id = {str(item["id"]): item for item in facilities}
+    evacuation_flow = []
+    for item in assignment["assignments"]:
+        demand = demand_by_id.get(item["demand_id"])
+        facility = facility_by_id.get(item["facility_id"])
+        if demand is None or facility is None or facility.get("latitude") is None or facility.get("longitude") is None:
+            continue
+        capacity = max(1, int(frame.facilities[item["facility_id"]].effective_capacity))
+        evacuation_flow.append({
+            "demand_node_id": item["demand_id"],
+            "shelter_id": item["facility_id"],
+            "assigned_demand": item["assigned"],
+            "load_ratio": round(assignment["facility_load"].get(item["facility_id"], 0) / capacity, 4),
+            "geometry": {"type": "LineString", "coordinates": [[demand.longitude, demand.latitude], [facility["longitude"], facility["latitude"]]]},
+        })
     available_shelters = sum(1 for facility in facilities if facility.get("category") == "CIVIL_DEFENSE_SHELTER" and frame.facilities.get(facility["id"]) and frame.facilities[facility["id"]].available)
-    payload = {"scenario_id": scenario.scenario_id, "time_minute": time_minute, "hazard": {"geometry": frame.hazard_geometry, "label": frame.hazard_label, "provenance": scenario.provenance}, "roads": {"changed_count": len(changed_roads), "changed": changed_roads}, "facilities": facility_states, "available_shelter_count": available_shelters, "overloaded_shelter_count": len(assignment["overloaded_facilities"]), "resources": [state.__dict__ for state in frame.resources.values()], "assignment": assignment, "demand_provenance": sorted({unit.provenance for unit in scenario.demand_units}), "terrain_authorized": False, "citizen_guidance_authorized": False, "computation_state_signature": state_signature, "computation_status": "READY"}
+    payload = {"scenario_id": scenario.scenario_id, "time_minute": time_minute, "hazard": {"geometry": frame.hazard_geometry, "label": frame.hazard_label, "provenance": scenario.provenance}, "roads": {"changed_count": len(changed_roads), "changed": changed_roads}, "facilities": facility_states, "evacuation_flow": evacuation_flow, "available_shelter_count": available_shelters, "overloaded_shelter_count": len(assignment["overloaded_facilities"]), "resources": [state.__dict__ for state in frame.resources.values()], "assignment": assignment, "demand_provenance": sorted({unit.provenance for unit in scenario.demand_units}), "terrain_authorized": False, "citizen_guidance_authorized": False, "computation_state_signature": state_signature, "computation_status": "READY"}
     if len(_STATE_PAYLOAD_CACHE) >= 128:
         _STATE_PAYLOAD_CACHE.pop(next(iter(_STATE_PAYLOAD_CACHE)))
     _STATE_PAYLOAD_CACHE[state_signature] = copy.deepcopy(payload)
