@@ -6,8 +6,11 @@ import { CitizenSimulationPreview } from "./CitizenSimulationPreview";
 import { CATEGORY_LABELS, dataManifest, facilities, sourceCounts, type Category, type Facility } from "./realData";
 import { API_BASE } from "./api";
 import { readJsonResponse } from "./api";
+import { EventOrganizer } from "./EventOrganizer";
+import { EventPublicPage } from "./EventPublicPage";
+import type { EventPlan } from "./eventPlan";
 
-type Page = "citizen" | "simulate" | "admin" | "about";
+type Page = "citizen" | "simulate" | "admin" | "about" | "event" | "event-public";
 type Location = { latitude: number; longitude: number };
 
 const categoryOrder: Category[] = ["CIVIL_DEFENSE_SHELTER", "EMERGENCY_WATER", "AED"];
@@ -58,7 +61,7 @@ function AdminShell({ onBack }: { onBack: () => void }) {
 }
 
 export function App() {
-  const initialPage: Page = window.location.pathname === "/simulate" ? "simulate" : window.location.pathname === "/admin" ? "admin" : window.location.pathname === "/about-data" ? "about" : "citizen";
+  const initialPage: Page = window.location.pathname === "/simulate" ? "simulate" : window.location.pathname === "/admin" ? "admin" : window.location.pathname === "/event-admin" ? "event" : window.location.pathname.startsWith("/event/") ? "event-public" : window.location.pathname === "/about-data" ? "about" : "citizen";
   const [page, setPage] = useState<Page>(initialPage);
   const [category, setCategory] = useState<Category>("CIVIL_DEFENSE_SHELTER");
   const [query, setQuery] = useState("");
@@ -69,6 +72,7 @@ export function App() {
   const [offline, setOffline] = useState(() => typeof navigator !== "undefined" && !navigator.onLine);
   const [routeMessage, setRouteMessage] = useState("");
   const [walkingRoute, setWalkingRoute] = useState<Parameters<typeof MapView>[0]["walkingRoute"]>(null);
+  const [eventPlan, setEventPlan] = useState<EventPlan | null>(null);
 
   useEffect(() => {
     const update = () => setOffline(!navigator.onLine);
@@ -87,10 +91,12 @@ export function App() {
 
   if (page === "simulate") return <SimulationPreview onBack={() => setPage("citizen")} />;
   if (page === "about") return <AboutData onBack={() => setPage("citizen")} />;
+  if (page === "event") return <EventOrganizer onBack={() => setPage("citizen")} onPreview={(plan) => { setEventPlan(plan); setPage("event-public"); }} />;
+  if (page === "event-public") return <EventPublicPage plan={eventPlan ?? undefined} />;
   if (page === "admin") return <AdminSimulator onBack={() => setPage("citizen")} demoMode={new URLSearchParams(window.location.search).get("demo") === "1"} />;
 
   return <div className="app-shell">
-    <header className="topbar"><a className="brand" href="/" onClick={(event) => { event.preventDefault(); setPage("citizen"); }} aria-label="SAFE-Twin 안양 홈"><span className="brand-mark" aria-hidden="true">안</span><span>SAFE-Twin 안양</span></a><nav aria-label="주요 메뉴"><button className="nav-link active" type="button">시민 화면</button><button className="nav-link" type="button" onClick={() => setPage("admin")}>관리자 시뮬레이터</button></nav><button className="text-toggle" type="button" onClick={toggleLargeText} aria-pressed={largeText}>{largeText ? "기본 글씨" : "큰 글씨"}</button></header>
+    <header className="topbar"><a className="brand" href="/" onClick={(event) => { event.preventDefault(); setPage("citizen"); }} aria-label="SAFE-Twin 안양 홈"><span className="brand-mark" aria-hidden="true">안</span><span>SAFE-Twin 안양</span></a><nav aria-label="주요 메뉴"><button className="nav-link active" type="button">시민 화면</button><button className="nav-link" type="button" onClick={() => setPage("event")}>행사 안내 만들기</button><button className="nav-link" type="button" onClick={() => setPage("admin")}>관리자 시뮬레이터</button></nav><button className="text-toggle" type="button" onClick={toggleLargeText} aria-pressed={largeText}>{largeText ? "기본 글씨" : "큰 글씨"}</button></header>
     <main className="main-layout"><div className="content-column"><div className="status-banner" role="status"><strong>공식 데이터 기준</strong><span>대피소 {sourceCounts.CIVIL_DEFENSE_SHELTER}곳 · 급수시설 {sourceCounts.EMERGENCY_WATER}곳 · AED {sourceCounts.AED}곳</span></div>{offline && <div className="offline-banner" role="status">오프라인 · 저장된 정보 2026-08-20 20:33</div>}<div className="heading-row"><div><p className="eyebrow">안양 재난 대응</p><h1>안양 재난 대응 지도</h1><p className="intro">현재 연결된 공공데이터 기준으로 필요한 시설을 찾고 기본 도보 경로를 확인하세요.</p></div><button className="location-button" type="button" onClick={locate}><span aria-hidden="true">⌖</span>현재 위치</button></div><div className="search-row"><label className="search-field"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="시설명 또는 주소 검색" aria-label="시설명 또는 주소 검색" /></label><button className="preview-link" type="button" onClick={() => setPage("simulate")}>재난 상황 미리보기</button></div><div className="category-row" role="group" aria-label="시설 종류">{categoryOrder.map((item) => <button key={item} aria-label={CATEGORY_LABELS[item]} className={category === item ? "category-button selected" : "category-button"} type="button" onClick={() => selectCategory(item)}>{CATEGORY_LABELS[item]}<span>{sourceCounts[item]}</span></button>)}</div><MapView facilities={visibleFacilities} onSelect={setSelected} currentLocation={location} walkingRoute={walkingRoute} /><p className="map-note">{locationMessage || "지도에서 시설을 선택하면 상세 정보를 확인할 수 있습니다."}</p></div><aside className="support-panel" aria-label="주변 재난 대응 안내"><section className="nearby-section"><p className="section-kicker">현재 선택</p><h2>{CATEGORY_LABELS[category]} 찾기</h2>{category === "AED" && <div className="aed-first"><a className="primary-emergency" href="tel:119"><span aria-hidden="true">☎</span><span><strong>119 신고</strong><small>위치 확인보다 신고가 먼저입니다.</small></span></a><button className="secondary-button" type="button" onClick={() => setSelected(visibleFacilities[0] || null)}>AED 찾기</button><p className="notice-text">원문에 좌표가 없어 AED는 주소 목록으로 제공합니다.</p></div>}<div className="nearby-list">{nearby.map((facility) => <button key={facility.id} type="button" onClick={() => setSelected(facility)}><span className="list-dot" aria-hidden="true" /><span><strong>{facility.name || "시설명 미상"}</strong><small>{facility.address || "주소 미상"}</small>{category === "AED" && <small>원문 좌표 없음 · {facility.source_provenance || "OFFICIAL"}</small>}</span></button>)}{nearby.length === 0 && <p className="empty-state">검색 결과가 없습니다. 현재 원문에는 위치정보가 없습니다.</p>}</div></section>{selected && <FacilityDetails facility={selected} onRoute={requestRoute} />}{routeMessage && <p className="route-result" role="status">{routeMessage}</p>}<section className="support-note"><h2>실제 재난 시</h2><p>공식 재난문자와 안내를 우선 확인하세요. 이 화면은 보조 정보입니다.</p><a href="tel:119" className="call-link"><span aria-hidden="true">☎</span><span><strong>119 신고</strong><small>긴급 구조·구급</small></span></a></section></aside></main><footer><span>SAFE-Twin 안양 · 현재 연결된 공공데이터 기준</span><button type="button" onClick={() => setPage("about")}>데이터 출처와 한계</button></footer>
   </div>;
 }
