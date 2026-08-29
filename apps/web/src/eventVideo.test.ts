@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildStoryboard, canExportWebm, sceneAtTime } from "./eventVideoModel";
+import { buildStoryboard, canExportWebm, sceneAtTime, sceneProgress } from "./eventVideoModel";
 import { createEventPlan, addEventNode, addRoutePoint } from "./eventPlan";
 
 describe("deterministic evacuation video storyboard", () => {
@@ -19,5 +19,12 @@ describe("deterministic evacuation video storyboard", () => {
   it("reports whether the browser can export WebM", () => {
     expect(canExportWebm(false, false)).toBe(false);
     expect(canExportWebm(true, true)).toBe(true);
+  });
+
+  it("progresses route scenes over time instead of drawing them all at once", () => {
+    const storyboard = buildStoryboard(createEventPlan("행사", "장소", "INDOOR"), "A");
+    expect(sceneProgress(storyboard, 9.1).progress).toBeGreaterThan(0);
+    expect(sceneProgress(storyboard, 9.1).progress).toBeLessThan(1);
+    expect(sceneProgress(storyboard, 13).index).toBe(4);
   });
 });

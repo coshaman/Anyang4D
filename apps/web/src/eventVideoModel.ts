@@ -29,3 +29,13 @@ export function sceneAtTime(storyboard: StoryboardScene[], elapsedSeconds: numbe
 export function canExportWebm(hasMediaRecorder: boolean, hasCaptureStream: boolean) {
   return hasMediaRecorder && hasCaptureStream;
 }
+
+export function sceneProgress(storyboard: StoryboardScene[], elapsedSeconds: number) {
+  let cursor = 0;
+  for (let index = 0; index < storyboard.length; index += 1) {
+    const duration = storyboard[index].durationSeconds;
+    if (elapsedSeconds < cursor + duration) return { index, progress: Math.max(0, Math.min(1, (elapsedSeconds - cursor) / duration)) };
+    cursor += duration;
+  }
+  return { index: Math.max(0, storyboard.length - 1), progress: 1 };
+}
