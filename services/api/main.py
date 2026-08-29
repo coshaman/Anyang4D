@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .contracts import FoundationResponse, Provenance, ProvenanceResponse, RouteRequest
 from .facilities import load_local_shelter_context, load_processed_facilities
-from .routing import build_route
+from .routing import build_routes
 from .simulation import router as simulation_router
 from .goal4a import router as goal4a_router
 from .goal5a import router as goal5a_router
@@ -114,11 +114,12 @@ def release_version_endpoint() -> dict[str, str]:
 @app.post("/api/routes")
 def routes(request: RouteRequest) -> dict:
     try:
-        return build_route(
+        candidates = build_routes(
             osm_payload(),
             (request.origin["latitude"], request.origin["longitude"]),
             (request.destination["latitude"], request.destination["longitude"]),
         )
+        return {**candidates[0], "candidates": candidates}
     except (KeyError, ValueError) as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
 
