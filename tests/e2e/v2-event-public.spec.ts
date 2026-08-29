@@ -11,6 +11,10 @@ test("public event page exposes share QR and advances deterministic video scenes
   await expect(qr).toHaveAttribute("src", /api\.qrserver\.com\/v1\/create-qr-code/);
   const qrTarget = await qr.evaluate((image) => new URL(image.getAttribute("src") || "").searchParams.get("data"));
   expect(qrTarget).toContain("/event/");
+  const sharedPage = await page.context().newPage();
+  await sharedPage.goto(qrTarget as string, { waitUntil: "domcontentloaded" });
+  await expect(sharedPage.getByRole("heading", { name: "SAFE-Twin 행사 대피 안내" })).toBeVisible();
+  await sharedPage.close();
   const before = await page.getByTestId("event-video-canvas").getAttribute("data-scene-index");
   await page.getByRole("button", { name: "재생" }).click();
   await page.waitForTimeout(3500);
@@ -22,8 +26,9 @@ test("public event page exposes share QR and advances deterministic video scenes
   const download = await downloadPromise;
   const downloadPath = await download.path();
   expect(downloadPath).toBeTruthy();
-  const fileSize = (await import("node:fs/promises")).stat(downloadPath as string).then((stats) => stats.size);
-  expect(await fileSize).toBeGreaterThan(0);
+  const videoBytes = await (await import("node:fs/promises")).readFile(downloadPath as string);
+  expect(videoBytes.byteLength).toBeGreaterThan(0);
+  expect(videoBytes.subarray(0, 4).toString("hex")).toBe("1a45dfa3");
   await page.screenshot({ path: "artifacts/evals/v2/screenshots/event-public-video-1280.png", fullPage: true });
 });
 
