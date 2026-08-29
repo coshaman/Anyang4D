@@ -5,6 +5,7 @@ import { AdminSimulator } from "./AdminSimulator";
 import { CitizenSimulationPreview } from "./CitizenSimulationPreview";
 import { CATEGORY_LABELS, dataManifest, facilities, sourceCounts, type Category, type Facility } from "./realData";
 import { API_BASE } from "./api";
+import { readJsonResponse } from "./api";
 
 type Page = "citizen" | "simulate" | "admin" | "about";
 type Location = { latitude: number; longitude: number };
@@ -82,7 +83,7 @@ export function App() {
   function toggleLargeText() { const next = !largeText; setLargeText(next); document.documentElement.dataset.textSize = next ? "large" : "default"; }
   function locate() { if (!navigator.geolocation) { setLocationMessage("이 브라우저에서는 위치를 확인할 수 없습니다. 안양시 전체를 표시합니다."); return; } navigator.geolocation.getCurrentPosition((position) => { setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude }); setLocationMessage("현재 위치를 지도에 표시했습니다."); }, () => setLocationMessage("위치를 허용하지 않아 안양시 중심으로 표시합니다.")); }
   function selectCategory(next: Category) { setCategory(next); setSelected(null); setRouteMessage(""); setWalkingRoute(null); }
-  async function requestRoute() { if (!selected?.latitude || !selected.longitude) return; const origin = location || center; try { const response = await fetch(`${API_BASE}/routes`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ origin, destination: { latitude: selected.latitude, longitude: selected.longitude } }) }); if (!response.ok) throw new Error(); const route = await response.json(); setWalkingRoute({ geometry: route.geometry, origin, destination: route.destination }); setRouteMessage(`기본 도보 경로 · 약 ${route.distance_m.toLocaleString()}m · 예상 ${route.estimated_walking_minutes}분 · 출처 ${route.provenance}`); } catch { setWalkingRoute(null); setRouteMessage("도보 경로를 불러오지 못했습니다. 현재 연결된 보행 네트워크를 확인하세요."); } }
+  async function requestRoute() { if (!selected?.latitude || !selected.longitude) return; const origin = location || center; const endpoint = `${API_BASE}/routes`; try { const route = await readJsonResponse<{ geometry: Array<Location>; destination: Location; distance_m: number; estimated_walking_minutes: number; provenance: string }>(await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ origin, destination: { latitude: selected.latitude, longitude: selected.longitude } }) }), endpoint); setWalkingRoute({ geometry: route.geometry, origin, destination: route.destination }); setRouteMessage(`기본 도보 경로 · 약 ${route.distance_m.toLocaleString()}m · 예상 ${route.estimated_walking_minutes}분 · 출처 ${route.provenance}`); } catch (error) { setWalkingRoute(null); setRouteMessage(error instanceof Error ? error.message : "서버 연결 오류 · route"); } }
 
   if (page === "simulate") return <SimulationPreview onBack={() => setPage("citizen")} />;
   if (page === "about") return <AboutData onBack={() => setPage("citizen")} />;

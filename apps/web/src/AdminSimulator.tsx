@@ -3,6 +3,7 @@ import { MapView } from "./MapView";
 import { facilities, type Facility } from "./realData";
 import { API_BASE } from "./api";
 import { FRONTEND_BUILD_ID, type ReleaseVersion } from "./version";
+import { readJsonResponse } from "./api";
 
 type Scenario = Record<string, any>;
 type Frame = Record<string, any>;
@@ -62,7 +63,7 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
     try {
       const response = await request(`${API}/scenarios`);
       if (!response.ok) throw new Error("scenario request failed");
-      const body = await response.json();
+      const body = await readJsonResponse<{ items: Scenario[] }>(response, `${API}/scenarios`);
       setScenarios(body.items);
       if (!selectedId && body.items[0]) setSelectedId((demoMode && body.items.find((item: Scenario) => item.scenario_id === "anyang-general-evacuation-competition")?.scenario_id) || body.items[0].scenario_id);
       if (!compareId && demoMode && body.items.find((item: Scenario) => item.scenario_id === "anyang-general-evacuation-competition-shelter-outage")) setCompareId("anyang-general-evacuation-competition-shelter-outage");
@@ -78,7 +79,7 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
     try {
       const response = await request(`${API}/scenarios/${id}`);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const body = await response.json();
+      const body = await readJsonResponse<Scenario>(response, `${API}/scenarios/${id}`);
       if (generation !== requestGeneration.current) return;
       setScenario(body);
       const firstTime = body.frame_times?.[0] ?? 0;
@@ -96,17 +97,17 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
     try {
       const response = await request(`${API}/scenarios/${id}/frames/${at}`);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const next = await response.json();
+      const next = await readJsonResponse<Frame>(response, `${API}/scenarios/${id}/frames/${at}`);
       if (generation === requestGeneration.current) setFrame(next);
     } catch (error) { if (generation === requestGeneration.current) setStatus(`ERROR · frame · ${error instanceof Error ? error.message : "연결 실패"}`); }
   }
 
   useEffect(() => { void loadScenarios(); }, []);
   useEffect(() => { if (!window.matchMedia) return; const media = window.matchMedia("(prefers-reduced-motion: reduce)"); const update = () => setReducedMotion(media.matches); update(); media.addEventListener?.("change", update); return () => media.removeEventListener?.("change", update); }, []);
-  useEffect(() => { void request(`${API}/resources`).then(async (response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then((body) => { setResourceCount(body.count); setResources(body.items); }).catch((error) => setStatus(`ERROR · 자원 API · ${error instanceof Error ? error.message : "연결 실패"}`)); }, []);
-  useEffect(() => { void request(`${API_BASE}/release/readiness`, undefined, 45000).then(async (response) => { const body = await response.json(); if (!response.ok) throw new Error(`HTTP ${response.status}`); setReadiness(body); }).catch((error) => { setReadiness({ status: "NOT_READY", mandatory_checks: {} }); setStatus(`ERROR · readiness · ${error instanceof Error ? error.message : "연결 실패"}`); }); }, []);
-  useEffect(() => { void request(`${API_BASE}/admin/modes`).then((response) => response.json()).then((body) => setModeContracts(body.items || [])).catch(() => setModeContracts([])); }, []);
-  useEffect(() => { void request(`${API_BASE}/release/version`).then(async (response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(setReleaseVersion).catch(() => setReleaseVersion(null)); }, []);
+  useEffect(() => { const endpoint = `${API}/resources`; void request(endpoint).then((response) => readJsonResponse<{ count: number; items: Scenario[] }>(response, endpoint)).then((body) => { setResourceCount(body.count); setResources(body.items); }).catch((error) => setStatus(`ERROR · 자원 API · ${error instanceof Error ? error.message : "연결 실패"}`)); }, []);
+  useEffect(() => { const endpoint = `${API_BASE}/release/readiness`; void request(endpoint, undefined, 45000).then((response) => readJsonResponse<Scenario>(response, endpoint)).then(setReadiness).catch((error) => { setReadiness({ status: "NOT_READY", mandatory_checks: {} }); setStatus(`ERROR · readiness · ${error instanceof Error ? error.message : "연결 실패"}`); }); }, []);
+  useEffect(() => { const endpoint = `${API_BASE}/admin/modes`; void request(endpoint).then((response) => readJsonResponse<{ items?: Scenario[] }>(response, endpoint)).then((body) => setModeContracts(body.items || [])).catch((error) => setStatus(`ERROR · modes · ${error instanceof Error ? error.message : "연결 실패"}`)); }, []);
+  useEffect(() => { const endpoint = `${API_BASE}/release/version`; void request(endpoint).then((response) => readJsonResponse<ReleaseVersion>(response, endpoint)).then(setReleaseVersion).catch((error) => setStatus(`ERROR · version · ${error instanceof Error ? error.message : "연결 실패"}`)); }, []);
   useEffect(() => { void loadScenario(selectedId); }, [selectedId]);
   useEffect(() => { void loadFrame(selectedId, time); }, [selectedId, time]);
   useEffect(() => {
@@ -172,8 +173,9 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
 
   async function compare() {
     if (!selectedId || !compareId) return;
-    const response = await fetch(`${API}/compare`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ scenario_a: selectedId, scenario_b: compareId, time_minute: time }) });
-    if (response.ok) { setComparison(await response.json()); setStatus("Scenario A/B 비교를 계산했습니다."); }
+    const endpoint = `${API}/compare`;
+    try { setComparison(await readJsonResponse<Frame>(await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ scenario_a: selectedId, scenario_b: compareId, time_minute: time }) }), endpoint)); setStatus("Scenario A/B 비교를 계산했습니다."); }
+    catch (error) { setStatus(`ERROR · compare · ${error instanceof Error ? error.message : "연결 실패"}`); }
   }
 
   async function createScenario() {
@@ -187,9 +189,9 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
 
   async function exportScenario() {
     if (!selectedId) return;
-    const response = await fetch(`${API}/scenarios/${selectedId}/export?time_minute=${time}`);
-    if (!response.ok) return;
-    const blob = new Blob([JSON.stringify(await response.json(), null, 2)], { type: "application/json" });
+    const endpoint = `${API}/scenarios/${selectedId}/export?time_minute=${time}`;
+    const body = await readJsonResponse<Scenario>(await fetch(endpoint), endpoint);
+    const blob = new Blob([JSON.stringify(body, null, 2)], { type: "application/json" });
     const link = document.createElement("a"); link.href = URL.createObjectURL(blob); link.download = `${selectedId}-${time}min.json`; link.click(); URL.revokeObjectURL(link.href);
     setStatus("시나리오 요약 JSON을 내보냈습니다.");
   }
@@ -203,7 +205,7 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
   async function trainingRoute() {
     if (!selectedId) return;
     const response = await fetch(`${API}/training-route`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ scenario_id: selectedId, time_minute: time, origin: { latitude: 37.394, longitude: 126.956 }, destination: { latitude: 37.405, longitude: 126.97 } }) });
-    const body = await response.json();
+    const body = await readJsonResponse<Scenario>(response, `${API}/training-route`);
     setRouteStatus(body.status === "TRAINING_SCENARIO_ROUTE" ? `훈련 경로 ${body.distance_m}m` : body.status);
   }
 
@@ -212,7 +214,7 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
     try {
       const response = await fetch(`${API.replace("goal4a", "goal5a")}/screen`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ candidate_count: aiCandidateCount, top_k: 10, seed: 5 }) });
       if (!response.ok) throw new Error();
-      setAiScreen(await response.json());
+      setAiScreen(await readJsonResponse<Scenario>(response, `${API.replace("goal4a", "goal5a")}/screen`));
       setAiStatus("AI 선별 완료 · 상위 후보는 exact reference engine으로 재검증했습니다.");
     } catch { setAiStatus("AI 모델이 준비되지 않았거나 API가 연결되지 않았습니다. exact 시뮬레이터는 계속 사용할 수 있습니다."); }
   }

@@ -15,9 +15,9 @@ The production server explicitly serves the SPA shell for `/admin`, `/simulate`,
 
 ## Checks
 
-- `GET /healthz` returns service health.
-- `GET /readyz` executes mandatory artifact/data/engine checks and is the container/Render health-check endpoint; it returns 503 when the app cannot execute scenarios.
-- `GET /api/release/readiness` returns the validated release core.
+- `GET /healthz` is the cheap liveness endpoint and should be configured as the Render/container health-check path; it does not load data or rebuild graphs.
+- `GET /readyz` returns cached mandatory artifact/data/engine readiness and returns 503 when the app cannot execute scenarios. Its first request may perform the one-time readiness computation.
+- `GET /api/release/readiness` returns the same validated release core from the cached readiness result.
 - `GET /api/foundation` confirms official-data mode.
 - `GET /api/admin/goal4a/scenarios` confirms the demo scenario store.
 - `POST /api/admin/goal5a/screen` followed by exact verification confirms the AI workflow.

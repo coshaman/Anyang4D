@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { MapView } from "./MapView";
 import { facilities, type Facility } from "./realData";
 import { API_BASE } from "./api";
+import { readJsonResponse } from "./api";
 
 const API = `${API_BASE}/admin/goal4a`;
 
@@ -18,9 +19,8 @@ type Frame = {
 };
 
 async function getJson<T>(path: string): Promise<T> {
-  const response = await fetch(`${API}${path}`);
-  if (!response.ok) throw new Error(`request failed: ${response.status}`);
-  return response.json() as Promise<T>;
+  const endpoint = `${API}${path}`;
+  return readJsonResponse<T>(await fetch(endpoint), endpoint);
 }
 
 export function CitizenSimulationPreview({ onBack }: { onBack: () => void }) {
@@ -40,7 +40,7 @@ export function CitizenSimulationPreview({ onBack }: { onBack: () => void }) {
         setScenarios(items);
         setScenario(preferred ?? null);
       })
-      .catch(() => active && setError("훈련 시나리오를 불러오지 못했습니다. 관리자 데모에서 다시 확인하세요."));
+      .catch((error) => active && setError(error instanceof Error ? error.message : "서버 연결 오류 · scenarios"));
     return () => { active = false; };
   }, []);
 
@@ -50,7 +50,7 @@ export function CitizenSimulationPreview({ onBack }: { onBack: () => void }) {
     let active = true;
     getJson<Frame>(`/scenarios/${scenario.scenario_id}/frames/${minute}`)
       .then((next) => active && setFrame(next))
-      .catch(() => active && setError("훈련 frame을 불러오지 못했습니다."));
+      .catch((error) => active && setError(error instanceof Error ? error.message : "서버 연결 오류 · frame"));
     return () => { active = false; };
   }, [scenario, timeIndex]);
 

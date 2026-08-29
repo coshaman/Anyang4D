@@ -1,0 +1,409 @@
+﻿{
+    "target":  "https://anyang4d.onrender.com",
+    "probe_started_at":  "2026-08-29T02:34:23.4506668Z",
+    "probe_finished_at":  "2026-08-29T02:36:00.7793194Z",
+    "interval_seconds":  10,
+    "iterations":  6,
+    "endpoints":  [
+                      "/healthz",
+                      "/readyz",
+                      "/api/release/version",
+                      "/api/release/readiness",
+                      "/api/admin/goal4a/scenarios"
+                  ],
+    "classification":  "INTERMITTENT_502_OR_UNAVAILABLE",
+    "success_count":  8,
+    "server_error_or_unavailable_count":  22,
+    "records":  [
+                    {
+                        "iteration":  1,
+                        "endpoint":  "/healthz",
+                        "observed_at":  "2026-08-29T02:34:23.9369951Z",
+                        "status":  200,
+                        "ttfb_ms":  360.7,
+                        "total_ms":  462.3,
+                        "body":  "{\"status\":\"ok\",\"service\":\"safe-twin-anyang\",\"product_scope\":\"FINAL_RELEASE_4D_ADMIN_WHAT_IF\"}",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  1,
+                        "endpoint":  "/readyz",
+                        "observed_at":  "2026-08-29T02:34:28.9852503Z",
+                        "status":  null,
+                        "ttfb_ms":  null,
+                        "total_ms":  5031.4,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetResult\" with \"0\" argument(s): \"A task was canceled.\""
+                    },
+                    {
+                        "iteration":  1,
+                        "endpoint":  "/api/release/version",
+                        "observed_at":  "2026-08-29T02:34:30.1718782Z",
+                        "status":  200,
+                        "ttfb_ms":  1176.5,
+                        "total_ms":  1184.4,
+                        "body":  "{\"git_commit\":\"20b210e473d6f0ff8ff90c7ca02a72fdc5ba24b1\",\"build_timestamp\":\"unknown\",\"frontend_build_id\":\"20b210e473d6f0ff8ff90c7ca02a72fdc5ba24b1\",\"api_schema_version\":\"1\",\"scenario_schema_version\":\"1\"}",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  1,
+                        "endpoint":  "/api/release/readiness",
+                        "observed_at":  "2026-08-29T02:34:35.1811874Z",
+                        "status":  null,
+                        "ttfb_ms":  null,
+                        "total_ms":  5008.6,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetResult\" with \"0\" argument(s): \"A task was canceled.\""
+                    },
+                    {
+                        "iteration":  1,
+                        "endpoint":  "/api/admin/goal4a/scenarios",
+                        "observed_at":  "2026-08-29T02:34:40.0196181Z",
+                        "status":  200,
+                        "ttfb_ms":  4779.5,
+                        "total_ms":  4809.7,
+                        "body":  "{\"items\":[{\"scenario_id\":\"anyang-civil-defense-outage\",\"title\":\"민방위 대피시설 일부 폐쇄\",\"disaster_type\":\"CIVIL_DEFENSE\",\"start_time\":\"2026-08-22T00:00:00+00:00\",\"end_time\":\"2026-08-22T00:30:00+00:00\",\"timestep_minutes\":10,\"provenance\":\"ADMIN_SCENARIO\",\"description\":\"훈련/가정 시나리오\",\"assumptions\":[\"가정 hazard geometry는 실제 재난 예측이나 침수심이 아님\",\"공식 행정동 주민등록 인구 총량을 사용하며 좌표는 SIMULATED_SPATIAL_ALLOCATION demo anchor\"],\"hazard_keyframes\":[],\"road_closure_events\":[],\"facility_events\":[{\"start_minute\":10,\"end_minute\":30,\"facility_id\":\"civil-defense-shelter-national:1f65c7c32cb0689b\",\"available\":false,\"reason\":\"훈련 시나리오에서 대피시설 폐쇄\",\"provenance\":\"ADMIN_SCENARIO\"}],\"capacity_overrides\":[],\"resource_events\":[],\"demand_units\":[{\"demand_id\":\"anyang-dong-01\",\"label\":\"안양1동\",\"latitude\":37.361667,\"longitude\":126.903333,\"popula",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  2,
+                        "endpoint":  "/healthz",
+                        "observed_at":  "2026-08-29T02:34:50.2118084Z",
+                        "status":  200,
+                        "ttfb_ms":  127.5,
+                        "total_ms":  128.8,
+                        "body":  "{\"status\":\"ok\",\"service\":\"safe-twin-anyang\",\"product_scope\":\"FINAL_RELEASE_4D_ADMIN_WHAT_IF\"}",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  2,
+                        "endpoint":  "/readyz",
+                        "observed_at":  "2026-08-29T02:34:55.2225562Z",
+                        "status":  null,
+                        "ttfb_ms":  null,
+                        "total_ms":  5010.2,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetResult\" with \"0\" argument(s): \"A task was canceled.\""
+                    },
+                    {
+                        "iteration":  2,
+                        "endpoint":  "/api/release/version",
+                        "observed_at":  "2026-08-29T02:34:55.5750353Z",
+                        "status":  200,
+                        "ttfb_ms":  351.2,
+                        "total_ms":  352.1,
+                        "body":  "{\"git_commit\":\"20b210e473d6f0ff8ff90c7ca02a72fdc5ba24b1\",\"build_timestamp\":\"unknown\",\"frontend_build_id\":\"20b210e473d6f0ff8ff90c7ca02a72fdc5ba24b1\",\"api_schema_version\":\"1\",\"scenario_schema_version\":\"1\"}",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  2,
+                        "endpoint":  "/api/release/readiness",
+                        "observed_at":  "2026-08-29T02:35:00.5836774Z",
+                        "status":  null,
+                        "ttfb_ms":  null,
+                        "total_ms":  5007,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetResult\" with \"0\" argument(s): \"A task was canceled.\""
+                    },
+                    {
+                        "iteration":  2,
+                        "endpoint":  "/api/admin/goal4a/scenarios",
+                        "observed_at":  "2026-08-29T02:35:05.5977403Z",
+                        "status":  null,
+                        "ttfb_ms":  null,
+                        "total_ms":  5014.2,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetResult\" with \"0\" argument(s): \"A task was canceled.\""
+                    },
+                    {
+                        "iteration":  3,
+                        "endpoint":  "/healthz",
+                        "observed_at":  "2026-08-29T02:35:15.9784139Z",
+                        "status":  200,
+                        "ttfb_ms":  382.3,
+                        "total_ms":  383.1,
+                        "body":  "{\"status\":\"ok\",\"service\":\"safe-twin-anyang\",\"product_scope\":\"FINAL_RELEASE_4D_ADMIN_WHAT_IF\"}",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  3,
+                        "endpoint":  "/readyz",
+                        "observed_at":  "2026-08-29T02:35:20.9924579Z",
+                        "status":  null,
+                        "ttfb_ms":  null,
+                        "total_ms":  5011.1,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetResult\" with \"0\" argument(s): \"A task was canceled.\""
+                    },
+                    {
+                        "iteration":  3,
+                        "endpoint":  "/api/release/version",
+                        "observed_at":  "2026-08-29T02:35:21.5734036Z",
+                        "status":  200,
+                        "ttfb_ms":  578.5,
+                        "total_ms":  579.6,
+                        "body":  "{\"git_commit\":\"20b210e473d6f0ff8ff90c7ca02a72fdc5ba24b1\",\"build_timestamp\":\"unknown\",\"frontend_build_id\":\"20b210e473d6f0ff8ff90c7ca02a72fdc5ba24b1\",\"api_schema_version\":\"1\",\"scenario_schema_version\":\"1\"}",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  3,
+                        "endpoint":  "/api/release/readiness",
+                        "observed_at":  "2026-08-29T02:35:26.1164786Z",
+                        "status":  502,
+                        "ttfb_ms":  4542.3,
+                        "total_ms":  4542.9,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  3,
+                        "endpoint":  "/api/admin/goal4a/scenarios",
+                        "observed_at":  "2026-08-29T02:35:26.2707857Z",
+                        "status":  502,
+                        "ttfb_ms":  152.1,
+                        "total_ms":  152.9,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  4,
+                        "endpoint":  "/healthz",
+                        "observed_at":  "2026-08-29T02:35:36.4104835Z",
+                        "status":  503,
+                        "ttfb_ms":  135.9,
+                        "total_ms":  136.8,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  4,
+                        "endpoint":  "/readyz",
+                        "observed_at":  "2026-08-29T02:35:36.5409245Z",
+                        "status":  503,
+                        "ttfb_ms":  128.7,
+                        "total_ms":  129.9,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  4,
+                        "endpoint":  "/api/release/version",
+                        "observed_at":  "2026-08-29T02:35:36.6769015Z",
+                        "status":  503,
+                        "ttfb_ms":  134.8,
+                        "total_ms":  135.6,
+                        "body":  "",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  4,
+                        "endpoint":  "/api/release/readiness",
+                        "observed_at":  "2026-08-29T02:35:36.7359347Z",
+                        "status":  429,
+                        "ttfb_ms":  55.1,
+                        "total_ms":  57.8,
+                        "body":  "\u003c!DOCTYPE html\u003e\u003chtml lang=\"en-US\"\u003e\u003chead\u003e\u003ctitle\u003eJust a moment...\u003c/title\u003e\u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\u003cmeta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"\u003e\u003cmeta name=\"robots\" content=\"noindex,nofollow\"\u003e\u003cmeta name=\"viewport\" content=\"width=device-width,initial-scale=1\"\u003e\u003cmeta http-equiv=\"content-security-policy\" content=\"default-src \u0026#39;none\u0026#39;; script-src \u0026#39;nonce-VYW6Va8uJUfp8cNFoN1idP\u0026#39; \u0026#39;unsafe-eval\u0026#39; https://challenges.cloudflare.com; script-src-attr \u0026#39;none\u0026#39;; style-src \u0026#39;unsafe-inline\u0026#39;; img-src \u0026#39;self\u0026#39; https://challenges.cloudflare.com; connect-src \u0026#39;self\u0026#39; https://challenges.cloudflare.com; frame-src \u0026#39;self\u0026#39; https://challenges.cloudflare.com blob:; child-src \u0026#39;self\u0026#39; https://challenges.cloudflare.",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  4,
+                        "endpoint":  "/api/admin/goal4a/scenarios",
+                        "observed_at":  "2026-08-29T02:35:37.4300548Z",
+                        "status":  502,
+                        "ttfb_ms":  415.9,
+                        "total_ms":  700.8,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  5,
+                        "endpoint":  "/healthz",
+                        "observed_at":  "2026-08-29T02:35:47.9482465Z",
+                        "status":  502,
+                        "ttfb_ms":  124.6,
+                        "total_ms":  514.6,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  5,
+                        "endpoint":  "/readyz",
+                        "observed_at":  "2026-08-29T02:35:48.3672825Z",
+                        "status":  502,
+                        "ttfb_ms":  138.5,
+                        "total_ms":  432.7,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  5,
+                        "endpoint":  "/api/release/version",
+                        "observed_at":  "2026-08-29T02:35:48.5733121Z",
+                        "status":  502,
+                        "ttfb_ms":  123.8,
+                        "total_ms":  195.9,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  5,
+                        "endpoint":  "/api/release/readiness",
+                        "observed_at":  "2026-08-29T02:35:48.7517099Z",
+                        "status":  502,
+                        "ttfb_ms":  138.7,
+                        "total_ms":  173.2,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  5,
+                        "endpoint":  "/api/admin/goal4a/scenarios",
+                        "observed_at":  "2026-08-29T02:35:48.9128016Z",
+                        "status":  502,
+                        "ttfb_ms":  131.8,
+                        "total_ms":  164.4,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  6,
+                        "endpoint":  "/healthz",
+                        "observed_at":  "2026-08-29T02:35:59.3586810Z",
+                        "status":  502,
+                        "ttfb_ms":  140.1,
+                        "total_ms":  440.2,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  6,
+                        "endpoint":  "/readyz",
+                        "observed_at":  "2026-08-29T02:35:59.6111600Z",
+                        "status":  502,
+                        "ttfb_ms":  132.5,
+                        "total_ms":  253.3,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  6,
+                        "endpoint":  "/api/release/version",
+                        "observed_at":  "2026-08-29T02:36:00.1287935Z",
+                        "status":  502,
+                        "ttfb_ms":  125.7,
+                        "total_ms":  515.9,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  6,
+                        "endpoint":  "/api/release/readiness",
+                        "observed_at":  "2026-08-29T02:36:00.4008222Z",
+                        "status":  502,
+                        "ttfb_ms":  124.1,
+                        "total_ms":  272.2,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    },
+                    {
+                        "iteration":  6,
+                        "endpoint":  "/api/admin/goal4a/scenarios",
+                        "observed_at":  "2026-08-29T02:36:00.6900347Z",
+                        "status":  502,
+                        "ttfb_ms":  140.8,
+                        "total_ms":  288.6,
+                        "body":  "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"en\"\u003e\n  \u003chead\u003e\n    \u003cmeta charset=\"utf-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n    \u003ctitle\u003e502\u003c/title\u003e\n    \u003cstyle\u003e@font-face {\n  font-family: \"Roobert\";\n  font-weight: 500;\n  font-style: normal;\n  font-stretch: normal;\n  src: url(\"data:font/woff2;base64,d09GMk9UVE8AAKewAAwAAAABa6QAAKdfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYKmehqCHhuC4UocpRQGYACLBgE2AiQDkygEBgWFRwcgW8pqkQKZcr0u0nk2H+gc25rBL5CqkDOqYXNqo87dNmL1mgByHi4yIGwcgLFJz2f/////f/pSkaHKgl52HEgorIWX0m0/lzuLglQtUxbMiGh9qonlnolc+1JbmihzmbbylQ/Xs2Knu/rUH62ibhOWZkpgVpo4nLnvzMOZ87/06Lk2hMnbe1EpM1cUezJlZtqCZIKYIPYeoS6VhFPJXNa5j7Y8LmH67MF2qJYI49/FNzQbwX7cqeRUbzyDffdLybw5cxRTIbdy4y5BVskcP6vu3uo+6GtnQl/up3nkVnDZmKlEpYHB1w/usr46inVsWjdEIE2gBgoC36WYsC4qXJjwYb9YbH9vayYROp/tXkp72nOEOvigu6g0+gsN",
+                        "headers":  {
+
+                                    },
+                        "error":  "Exception calling \"GetValues\" with \"1\" argument(s): \"The given header was not found.\""
+                    }
+                ]
+}

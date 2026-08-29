@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 import networkx as nx
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -33,6 +34,7 @@ def _source_versions() -> dict[str, Any]:
     return sources
 
 
+@lru_cache(maxsize=1)
 def readiness_payload() -> dict[str, Any]:
     checks: dict[str, dict[str, Any]] = {}
     try:
