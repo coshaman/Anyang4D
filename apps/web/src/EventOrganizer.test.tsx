@@ -47,4 +47,15 @@ describe("event organizer workflow", () => {
     fireEvent.click(screen.getAllByRole("button", { name: "계획 미리보기" }).at(-1)!);
     expect(onPreview).toHaveBeenCalledWith(expect.objectContaining({ optionalFacilities: [expect.objectContaining({ kind: "EXTINGUISHER" })], emergencyInstructions: expect.not.arrayContaining(["뛰지 마세요"]) }));
   });
+
+  it("carries an explicitly entered organizer contact into the event plan", () => {
+    const onPreview = vi.fn();
+    render(<EventOrganizer onPreview={onPreview} />);
+    fireEvent.change(screen.getByLabelText("행사명"), { target: { value: "행사" } });
+    fireEvent.change(screen.getByLabelText("행사 장소"), { target: { value: "장소" } });
+    fireEvent.change(screen.getByLabelText("행사 문의 연락처"), { target: { value: "031-123-4567" } });
+    fireEvent.click(screen.getByRole("button", { name: "다음" }));
+    fireEvent.click(screen.getByRole("button", { name: "계획 미리보기" }));
+    expect(onPreview).toHaveBeenCalledWith(expect.objectContaining({ organizerContact: "031-123-4567" }));
+  });
 });
