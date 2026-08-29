@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
 import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
-import type { Map as MapInstance, MapMouseEvent } from "maplibre-gl";
+import type { FillExtrusionLayerSpecification, Map as MapInstance, MapMouseEvent } from "maplibre-gl";
 import type { Facility } from "./realData";
+import { osmBuildings, type OSMBuilding } from "./buildings";
 
 maplibregl.setWorkerUrl(maplibreWorkerUrl);
 
@@ -16,9 +17,33 @@ type Props = {
   changedRoads?: Array<{ a: [number, number]; b: [number, number]; reason?: string }>;
   facilityLoads?: Record<string, number>;
   walkingRoute?: { geometry: Array<{ latitude: number; longitude: number }>; origin: { latitude: number; longitude: number }; destination: { latitude: number; longitude: number } } | null;
+  buildings?: Building[];
 };
 
-export function MapView({ facilities, onSelect, currentLocation, hazardGeometry = null, hazardLabel = null, onMapClick, changedRoads = [], facilityLoads = {}, walkingRoute = null }: Props) {
+export type Building = {
+  id: string;
+  geometry: { type: "Polygon"; coordinates: number[][][] };
+  height_m: number;
+  height_provenance: "OSM_HEIGHT" | "DERIVED_LEVEL_HEIGHT" | "UNKNOWN_HEIGHT";
+};
+
+export function normalizeBuilding(building: OSMBuilding): Building {
+  const height = Number.parseFloat(building.tags.height ?? "");
+  if (Number.isFinite(height) && height > 0) return { id: building.id, geometry: building.geometry, height_m: height, height_provenance: "OSM_HEIGHT" };
+  const levels = Number.parseFloat(building.tags["building:levels"] ?? "");
+  if (Number.isFinite(levels) && levels > 0) return { id: building.id, geometry: building.geometry, height_m: levels * 3, height_provenance: "DERIVED_LEVEL_HEIGHT" };
+  return { id: building.id, geometry: building.geometry, height_m: 0, height_provenance: "UNKNOWN_HEIGHT" };
+}
+
+export function buildBuildingGeoJson(buildings: Building[]) {
+  return { type: "FeatureCollection" as const, features: buildings.map((building) => ({ type: "Feature" as const, geometry: building.geometry, properties: { id: building.id, height_m: building.height_m, height_provenance: building.height_provenance } })) };
+}
+
+export function buildBuildingExtrusionLayer() {
+  return { id: "building-extrusion", type: "fill-extrusion" as const, source: "buildings", minzoom: 10, paint: { "fill-extrusion-color": "#679b9a", "fill-extrusion-height": ["get", "height_m"], "fill-extrusion-base": 0, "fill-extrusion-opacity": 0.72 } } as FillExtrusionLayerSpecification;
+}
+
+export function MapView({ facilities, onSelect, currentLocation, hazardGeometry = null, hazardLabel = null, onMapClick, changedRoads = [], facilityLoads = {}, walkingRoute = null, buildings = osmBuildings.map(normalizeBuilding) }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<MapInstance | null>(null);
   const onSelectRef = useRef(onSelect);
@@ -26,6 +51,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
   const onMapClickRef = useRef(onMapClick);
   onMapClickRef.current = onMapClick;
   const dynamicProps = useRef({ geojson: null as typeof geojson | null, hazardGeometry, hazardLabel, changedRoads, walkingRoute });
+  const [viewMode, setViewMode] = useState<"2D" | "3D">("2D");
 
   const geojson = {
     type: "FeatureCollection" as const,
@@ -63,11 +89,14 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       instance.addSource("scenario-hazard", { type: "geojson", data: current.hazardGeometry ? { type: "Feature", geometry: hazardToGeoJson(current.hazardGeometry), properties: { label: current.hazardLabel ?? "시나리오 영역" } } : emptyFeatureCollection });
       instance.addSource("scenario-closures", { type: "geojson", data: roadGeoJson(current.changedRoads) });
       instance.addSource("walking-route", { type: "geojson", data: routeGeoJson(current.walkingRoute) });
+      instance.addSource("buildings", { type: "geojson", data: buildBuildingGeoJson(buildings) });
       instance.addLayer({ id: "scenario-hazard-fill", type: "fill", source: "scenario-hazard", paint: { "fill-color": "#c77a24", "fill-opacity": 0.22 } });
       instance.addLayer({ id: "scenario-hazard-line", type: "line", source: "scenario-hazard", paint: { "line-color": "#8b4f12", "line-width": 3, "line-dasharray": [2, 1] } });
       instance.addLayer({ id: "scenario-closures-line", type: "line", source: "scenario-closures", paint: { "line-color": "#9b2c2c", "line-width": 4, "line-dasharray": [1, 1] } });
       instance.addLayer({ id: "walking-route-line", type: "line", source: "walking-route", filter: ["==", ["geometry-type"], "LineString"], paint: { "line-color": "#1457a6", "line-width": 5, "line-opacity": 0.9 } });
       instance.addLayer({ id: "walking-route-points", type: "circle", source: "walking-route", filter: ["==", ["geometry-type"], "Point"], paint: { "circle-color": ["match", ["get", "role"], "origin", "#16805b", "#b34a3c"], "circle-radius": 8, "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+      instance.addLayer({ id: "building-footprints", type: "fill", source: "buildings", paint: { "fill-color": "#8ab8b2", "fill-opacity": 0.26 } });
+      instance.addLayer(buildBuildingExtrusionLayer());
       instance.addLayer({ id: "facility-clusters", type: "circle", source: "facilities", filter: ["has", "point_count"], paint: { "circle-color": "#0a6472", "circle-radius": ["step", ["get", "point_count"], 18, 50, 24, 100, 30], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
       instance.addLayer({ id: "facility-cluster-count", type: "symbol", source: "facilities", filter: ["has", "point_count"], layout: { "text-field": "{point_count_abbreviated}", "text-size": 13 }, paint: { "text-color": "#ffffff" } });
       instance.addLayer({ id: "facility-points", type: "circle", source: "facilities", filter: ["!", ["has", "point_count"]], paint: { "circle-color": "#0a6472", "circle-radius": ["step", ["get", "load"], 7, 1, 9, 100, 11], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
@@ -100,6 +129,19 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
   }, []);
 
   useEffect(() => {
+    const source = map.current?.getSource("buildings") as maplibregl.GeoJSONSource | undefined;
+    source?.setData(buildBuildingGeoJson(buildings));
+  }, [buildings]);
+
+  useEffect(() => {
+    const instance = map.current;
+    if (!instance) return;
+    if (instance.getLayer("building-footprints")) instance.setLayoutProperty("building-footprints", "visibility", viewMode === "2D" ? "visible" : "none");
+    if (instance.getLayer("building-extrusion")) instance.setLayoutProperty("building-extrusion", "visibility", viewMode === "3D" ? "visible" : "none");
+    instance.easeTo({ pitch: viewMode === "3D" ? 52 : 0, duration: 500 });
+  }, [viewMode]);
+
+  useEffect(() => {
     const source = map.current?.getSource("facilities") as maplibregl.GeoJSONSource | undefined;
     source?.setData(geojson);
   }, [facilities, facilityLoads]);
@@ -130,7 +172,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
     }
   }, [currentLocation]);
 
-  return <div className="map-wrap"><div ref={container} className="real-map" aria-label="안양 실제 지도" />{walkingRoute && <p className="map-route-legend" data-testid="walking-route-line" aria-label="기본 도보 경로 지도 레이어">파란 선: 기본 도보 네트워크 경로 · 재난 안전경로 아님</p>}<p className="map-attribution">© OpenStreetMap contributors · 지도 타일 제공 약관을 확인하세요.</p></div>;
+  return <div className="map-wrap"><div className="map-camera-controls" aria-label="지도 보기 조작"><button type="button" data-testid="map-2d-toggle" aria-pressed={viewMode === "2D"} onClick={() => setViewMode("2D")}>2D</button><button type="button" data-testid="map-3d-toggle" aria-pressed={viewMode === "3D"} onClick={() => setViewMode("3D")}>3D</button><button type="button" onClick={() => map.current?.easeTo({ pitch: Math.min(75, (map.current.getPitch?.() ?? 0) + 12), duration: 350 })}>기울이기</button><button type="button" onClick={() => map.current?.rotateTo((map.current.getBearing?.() ?? 0) + 30, { duration: 350 })}>회전</button><button type="button" onClick={() => map.current?.easeTo({ bearing: 0, pitch: viewMode === "3D" ? 52 : 0, duration: 400 })}>북쪽</button></div><div ref={container} className="real-map" aria-label={`안양 실제 지도 ${viewMode} 보기`} />{viewMode === "3D" && <p className="map-3d-note" role="status">3D 건물 높이 · OSM 태그 우선 · 미상 높이는 평면 표시</p>}{walkingRoute && <p className="map-route-legend" data-testid="walking-route-line" aria-label="기본 도보 경로 지도 레이어">파란 선: 기본 도보 네트워크 경로 · 재난 안전경로 아님</p>}<p className="map-attribution">© OpenStreetMap contributors · 지도 타일 제공 약관을 확인하세요.</p></div>;
 }
 
 const emptyFeatureCollection = { type: "FeatureCollection" as const, features: [] };
