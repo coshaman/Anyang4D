@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addEventNode, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, buildEventShareUrl, clearEventNode, createEventPlan, decodeEventPlan, encodeEventPlan, removeLastRoutePoint, updateEventGroup, type EventPoint } from "./eventPlan";
+import { addEventNode, addOutdoorFacility, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, buildEventShareUrl, clearEventNode, createEventPlan, decodeEventPlan, encodeEventPlan, removeLastRoutePoint, updateEventGroup, type EventPoint } from "./eventPlan";
 
 describe("event evacuation plan contract", () => {
   it("creates a group plan and preserves image-local points through URL encoding", () => {
@@ -52,5 +52,11 @@ describe("event evacuation plan contract", () => {
     const cleared = clearEventNode(plan, "A", "exit");
     expect(cleared.groups[0].routeLabel).toBe("북쪽 출구 안내");
     expect(cleared.groups[0].exit).toBeNull();
+  });
+
+  it("stores optional outdoor safety facilities in map coordinates", () => {
+    const plan = createEventPlan("야외 행사", "캠퍼스", "OUTDOOR");
+    const next = addOutdoorFacility(plan, "AED", { latitude: 37.4, longitude: 126.95 }, "중앙 AED");
+    expect(next.outdoorFacilities).toEqual([{ kind: "AED", point: { latitude: 37.4, longitude: 126.95 }, label: "중앙 AED" }]);
   });
 });

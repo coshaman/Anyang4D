@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addEventNode, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, clearEventNode, createEventPlan, removeLastOutdoorRoutePoint, removeLastRoutePoint, type EventPlan, type EventPoint, type EventRepresentation, type OutdoorPoint } from "./eventPlan";
+import { addEventNode, addOutdoorFacility, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, clearEventNode, createEventPlan, removeLastOutdoorRoutePoint, removeLastRoutePoint, type EventPlan, type EventPoint, type EventRepresentation, type OutdoorPoint } from "./eventPlan";
 import { FloorPlanCanvas } from "./FloorPlanCanvas";
 import { MapView } from "./MapView";
 
@@ -40,6 +40,7 @@ export function EventOrganizer({ onPreview, onBack }: { onPreview: (plan: EventP
   function placeOutdoorPoint(point: OutdoorPoint) {
     if (drawingRoute) { updatePlan(addOutdoorRoutePoint(plan, groupId, point)); return; }
     if (nodeKind === "start" || nodeKind === "exit" || nodeKind === "assembly") updatePlan(addOutdoorNode(plan, groupId, nodeKind, point));
+    else updatePlan(addOutdoorFacility(plan, nodeKind, point));
   }
   const outdoorRoute = activeGroup.outdoorRoute ?? [];
   const outdoorGeometry = activeGroup.outdoorStart && activeGroup.outdoorExit ? [activeGroup.outdoorStart, ...outdoorRoute, activeGroup.outdoorExit] : [];

@@ -13,6 +13,7 @@ export type EventPlan = {
   floorPlan?: { mimeType: "image/png" | "image/jpeg" | "image/svg+xml" | "application/pdf"; dataUrl: string; width: number; height: number };
   groups: EventGroup[];
   optionalFacilities: Array<{ kind: OptionalFacilityKind; point: EventPoint; label?: string }>;
+  outdoorFacilities: Array<{ kind: OptionalFacilityKind; point: OutdoorPoint; label?: string }>;
   emergencyInstructions: string[];
   organizerContact?: string;
   logoDataUrl?: string;
@@ -30,6 +31,7 @@ export function createEventPlan(name: string, venue: string, representation: Eve
     representation,
     groups: ["A", "B", "C"].map((id, index) => ({ id, name: `${id}구역`, start: null, exit: null, assembly: null, route: [], outdoorStart: null, outdoorExit: null, outdoorAssembly: null, outdoorRoute: [], routeLabel: "", color: groupColors[index] })),
     optionalFacilities: [],
+    outdoorFacilities: [],
     emergencyInstructions: ["뛰지 마세요", "안내요원의 지시에 따르세요", "위급 시 119에 신고하세요"],
     videoConfig: { title: "", sceneDurationSeconds: 3, textSize: "standard", narration: "caption" },
   };
@@ -62,6 +64,10 @@ export function addOutdoorNode(plan: EventPlan, groupId: string, kind: "start" |
 
 export function addOutdoorRoutePoint(plan: EventPlan, groupId: string, point: OutdoorPoint): EventPlan {
   return updateEventGroup(plan, groupId, { outdoorRoute: [...(plan.groups.find((group) => group.id === groupId)?.outdoorRoute ?? []), point] });
+}
+
+export function addOutdoorFacility(plan: EventPlan, kind: OptionalFacilityKind, point: OutdoorPoint, label?: string): EventPlan {
+  return { ...plan, outdoorFacilities: [...(plan.outdoorFacilities ?? []), { kind, point, ...(label ? { label } : {}) }] };
 }
 
 export function clearEventNode(plan: EventPlan, groupId: string, kind: "start" | "exit" | "assembly"): EventPlan {
