@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addEventNode, addOutdoorFacility, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, buildEventShareUrl, clearEventNode, createEventPlan, decodeEventPlan, encodeEventPlan, removeLastRoutePoint, updateEventGroup, type EventPoint } from "./eventPlan";
+import { addEventNode, addOutdoorFacility, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, buildEventShareUrl, clearEventNode, createEventPlan, decodeEventPlan, encodeEventPlan, removeLastEventFacility, removeLastRoutePoint, updateEventGroup, type EventPoint } from "./eventPlan";
 
 describe("event evacuation plan contract", () => {
   it("creates a group plan and preserves image-local points through URL encoding", () => {
@@ -58,5 +58,13 @@ describe("event evacuation plan contract", () => {
     const plan = createEventPlan("야외 행사", "캠퍼스", "OUTDOOR");
     const next = addOutdoorFacility(plan, "AED", { latitude: 37.4, longitude: 126.95 }, "중앙 AED");
     expect(next.outdoorFacilities).toEqual([{ kind: "AED", point: { latitude: 37.4, longitude: 126.95 }, label: "중앙 AED" }]);
+  });
+
+  it("removes the most recently added facility of the selected outdoor kind", () => {
+    let plan = createEventPlan("야외 행사", "캠퍼스", "OUTDOOR");
+    plan = addOutdoorFacility(addOutdoorFacility(plan, "AED", { latitude: 37.4, longitude: 126.95 }), "AED", { latitude: 37.401, longitude: 126.951 });
+    const next = removeLastEventFacility(plan, "AED", "OUTDOOR");
+    expect(next.outdoorFacilities).toHaveLength(1);
+    expect(next.outdoorFacilities[0].point).toEqual({ latitude: 37.4, longitude: 126.95 });
   });
 });

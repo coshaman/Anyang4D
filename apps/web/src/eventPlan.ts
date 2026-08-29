@@ -70,6 +70,17 @@ export function addOutdoorFacility(plan: EventPlan, kind: OptionalFacilityKind, 
   return { ...plan, outdoorFacilities: [...(plan.outdoorFacilities ?? []), { kind, point, ...(label ? { label } : {}) }] };
 }
 
+export function removeLastEventFacility(plan: EventPlan, kind: OptionalFacilityKind, representation: EventRepresentation): EventPlan {
+  if (representation === "OUTDOOR") {
+    const index = [...(plan.outdoorFacilities ?? [])].map((item) => item.kind).lastIndexOf(kind);
+    if (index < 0) return plan;
+    return { ...plan, outdoorFacilities: plan.outdoorFacilities.filter((_, itemIndex) => itemIndex !== index) };
+  }
+  const index = plan.optionalFacilities.map((item) => item.kind).lastIndexOf(kind);
+  if (index < 0) return plan;
+  return { ...plan, optionalFacilities: plan.optionalFacilities.filter((_, itemIndex) => itemIndex !== index) };
+}
+
 export function clearEventNode(plan: EventPlan, groupId: string, kind: "start" | "exit" | "assembly"): EventPlan {
   return updateEventGroup(plan, groupId, { [kind]: null, [`outdoor${kind[0].toUpperCase()}${kind.slice(1)}`]: null } as Partial<EventGroup>);
 }
