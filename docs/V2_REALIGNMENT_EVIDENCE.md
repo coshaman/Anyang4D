@@ -30,6 +30,7 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - Playwright 시민 경로 및 preview smoke: desktop 단일 worker에서 경로 geometry 렌더링과 large-text/offline/미리보기 흐름 통과.
 - Playwright `v2-4d-source.spec.ts`: phone/desktop 2 tests passed; timeline이 hazard와 `evacuation-flow` source를 변경한다.
 - Playwright 관리자 핵심 기능: phone/desktop 8 tests passed; timeline, A/B, export, road/facility authoring, AI separation을 포함한다.
+- Playwright production config: 최신 `dist`를 FastAPI same-origin runtime으로 기동한 뒤 no-mock `production-recovery.spec.ts` 2 tests passed; `/healthz`, `/readyz`, real facilities, citizen route, training frame, admin readiness/AI path를 확인했다. MapLibre worker 의존 자산도 번들되어 `maplibre-gl-shared` 404가 재발하지 않음을 확인했다.
 - `scripts/check_anti_slop.py`: passed.
 - `scripts/check_secrets.py`: passed.
 

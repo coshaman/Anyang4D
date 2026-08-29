@@ -6,6 +6,10 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("production container exposes real citizen and walking route flows", async ({ page, request }) => {
+  const missingMapLibreAssets: string[] = [];
+  page.on("response", (response) => {
+    if (response.status() === 404 && response.url().includes("maplibre-gl-shared")) missingMapLibreAssets.push(response.url());
+  });
   expect((await request.get("/readyz")).status()).toBe(200);
   const aed = await request.get("http://127.0.0.1:8000/api/facilities?type=aed");
   expect(aed.status()).toBe(200);
@@ -16,6 +20,7 @@ test("production container exposes real citizen and walking route flows", async 
   await page.locator(".nearby-list button").first().click();
   await page.getByRole("button", { name: "기본 도보 경로 보기" }).click();
   await expect(page.getByTestId("walking-route-line")).toBeVisible({ timeout: 30000 });
+  expect(missingMapLibreAssets).toEqual([]);
   await page.getByRole("button", { name: "AED" }).click();
   await expect(page.getByText("원문에 좌표가 없어 AED는 주소 목록으로 제공합니다.")).toBeVisible();
   await expect(page.getByText("원문 좌표 없음").first()).toBeVisible();
