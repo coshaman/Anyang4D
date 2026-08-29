@@ -16,6 +16,11 @@ export function EventOrganizer({ onPreview, onBack }: { onPreview: (plan: EventP
   const [nodeKind, setNodeKind] = useState<NodeKind>("start");
   const [drawingRoute, setDrawingRoute] = useState(false);
   const [selectedInstructions, setSelectedInstructions] = useState(() => createEventPlan("", "", "OUTDOOR").emergencyInstructions);
+  const [videoTitle, setVideoTitle] = useState("");
+  const [sceneDurationSeconds, setSceneDurationSeconds] = useState(4);
+  const [textSize, setTextSize] = useState<"standard" | "large" | "compact">("standard");
+  const [narration, setNarration] = useState<"caption" | "tts-preview">("caption");
+  const [logoDataUrl, setLogoDataUrl] = useState<string | undefined>();
   const activeGroup = plan.groups.find((group) => group.id === groupId) ?? plan.groups[0];
   function updatePlan(next: EventPlan) { setPlan(next); }
   function loadFloorPlan(file: File | undefined) {
@@ -24,8 +29,14 @@ export function EventOrganizer({ onPreview, onBack }: { onPreview: (plan: EventP
     reader.onload = () => updatePlan({ ...plan, floorPlan: { mimeType: file.type as "image/png" | "image/jpeg" | "image/svg+xml" | "application/pdf", dataUrl: String(reader.result), width: 800, height: 500 } });
     reader.readAsDataURL(file);
   }
+  function loadLogo(file: File | undefined) {
+    if (!file || !file.type.startsWith("image/")) return;
+    const reader = new FileReader();
+    reader.onload = () => setLogoDataUrl(String(reader.result));
+    reader.readAsDataURL(file);
+  }
   function placePoint(point: EventPoint) { updatePlan(drawingRoute ? addRoutePoint(plan, groupId, point) : addEventNode(plan, groupId, nodeKind, point)); }
-  function preview() { onPreview({ ...plan, name, venue, representation, emergencyInstructions: selectedInstructions, organizerContact: organizerContact.trim() || undefined, slug: name.trim().toLowerCase().replace(/\s+/g, "-") || "event" }); }
+  function preview() { onPreview({ ...plan, name, venue, representation, emergencyInstructions: selectedInstructions, organizerContact: organizerContact.trim() || undefined, slug: name.trim().toLowerCase().replace(/\s+/g, "-") || "event", logoDataUrl, videoConfig: { title: videoTitle.trim(), sceneDurationSeconds, textSize, narration, logoDataUrl } }); }
   return <main className="event-organizer" aria-label="행사 대피안내 만들기">
     <button className="back-button" type="button" onClick={onBack}>← 관리자 홈</button>
     <p className="section-kicker">행사 안내</p><h1>행사 대피안내 만들기</h1>
@@ -37,6 +48,7 @@ export function EventOrganizer({ onPreview, onBack }: { onPreview: (plan: EventP
       {representation === "INDOOR" && <><label className="admin-field">실내 도면 파일<input aria-label="실내 도면 파일" type="file" accept="image/png,image/jpeg,image/svg+xml,application/pdf" onChange={(event) => loadFloorPlan(event.target.files?.[0])} /></label>{plan.floorPlan && <p role="status">도면 파일이 선택되었습니다.</p>}<FloorPlanCanvas width={800} height={500} imageUrl={plan.floorPlan?.mimeType === "application/pdf" ? undefined : plan.floorPlan?.dataUrl} points={[activeGroup.start, activeGroup.exit, activeGroup.assembly, ...plan.optionalFacilities.map((item) => item.point)].filter((point): point is EventPoint => Boolean(point))} route={activeGroup.route} onPointAdd={placePoint} /></>}
       {representation === "OUTDOOR" && <p className="event-map-hint">야외 지도에서는 기존 OSM 보행 경로를 참고하고, 최종 안내 경로는 운영자가 확인합니다.</p>}
       <fieldset className="event-instructions"><legend>영상에 표시할 비상 안내</legend>{instructionOptions.map((instruction) => <label className="form-check" key={instruction}><input type="checkbox" aria-label={instruction} checked={selectedInstructions.includes(instruction)} onChange={(event) => setSelectedInstructions((current) => event.target.checked ? [...current, instruction] : current.filter((item) => item !== instruction))} />{instruction}</label>)}</fieldset>
+      <fieldset className="event-video-settings"><legend>영상 프리셋</legend><label className="admin-field">영상 제목<input aria-label="영상 제목" value={videoTitle} onChange={(event) => setVideoTitle(event.target.value)} placeholder="선택: 행사별 영상 제목" /></label><label className="admin-field">행사 로고<input aria-label="행사 로고" type="file" accept="image/png,image/jpeg,image/svg+xml" onChange={(event) => loadLogo(event.target.files?.[0])} /></label><label className="admin-field">장면 길이<select aria-label="장면 길이" value={sceneDurationSeconds} onChange={(event) => setSceneDurationSeconds(Number(event.target.value))}><option value={3}>3초</option><option value={4}>4초</option><option value={5}>5초</option><option value={6}>6초</option></select></label><label className="admin-field">문자 크기<select aria-label="문자 크기" value={textSize} onChange={(event) => setTextSize(event.target.value as typeof textSize)}><option value="standard">기본</option><option value="large">크게</option><option value="compact">작게</option></select></label><label className="admin-field">나레이션 모드<select aria-label="나레이션 모드" value={narration} onChange={(event) => setNarration(event.target.value as typeof narration)}><option value="caption">자막만 사용</option><option value="tts-preview">브라우저 음성 미리듣기</option></select></label><p className="field-hint">음성 미리듣기는 이 기기에서만 재생되며, WebM에는 자막과 화면만 저장됩니다.</p></fieldset>
       <button className="primary-button" type="button" onClick={preview}>계획 미리보기</button></section>}
   </main>;
 }

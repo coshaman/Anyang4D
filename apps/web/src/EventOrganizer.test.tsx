@@ -58,4 +58,21 @@ describe("event organizer workflow", () => {
     fireEvent.click(screen.getByRole("button", { name: "계획 미리보기" }));
     expect(onPreview).toHaveBeenCalledWith(expect.objectContaining({ organizerContact: "031-123-4567" }));
   });
+
+  it("configures the deterministic evacuation video preset", () => {
+    const onPreview = vi.fn();
+    render(<EventOrganizer onPreview={onPreview} />);
+    fireEvent.change(screen.getByLabelText("행사명"), { target: { value: "행사" } });
+    fireEvent.change(screen.getByLabelText("행사 장소"), { target: { value: "장소" } });
+    fireEvent.click(screen.getByRole("button", { name: "다음" }));
+    fireEvent.click(screen.getByRole("button", { name: "다음" }));
+    fireEvent.change(screen.getByLabelText("영상 제목"), { target: { value: "대피 안내 영상" } });
+    fireEvent.change(screen.getByLabelText("장면 길이"), { target: { value: "5" } });
+    fireEvent.change(screen.getByLabelText("문자 크기"), { target: { value: "large" } });
+    fireEvent.change(screen.getByLabelText("나레이션 모드"), { target: { value: "tts-preview" } });
+    fireEvent.click(screen.getAllByRole("button", { name: "계획 미리보기" }).at(-1)!);
+    expect(onPreview).toHaveBeenCalledWith(expect.objectContaining({
+      videoConfig: { title: "대피 안내 영상", sceneDurationSeconds: 5, textSize: "large", narration: "tts-preview" },
+    }));
+  });
 });

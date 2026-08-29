@@ -24,8 +24,10 @@ export function EventVideo({ plan, groupId = "A" }: { plan: EventPlan; groupId?:
     context.clearRect(0, 0, 1920, 1080);
     context.fillStyle = "#edf5f4"; context.fillRect(0, 0, 1920, 1080);
     context.fillStyle = "#0a6472"; context.fillRect(0, 0, 1920, 150);
-    context.fillStyle = "#ffffff"; context.font = "500 54px sans-serif"; context.fillText(scene.title, 100, 95);
-    context.fillStyle = "#173d43"; context.font = "500 42px sans-serif"; context.fillText(scene.caption, 100, 240);
+    const textScale = plan.videoConfig?.textSize === "large" ? 1.25 : plan.videoConfig?.textSize === "compact" ? .82 : 1;
+    context.fillStyle = "#ffffff"; context.font = `500 ${Math.round(54 * textScale)}px sans-serif`; context.fillText(scene.title, 100, 95);
+    context.fillStyle = "#173d43"; context.font = `500 ${Math.round(42 * textScale)}px sans-serif`; context.fillText(scene.caption, 100, 240);
+    if (plan.videoConfig?.logoDataUrl) { const logo = new Image(); logo.onload = () => context.drawImage(logo, 1700, 35, 140, 80); logo.src = plan.videoConfig.logoDataUrl; }
     const animatedPoints = scene.id.startsWith("route-") ? scene.points.slice(0, Math.max(1, Math.ceil(scene.points.length * progress))) : scene.points;
     if (animatedPoints.length > 0) {
       context.strokeStyle = "#b34a3c"; context.lineWidth = 16; context.lineJoin = "round"; context.beginPath();

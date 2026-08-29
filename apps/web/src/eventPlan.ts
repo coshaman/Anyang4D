@@ -2,6 +2,7 @@ export type EventPoint = { x: number; y: number };
 export type EventRepresentation = "OUTDOOR" | "INDOOR";
 export type OptionalFacilityKind = "AED" | "EXTINGUISHER" | "STAIRS" | "RESTRICTED_ZONE";
 export type EventGroup = { id: string; name: string; start: EventPoint | null; exit: EventPoint | null; assembly: EventPoint | null; route: EventPoint[]; color: string };
+export type EventVideoConfig = { title: string; sceneDurationSeconds: number; textSize: "standard" | "large" | "compact"; narration: "caption" | "tts-preview"; logoDataUrl?: string };
 export type EventPlan = {
   version: 1;
   slug: string;
@@ -14,6 +15,7 @@ export type EventPlan = {
   emergencyInstructions: string[];
   organizerContact?: string;
   logoDataUrl?: string;
+  videoConfig?: EventVideoConfig;
 };
 
 const groupColors = ["#0a6472", "#b34a3c", "#9a6300"];
@@ -28,6 +30,7 @@ export function createEventPlan(name: string, venue: string, representation: Eve
     groups: ["A", "B", "C"].map((id, index) => ({ id, name: `${id}구역`, start: null, exit: null, assembly: null, route: [], color: groupColors[index] })),
     optionalFacilities: [],
     emergencyInstructions: ["뛰지 마세요", "안내요원의 지시에 따르세요", "위급 시 119에 신고하세요"],
+    videoConfig: { title: "", sceneDurationSeconds: 3, textSize: "standard", narration: "caption" },
   };
 }
 
