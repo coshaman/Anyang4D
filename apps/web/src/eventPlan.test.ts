@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addEventNode, addRoutePoint, buildEventShareUrl, createEventPlan, decodeEventPlan, encodeEventPlan, updateEventGroup, type EventPoint } from "./eventPlan";
+import { addEventNode, addRoutePoint, buildEventShareUrl, createEventPlan, decodeEventPlan, encodeEventPlan, removeLastRoutePoint, updateEventGroup, type EventPoint } from "./eventPlan";
 
 describe("event evacuation plan contract", () => {
   it("creates a group plan and preserves image-local points through URL encoding", () => {
@@ -24,5 +24,14 @@ describe("event evacuation plan contract", () => {
     const url = buildEventShareUrl(plan, "https://example.test");
     expect(url).toContain("/event/");
     expect(decodeEventPlan(new URL(url).searchParams.get("plan") ?? "").name).toBe("안전 행사");
+  });
+
+  it("removes only the selected group's last manually drawn route point", () => {
+    let plan = createEventPlan("행사", "장소", "INDOOR");
+    plan = addRoutePoint(addRoutePoint(plan, "A", { x: 1, y: 2 }), "A", { x: 3, y: 4 });
+    plan = addRoutePoint(plan, "B", { x: 9, y: 9 });
+    const next = removeLastRoutePoint(plan, "A");
+    expect(next.groups.find((group) => group.id === "A")?.route).toEqual([{ x: 1, y: 2 }]);
+    expect(next.groups.find((group) => group.id === "B")?.route).toEqual([{ x: 9, y: 9 }]);
   });
 });

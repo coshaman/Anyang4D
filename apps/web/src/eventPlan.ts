@@ -46,6 +46,11 @@ export function addRoutePoint(plan: EventPlan, groupId: string, point: EventPoin
   return updateEventGroup(plan, groupId, { route: [...(plan.groups.find((group) => group.id === groupId)?.route ?? []), point] });
 }
 
+export function removeLastRoutePoint(plan: EventPlan, groupId: string): EventPlan {
+  const route = plan.groups.find((group) => group.id === groupId)?.route ?? [];
+  return updateEventGroup(plan, groupId, { route: route.slice(0, -1) });
+}
+
 export function encodeEventPlan(plan: EventPlan): string {
   const bytes = new TextEncoder().encode(JSON.stringify(plan));
   let binary = "";
