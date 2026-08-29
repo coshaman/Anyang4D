@@ -64,8 +64,20 @@ export function EventVideo({ plan, groupId = "A" }: { plan: EventPlan; groupId?:
     const chunks: BlobPart[] = [];
     const recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
     recorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
-    recorder.onstop = () => { const url = URL.createObjectURL(new Blob(chunks, { type: "video/webm" })); const link = document.createElement("a"); link.href = url; link.download = `${plan.slug || "event"}-evacuation-guide.webm`; link.click(); URL.revokeObjectURL(url); };
-    recorder.start(); setPlaying(true); window.setTimeout(() => { setPlaying(false); recorder.stop(); }, 1600);
+    recorder.onstop = () => { stream.getTracks().forEach((track) => track.stop()); const url = URL.createObjectURL(new Blob(chunks, { type: "video/webm" })); const link = document.createElement("a"); link.href = url; link.download = `${plan.slug || "event"}-evacuation-guide.webm`; link.click(); URL.revokeObjectURL(url); };
+    recorder.start();
+    setPlaying(false);
+    const totalSeconds = storyboard.reduce((sum, item) => sum + item.durationSeconds, 0);
+    const captureWindowMs = 2400;
+    const exportStarted = performance.now();
+    const nextFrame = () => new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve()));
+    while (performance.now() - exportStarted < captureWindowMs) {
+      setElapsed(Math.min(totalSeconds, ((performance.now() - exportStarted) / captureWindowMs) * totalSeconds));
+      await nextFrame();
+    }
+    setElapsed(totalSeconds);
+    await nextFrame();
+    recorder.stop();
     setExportStatus("WebM을 준비하고 있습니다.");
     } catch { setExportStatus("WebM 내보내기를 시작하지 못했습니다."); }
   }
