@@ -15,7 +15,8 @@ export function buildStoryboard(plan: EventPlan, groupId = "A"): StoryboardScene
   const start = group?.start ? [group.start] : outdoorStart;
   const exit = group?.exit ? [group.exit] : outdoorExit;
   const assembly = group?.assembly ? [group.assembly] : outdoorAssembly;
-  const route = group?.route?.length ? group.route : outdoorRoute.length ? outdoorRoute : projectedOutdoor;
+  const outdoorPath = [...outdoorStart, ...outdoorRoute, ...outdoorExit];
+  const route = group?.route?.length ? group.route : outdoorPath.length ? outdoorPath : projectedOutdoor;
   const duration = Math.max(2, Math.min(15, plan.videoConfig?.sceneDurationSeconds ?? 3));
   return [
     { id: "title", title: plan.videoConfig?.title || plan.name || "행사", caption: "비상 대피 안내", points: [], durationSeconds: duration },
