@@ -42,6 +42,12 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - `artifacts/evals/v2/screenshots/citizen-3d-1280.png`
 - `artifacts/evals/v2/screenshots/event-public-video-1280.png`
 - `artifacts/evals/v2/screenshots/event-public-1440.png`
+- `artifacts/evals/v2/screenshots/admin-4d-0min-1280.png`
+- `artifacts/evals/v2/screenshots/admin-4d-10min-1280.png`
+- `artifacts/evals/v2/screenshots/admin-4d-20min-1280.png`
+- `artifacts/evals/v2/screenshots/admin-4d-30min-1280.png`
+
+4D 상태 캡처를 시각 검토한 결과, 0/10/20/30분에서 hazard 범위, 통행 제한 선, 시설/배정 지표가 각각 달라졌고 지도 레이어와 관리자 패널이 함께 렌더링되었다.
 
 ## 제한사항 및 배포 게이트
 
