@@ -21,7 +21,7 @@ test("capture real competition demo screens and presenter timings", async ({ pag
 
   await measure("demo_route_to_usable_admin", async () => {
     await page.goto("/admin?demo=1", { waitUntil: "commit", timeout: 60000 });
-    await expect(page.getByRole("heading", { name: "안양 4D 도시상태 시뮬레이터" })).toBeVisible({ timeout: 60000 });
+    await expect(page.getByRole("heading", { name: "안양 안전 운영 도구" })).toBeVisible({ timeout: 60000 });
     await expect(page.locator(".maplibregl-canvas")).toBeVisible({ timeout: 60000 });
   });
   await page.screenshot({ path: path.join(screenshotDir, "03-admin-demo-opening.png"), fullPage: true });
@@ -43,13 +43,15 @@ test("capture real competition demo screens and presenter timings", async ({ pag
   await page.screenshot({ path: path.join(screenshotDir, "05-scenario-ab.png"), fullPage: true });
 
   await measure("ai_screen_and_exact_verification", async () => {
+    await page.getByRole("button", { name: "고급 분석" }).click();
     await page.getByRole("button", { name: "AI 빠른 선별" }).click();
     await expect(page.getByText(/AI 선별 완료/)).toBeVisible({ timeout: 120000 });
-    await expect(page.getByText(/표시 최종값은 exact reference 결과/)).toBeVisible({ timeout: 120000 });
+  await expect(page.getByText(/표시 최종값은 exact reference 결과/)).toBeVisible({ timeout: 120000 });
   });
   await page.screenshot({ path: path.join(screenshotDir, "06-ai-screening-and-exact-verification.png"), fullPage: true });
 
   await measure("export", async () => {
+    await page.getByRole("button", { name: "재난 시뮬레이션" }).click();
     const download = page.waitForEvent("download");
     await page.getByRole("button", { name: "JSON 내보내기" }).click();
     await download;

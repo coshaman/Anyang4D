@@ -17,17 +17,16 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - 야외 행사 경로: 실내 이미지 좌표와 분리된 위경도 시작·출구·경로를 MapLibre 클릭으로 지정하고, 집결지까지 연결한다. AED·소화기·계단·출입 제한 지점은 라벨이 있는 MapLibre 점 레이어로 주최자 지도와 공개 지도에 표시하며, 결정론적 영상 좌표에도 전달한다.
 - 행사 편집: 그룹별 경로 라벨과 시작·출구·집결지 및 선택 안전 지점 삭제/재지정을 제공한다.
 - 공개 행사: `/event/{slug}`에서 구역, 출구, 집결지, 비상 행동, 연락처, QR-ready URL, 실내 도면/야외 MapLibre 지도와 AED·소화기·계단·출입 제한 지점 목록을 제공한다.
-- 영상: 동일 `EventPlan`에서 6장면 1920×1080 canvas를 만들고 play/pause/restart/fullscreen/WebM export를 제공한다. 실내 도면 업로드는 영상 배경으로 렌더링하고, 야외 계획은 지도형 배경을 사용한다. WebM export는 설정된 장면 길이의 전체 storyboard를 가상 타임라인으로 순회해 녹화한다. 영상용 A/B/C 구역, 제목, 로고, 장면 길이, 문자 크기, 캡션/브라우저 음성 미리듣기 프리셋을 저장한다. WebM은 화면과 자막만 authoritative export이며 브라우저 음성은 미리듣기 convenience다.
 - 영상: 동일 `EventPlan`에서 6장면 1920×1080 canvas를 만들고 play/pause/restart/fullscreen/WebM export를 제공한다. 실내 도면 업로드는 영상 배경으로 렌더링하고, 야외 계획은 지도형 배경을 사용한다. WebM export는 설정된 장면 길이의 전체 storyboard를 가상 타임라인으로 순회해 녹화한다. 영상용 A/B/C 구역, 제목, 로고, 장면 길이, 문자 크기, 캡션/브라우저 음성 미리듣기 프리셋을 저장하며, TTS는 재생 시 장면별 브라우저 편의 기능으로만 동작한다. WebM은 화면과 자막만 authoritative export다.
 - 관리자: `행사 안내`, `재난 시뮬레이션`, `고급 분석` workspace와 지도 클릭 기반 도로 선택을 제공한다. 시설 마커를 클릭하면 해당 시설이 편집 대상으로 선택되고 현재 용량을 편집값에 불러온다. 고급 분석의 AI 선별은 모든 관리자 화면에서 접근 가능하며, bounded timeout/진단 상태와 모델 미준비 오류를 표시한다.
 
 ## 실행한 검증
 
-- `npm test -- --run`: 9 files, 33 tests passed.
+- `npm test -- --run`: 9 files, 35 tests passed.
 - `npm run build`: TypeScript와 Vite build passed.
 - `pytest tests/test_goal4a_api.py tests/test_goal2_data.py tests/test_goal7a_flow.py -q`: 13 passed.
 - `pytest tests/test_goal4a_assignment.py tests/test_goal4a_state_engine.py tests/test_goal4b_data.py tests/test_goal5a_contracts.py tests/test_goal5a_model.py tests/test_goal5a_screening_api.py -q`: 19 passed (도로/시설 상태 변경과 exact assignment 영향 포함).
-- Playwright `v2-map.spec.ts` 및 `v2-event-public.spec.ts`: phone/desktop 4 tests passed. 3D source/layer, public event page, scene advance, nonempty WebM download을 포함한다.
+- Playwright `v2-map.spec.ts` 및 `v2-event-public.spec.ts`: desktop targeted run에서 3D source/layer, 공개 행사 페이지, 장면 전환, nonempty WebM download, 실내 도면 경로 그리기 5 tests passed. 실내 도면 경로는 실제 `/event-admin` 흐름에서 SVG `polyline` 생성까지 확인했다.
 - Playwright 시민 경로 및 preview smoke: desktop 단일 worker에서 경로 geometry 렌더링과 large-text/offline/미리보기 흐름 통과.
 - Playwright `v2-4d-source.spec.ts`: phone/desktop 2 tests passed; timeline이 hazard와 `evacuation-flow` source를 변경한다.
 - Playwright 관리자 핵심 기능: phone/desktop 8 tests passed; timeline, A/B, export, road/facility authoring, AI separation을 포함한다.
@@ -48,8 +47,10 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - `artifacts/evals/v2/screenshots/admin-4d-10min-1280.png`
 - `artifacts/evals/v2/screenshots/admin-4d-20min-1280.png`
 - `artifacts/evals/v2/screenshots/admin-4d-30min-1280.png`
+- `artifacts/evals/v2/screenshots/event-organizer-indoor-1280x720-desktop.png`
 
 4D 상태 캡처를 시각 검토한 결과, 0/10/20/30분에서 hazard 범위, 통행 제한 선, 시설/배정 지표가 각각 달라졌고 지도 레이어와 관리자 패널이 함께 렌더링되었다.
+실내 행사 안내 캡처에서는 단계형 행사 설정, 실내 도면 편집 surface, image-local 경로 polyline, 구역/영상 프리셋이 함께 보인다.
 
 ## 제한사항 및 배포 게이트
 
