@@ -25,6 +25,7 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - `npm test -- --run`: 9 files, 33 tests passed.
 - `npm run build`: TypeScript와 Vite build passed.
 - `pytest tests/test_goal4a_api.py tests/test_goal2_data.py tests/test_goal7a_flow.py -q`: 13 passed.
+- `pytest tests/test_goal4a_assignment.py tests/test_goal4a_state_engine.py tests/test_goal4b_data.py tests/test_goal5a_contracts.py tests/test_goal5a_model.py tests/test_goal5a_screening_api.py -q`: 19 passed (도로/시설 상태 변경과 exact assignment 영향 포함).
 - Playwright `v2-map.spec.ts` 및 `v2-event-public.spec.ts`: phone/desktop 4 tests passed. 3D source/layer, public event page, scene advance, nonempty WebM download을 포함한다.
 - Playwright 시민 경로 및 preview smoke: desktop 단일 worker에서 경로 geometry 렌더링과 large-text/offline/미리보기 흐름 통과.
 - Playwright `v2-4d-source.spec.ts`: phone/desktop 2 tests passed; timeline이 hazard와 `evacuation-flow` source를 변경한다.
