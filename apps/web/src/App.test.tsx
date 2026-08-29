@@ -55,6 +55,22 @@ describe("SAFE-Twin real citizen shell", () => {
     expect(screen.getByText(/시민 emergency routing이 아닙니다/)).toBeInTheDocument();
   });
 
+  it("offers returned walking route candidates without exposing technical labels", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({
+      geometry: [{ latitude: 37.4, longitude: 126.9 }, { latitude: 37.401, longitude: 126.901 }],
+      destination: { latitude: 37.401, longitude: 126.901 }, distance_m: 120, estimated_walking_minutes: 2, provenance: "OFFICIAL",
+      candidates: [
+        { candidate_index: 1, geometry: [{ latitude: 37.4, longitude: 126.9 }, { latitude: 37.401, longitude: 126.901 }], destination: { latitude: 37.401, longitude: 126.901 }, distance_m: 120, estimated_walking_minutes: 2 },
+        { candidate_index: 2, geometry: [{ latitude: 37.4, longitude: 126.9 }, { latitude: 37.402, longitude: 126.902 }, { latitude: 37.401, longitude: 126.901 }], destination: { latitude: 37.401, longitude: 126.901 }, distance_m: 160, estimated_walking_minutes: 2 },
+      ],
+    }), { status: 200 })));
+    render(<App />);
+    fireEvent.click(document.querySelector(".nearby-list button") as HTMLButtonElement);
+    fireEvent.click(screen.getByRole("button", { name: "기본 도보 경로 보기" }));
+    expect(await screen.findByRole("button", { name: /대안 경로/ })).toBeInTheDocument();
+    expect(screen.queryByText(/provenance|exact|ADMIN_SCENARIO/i)).not.toBeInTheDocument();
+  });
+
   it("separates simulation and advanced analysis workspaces", async () => {
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: "관리자 시뮬레이터" }));
