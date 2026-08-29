@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { EventPlan, EventPoint } from "./eventPlan";
-import { buildStoryboard, canExportWebm, sceneAtTime } from "./eventVideoModel";
+import { buildStoryboard, canExportWebm, sceneAtTime, sceneProgress } from "./eventVideoModel";
 
 export function EventVideo({ plan, groupId = "A" }: { plan: EventPlan; groupId?: string }) {
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -10,6 +10,7 @@ export function EventVideo({ plan, groupId = "A" }: { plan: EventPlan; groupId?:
   const [exportStatus, setExportStatus] = useState("");
   const sceneIndex = sceneAtTime(storyboard, elapsed);
   const scene = storyboard[sceneIndex];
+  const progress = sceneProgress(storyboard, elapsed).progress;
 
   useEffect(() => {
     if (!playing) return;
@@ -25,14 +26,15 @@ export function EventVideo({ plan, groupId = "A" }: { plan: EventPlan; groupId?:
     context.fillStyle = "#0a6472"; context.fillRect(0, 0, 1920, 150);
     context.fillStyle = "#ffffff"; context.font = "500 54px sans-serif"; context.fillText(scene.title, 100, 95);
     context.fillStyle = "#173d43"; context.font = "500 42px sans-serif"; context.fillText(scene.caption, 100, 240);
-    if (scene.points.length > 0) {
+    const animatedPoints = scene.id.startsWith("route-") ? scene.points.slice(0, Math.max(1, Math.ceil(scene.points.length * progress))) : scene.points;
+    if (animatedPoints.length > 0) {
       context.strokeStyle = "#b34a3c"; context.lineWidth = 16; context.lineJoin = "round"; context.beginPath();
-      scene.points.forEach((point, index) => { const x = 180 + point.x * 1.6; const y = 360 + point.y * 1.2; if (index === 0) context.moveTo(x, y); else context.lineTo(x, y); });
+      animatedPoints.forEach((point, index) => { const x = 180 + point.x * 1.6; const y = 360 + point.y * 1.2; if (index === 0) context.moveTo(x, y); else context.lineTo(x, y); });
       context.stroke();
-      scene.points.forEach((point, index) => { context.fillStyle = index === 0 ? "#0a6472" : "#b34a3c"; context.beginPath(); context.arc(180 + point.x * 1.6, 360 + point.y * 1.2, 26, 0, Math.PI * 2); context.fill(); });
+      animatedPoints.forEach((point, index) => { context.fillStyle = index === 0 ? "#0a6472" : "#b34a3c"; context.beginPath(); context.arc(180 + point.x * 1.6, 360 + point.y * 1.2, 26, 0, Math.PI * 2); context.fill(); });
     }
     context.fillStyle = "#53636a"; context.font = "400 30px sans-serif"; context.fillText(`비상 대피 안내 · ${sceneIndex + 1}/6`, 100, 1000);
-  }, [scene, sceneIndex]);
+  }, [scene, sceneIndex, progress]);
 
   async function exportWebm() {
     const target = canvas.current;
