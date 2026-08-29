@@ -40,6 +40,7 @@ export function EventPublicPage({ plan: suppliedPlan }: { plan?: EventPlan }) {
         <div><dt>출구</dt><dd>{group?.exit || group?.outdoorExit ? "지정됨" : "미지정"}</dd></div>
         <div><dt>집결지</dt><dd>{group?.assembly || group?.outdoorAssembly ? "지정됨" : "미지정"}</dd></div>
       </dl>
+      {group?.routeLabel && <p className="event-route-label">안내 경로 · {group.routeLabel}</p>}
       {plan.optionalFacilities.length > 0 && <ul className="event-facilities" aria-label="행사 안전 지점">{plan.optionalFacilities.map((item, index) => <li key={`${item.kind}-${index}`}>{facilityLabels[item.kind]}{item.label ? ` · ${item.label}` : ""}</li>)}</ul>}
     </section>
     <section className="event-actions"><h2>비상 행동</h2><ul>{plan.emergencyInstructions.map((item) => <li key={item}>{item}</li>)}</ul>{plan.organizerContact && <p>행사 문의 · {plan.organizerContact}</p>}<a className="primary-emergency" href="tel:119">☎ <span><strong>위급 시 119 신고</strong><small>위치를 설명하고 안내를 따르세요.</small></span></a></section>
