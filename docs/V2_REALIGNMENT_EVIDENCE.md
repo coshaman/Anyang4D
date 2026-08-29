@@ -1,0 +1,48 @@
+# SAFE-Twin Anyang V2 realignment evidence
+
+검증 기준일: 2026-08-29  
+작업 브랜치: `codex/v2-realignment`
+
+## 제품 경계
+
+SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 분석)가 같은 MapLibre 지도 코어를 공유한다. SOLWEIG/Tmrt/UTCI, PhysicsNeMo/FNO 미기후, Cool AI route, 공식 태양 그림자, 물리 기반 홍수 깊이·예측, 공식 Rain-aware route, 토지피복 의존 Nature route는 제품 기능으로 노출하지 않는다.
+
+## 구현 증거
+
+- 2D/3D 지도: `MapView.tsx`의 MapLibre `fill-extrusion`; 높이 우선순위는 OSM `height` → `building:levels × 3m` → 평면 fallback이며 provenance를 분리한다.
+- 4D: 시나리오 프레임에서 hazard, 폐쇄 도로, 시설 load/capacity, `대피 수요 이동` 흐름을 MapLibre source로 갱신하고 0/10/20/30분 타임라인을 제공한다.
+- 시민 경로: OSM 그래프 기반 경로 geometry, 출발/목적지 marker, 거리·예상 시간·fit bounds·오류 상태와 대안 경로를 제공한다.
+- 행사 계획: 야외/실내 선택, PNG/JPEG/SVG/PDF 입력, image-local 도면 pan/zoom, A/B/C 구역별 노드·수동 경로, 선택적 AED/소화기/계단/제한구역, 조직자 연락처를 지원한다.
+- 공개 행사: `/event/{slug}`에서 구역, 출구, 집결지, 비상 행동, 연락처, QR-ready URL, 실내 도면/야외 MapLibre 지도를 제공한다.
+- 영상: 동일 `EventPlan`에서 6장면 1920×1080 canvas를 만들고 play/pause/restart/fullscreen/WebM export를 제공한다. 영상 제목, 로고, 장면 길이, 문자 크기, 캡션/브라우저 음성 미리듣기 프리셋을 저장한다. WebM은 화면과 자막만 authoritative export이며 브라우저 음성은 미리듣기 convenience다.
+- 관리자: `행사 안내`, `재난 시뮬레이션`, `고급 분석` workspace와 지도 클릭 기반 도로 선택을 제공한다.
+
+## 실행한 검증
+
+- `npm test -- --run`: 9 files, 27 tests passed.
+- `npm run build`: TypeScript와 Vite build passed.
+- `pytest tests/test_goal4a_api.py tests/test_goal2_data.py tests/test_goal7a_flow.py -q`: 13 passed.
+- Playwright `v2-map.spec.ts` 및 `v2-event-public.spec.ts`: phone/desktop 4 tests passed. 3D source/layer, public event page, scene advance, nonempty WebM download을 포함한다.
+- `scripts/check_anti_slop.py`: passed.
+- `scripts/check_secrets.py`: passed.
+
+## 화면 증거
+
+검토한 산출물:
+
+- `artifacts/evals/v2/screenshots/citizen-390.png`
+- `artifacts/evals/v2/screenshots/citizen-768.png`
+- `artifacts/evals/v2/screenshots/citizen-1280.png`
+- `artifacts/evals/v2/screenshots/citizen-3d-1280.png`
+- `artifacts/evals/v2/screenshots/event-public-video-1280.png`
+- `artifacts/evals/v2/screenshots/event-public-1440.png`
+
+## 제한사항 및 배포 게이트
+
+- 공개 HTTPS 배포는 검증하지 않았다. `artifacts/final/deployment-smoke.json`의 `public_https=false`, `public_url=null`이 현재 authoritative evidence다. 공개 URL/QR resolve를 주장하려면 호스팅 인증 후 동일 최신 커밋으로 smoke test를 다시 실행해야 한다.
+- Docker/실제 컨테이너 재실행은 현재 호스트에서 Docker 엔진을 사용할 수 없어 이번 변경에서 재검증하지 않았다.
+- 관리자 4D source-change Playwright 테스트는 코드로 추가했지만, 이 Windows 환경에서는 `/admin` 초기화 중 Chromium native process가 종료되어 결과를 얻지 못했다. 따라서 해당 테스트를 통과했다고 주장하지 않는다.
+- QR 이미지는 외부 QR 이미지 제공자가 차단될 때 공개 URL fallback을 표시한다. URL 자체는 페이지 내부에서 확인 가능하다.
+- 실내 경로는 운영자 수동 지정이며 법정 안전·소방 적합성 인증이 아니다. 대형 floor-plan asset은 URL token 크기 제한을 고려해 로컬 브라우저 범위로 취급한다.
+
+이번 V2 realignment 변경의 마지막 커밋은 `6cccfbb`이다. 공개 배포와 관리자 Chromium 안정화가 확인되기 전에는 전체 목표를 완료로 표시하지 않는다.
