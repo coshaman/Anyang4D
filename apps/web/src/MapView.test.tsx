@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildBuildingGeoJson, buildBuildingExtrusionLayer, normalizeBuilding } from "./MapView";
+import { buildBuildingGeoJson, buildBuildingExtrusionLayer, eventSafetyPointGeoJson, normalizeBuilding } from "./MapView";
 
 describe("2.5D building map contract", () => {
   it("prefers OSM height, then derives levels, then marks unknown height", () => {
@@ -13,5 +13,13 @@ describe("2.5D building map contract", () => {
     const collection = buildBuildingGeoJson([feature]);
     expect(collection.features[0].properties).toMatchObject({ height_m: 9, height_provenance: "DERIVED_LEVEL_HEIGHT" });
     expect(buildBuildingExtrusionLayer()).toMatchObject({ id: "building-extrusion", type: "fill-extrusion", source: "buildings" });
+  });
+
+  it("publishes outdoor event safety points as labeled map features", () => {
+    const layer = eventSafetyPointGeoJson([{ kind: "AED", point: { latitude: 37.4, longitude: 126.95 } }, { kind: "RESTRICTED_ZONE", point: { latitude: 37.401, longitude: 126.951 }, label: "공사 구역" }]);
+    expect(layer.features).toHaveLength(2);
+    expect(layer.features[0].geometry.coordinates).toEqual([126.95, 37.4]);
+    expect(layer.features[0].properties.label).toBe("AED");
+    expect(layer.features[1].properties.label).toBe("공사 구역");
   });
 });

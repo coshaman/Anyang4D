@@ -20,6 +20,7 @@ type Props = {
   buildings?: Building[];
   evacuationFlow?: EvacuationFlow[];
   facilityLoadRatios?: Record<string, number>;
+  eventSafetyPoints?: Array<{ kind: string; point: { latitude: number; longitude: number }; label?: string }>;
 };
 
 export type EvacuationFlow = {
@@ -57,14 +58,14 @@ export function buildEvacuationFlowGeoJson(flows: EvacuationFlow[]) {
   return { type: "FeatureCollection" as const, features: flows.map((flow) => ({ type: "Feature" as const, geometry: flow.geometry, properties: { demand_node_id: flow.demand_node_id, shelter_id: flow.shelter_id, assigned_demand: flow.assigned_demand, load_ratio: flow.load_ratio } })) };
 }
 
-export function MapView({ facilities, onSelect, currentLocation, hazardGeometry = null, hazardLabel = null, onMapClick, changedRoads = [], facilityLoads = {}, walkingRoute = null, buildings = osmBuildings.map(normalizeBuilding), evacuationFlow = [], facilityLoadRatios = {} }: Props) {
+export function MapView({ facilities, onSelect, currentLocation, hazardGeometry = null, hazardLabel = null, onMapClick, changedRoads = [], facilityLoads = {}, walkingRoute = null, buildings = osmBuildings.map(normalizeBuilding), evacuationFlow = [], facilityLoadRatios = {}, eventSafetyPoints = [] }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<MapInstance | null>(null);
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
   const onMapClickRef = useRef(onMapClick);
   onMapClickRef.current = onMapClick;
-  const dynamicProps = useRef({ geojson: null as typeof geojson | null, hazardGeometry, hazardLabel, changedRoads, walkingRoute });
+  const dynamicProps = useRef({ geojson: null as typeof geojson | null, hazardGeometry, hazardLabel, changedRoads, walkingRoute, eventSafetyPoints });
   const [viewMode, setViewMode] = useState<"2D" | "3D">("2D");
 
   const geojson = {
@@ -75,7 +76,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       properties: { id: facility.id, name: facility.name ?? "이름 미상", category: facility.category, load: facilityLoads[facility.id] ?? 0, load_ratio: facilityLoadRatios[facility.id] ?? evacuationFlow.find((flow) => flow.shelter_id === facility.id)?.load_ratio ?? 0 }
     }))
   };
-  dynamicProps.current = { geojson, hazardGeometry, hazardLabel, changedRoads, walkingRoute };
+  dynamicProps.current = { geojson, hazardGeometry, hazardLabel, changedRoads, walkingRoute, eventSafetyPoints };
 
   useEffect(() => {
     if (!container.current || map.current || typeof window === "undefined" || !(window as Window & { WebGLRenderingContext?: unknown }).WebGLRenderingContext || !maplibregl?.Map) return;
@@ -103,6 +104,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       instance.addSource("scenario-hazard", { type: "geojson", data: current.hazardGeometry ? { type: "Feature", geometry: hazardToGeoJson(current.hazardGeometry), properties: { label: current.hazardLabel ?? "시나리오 영역" } } : emptyFeatureCollection });
       instance.addSource("scenario-closures", { type: "geojson", data: roadGeoJson(current.changedRoads) });
       instance.addSource("walking-route", { type: "geojson", data: routeGeoJson(current.walkingRoute) });
+      instance.addSource("event-safety-points", { type: "geojson", data: eventSafetyPointGeoJson(current.eventSafetyPoints) });
       instance.addSource("buildings", { type: "geojson", data: buildBuildingGeoJson(buildings) });
       instance.addSource("evacuation-flow", { type: "geojson", data: buildEvacuationFlowGeoJson(evacuationFlow) });
       instance.addLayer({ id: "scenario-hazard-fill", type: "fill", source: "scenario-hazard", paint: { "fill-color": "#c77a24", "fill-opacity": 0.22 } });
@@ -110,6 +112,8 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       instance.addLayer({ id: "scenario-closures-line", type: "line", source: "scenario-closures", paint: { "line-color": "#9b2c2c", "line-width": 4, "line-dasharray": [1, 1] } });
       instance.addLayer({ id: "walking-route-line", type: "line", source: "walking-route", filter: ["==", ["geometry-type"], "LineString"], paint: { "line-color": "#1457a6", "line-width": 5, "line-opacity": 0.9 } });
       instance.addLayer({ id: "walking-route-points", type: "circle", source: "walking-route", filter: ["==", ["geometry-type"], "Point"], paint: { "circle-color": ["match", ["get", "role"], "origin", "#16805b", "#b34a3c"], "circle-radius": 8, "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+      instance.addLayer({ id: "event-safety-points", type: "circle", source: "event-safety-points", paint: { "circle-color": ["match", ["get", "kind"], "AED", "#16805b", "RESTRICTED_ZONE", "#9b2c2c", "#b8751b"], "circle-radius": 9, "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+      instance.addLayer({ id: "event-safety-labels", type: "symbol", source: "event-safety-points", layout: { "text-field": ["get", "label"], "text-size": 12, "text-offset": [0, 1.25], "text-anchor": "top" }, paint: { "text-color": "#173d43", "text-halo-color": "#ffffff", "text-halo-width": 1.5 } });
       instance.addLayer({ id: "building-footprints", type: "fill", source: "buildings", paint: { "fill-color": "#8ab8b2", "fill-opacity": 0.26 } });
       instance.addLayer(buildBuildingExtrusionLayer());
       instance.addLayer({ id: "evacuation-flow-lines", type: "line", source: "evacuation-flow", paint: { "line-color": "#d26a2e", "line-opacity": 0.78, "line-width": ["interpolate", ["linear"], ["get", "assigned_demand"], 1, 1.5, 100, 3, 1000, 8] } });
@@ -188,6 +192,11 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
   }, [walkingRoute]);
 
   useEffect(() => {
+    const source = map.current?.getSource("event-safety-points") as maplibregl.GeoJSONSource | undefined;
+    source?.setData(eventSafetyPointGeoJson(eventSafetyPoints));
+  }, [eventSafetyPoints]);
+
+  useEffect(() => {
     if (currentLocation && map.current) {
       map.current.easeTo({ center: [currentLocation.longitude, currentLocation.latitude], zoom: 15 });
     }
@@ -217,4 +226,9 @@ function routeGeoJson(route: Props["walkingRoute"]) {
     { type: "Feature" as const, geometry: { type: "Point" as const, coordinates: [route.origin.longitude, route.origin.latitude] }, properties: { role: "origin" } },
     { type: "Feature" as const, geometry: { type: "Point" as const, coordinates: [route.destination.longitude, route.destination.latitude] }, properties: { role: "destination" } },
   ] };
+}
+
+export function eventSafetyPointGeoJson(points: NonNullable<Props["eventSafetyPoints"]>) {
+  const labels: Record<string, string> = { AED: "AED", EXTINGUISHER: "소화기", STAIRS: "계단", RESTRICTED_ZONE: "출입 제한" };
+  return { type: "FeatureCollection" as const, features: points.map((item) => ({ type: "Feature" as const, geometry: { type: "Point" as const, coordinates: [item.point.longitude, item.point.latitude] }, properties: { kind: item.kind, label: item.label || labels[item.kind] || item.kind } })) };
 }
