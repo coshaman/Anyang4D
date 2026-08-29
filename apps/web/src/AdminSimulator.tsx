@@ -68,7 +68,7 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
       if (!response.ok) throw new Error("scenario request failed");
       const body = await readJsonResponse<{ items: Scenario[] }>(response, `${API}/scenarios`);
       setScenarios(body.items);
-      if (!selectedId && body.items[0]) setSelectedId((demoMode && body.items.find((item: Scenario) => item.scenario_id === "anyang-general-evacuation-competition")?.scenario_id) || body.items[0].scenario_id);
+      if (!selectedId && body.items[0]) setSelectedId((demoMode && body.items.find((item: Scenario) => item.scenario_id === "anyang-v2-four-state-demo")?.scenario_id) || body.items[0].scenario_id);
       if (!compareId && demoMode && body.items.find((item: Scenario) => item.scenario_id === "anyang-general-evacuation-competition-shelter-outage")) setCompareId("anyang-general-evacuation-competition-shelter-outage");
     } catch (error) {
       setStatus(`시나리오 API 오류 · ${error instanceof Error ? error.message : "연결 실패"}`);
