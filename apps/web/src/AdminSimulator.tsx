@@ -231,13 +231,18 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
   }
 
   async function screenAi() {
+    const endpoint = `${API.replace("goal4a", "goal5a")}/screen`;
+    setAiScreen(null);
     setAiStatus("AI 후보 생성 → AI 선별 → 상위 후보 exact 재검증 중입니다. 데모용 계산이라 수 초~수십 초 걸릴 수 있습니다.");
     try {
-      const response = await fetch(`${API.replace("goal4a", "goal5a")}/screen`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ candidate_count: aiCandidateCount, top_k: 10, seed: 5 }) });
-      if (!response.ok) throw new Error();
-      setAiScreen(await readJsonResponse<Scenario>(response, `${API.replace("goal4a", "goal5a")}/screen`));
+      const response = await request(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ candidate_count: aiCandidateCount, top_k: 10, seed: 5 }) }, 120000);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      setAiScreen(await readJsonResponse<Scenario>(response, endpoint));
       setAiStatus("AI 선별 완료 · 상위 후보는 exact reference engine으로 재검증했습니다.");
-    } catch { setAiStatus("AI 모델이 준비되지 않았거나 API가 연결되지 않았습니다. exact 시뮬레이터는 계속 사용할 수 있습니다."); }
+    } catch (error) {
+      const timedOut = error instanceof DOMException && error.name === "AbortError";
+      setAiStatus(timedOut ? "AI 선별 요청이 시간 초과되었습니다. exact 시뮬레이터는 계속 사용할 수 있습니다." : `AI 모델이 준비되지 않았거나 API가 연결되지 않았습니다${error instanceof Error ? ` · ${error.message}` : ""}. exact 시뮬레이터는 계속 사용할 수 있습니다.`);
+    }
   }
 
   function hazardForMap(geometry: any) {
