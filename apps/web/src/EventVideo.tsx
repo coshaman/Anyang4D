@@ -21,6 +21,16 @@ export function EventVideo({ plan, groupId = "A" }: { plan: EventPlan; groupId?:
   }, [playing]);
 
   useEffect(() => {
+    const synthesis = typeof window !== "undefined" ? window.speechSynthesis : undefined;
+    if (!playing || plan.videoConfig?.narration !== "tts-preview" || !synthesis || !scene) return;
+    synthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(`${scene.title}. ${scene.caption}`);
+    utterance.lang = "ko-KR";
+    synthesis.speak(utterance);
+    return () => synthesis.cancel();
+  }, [playing, plan.videoConfig?.narration, scene]);
+
+  useEffect(() => {
     backgroundImage.current = null;
     const dataUrl = plan.representation === "INDOOR" && plan.floorPlan?.mimeType !== "application/pdf" ? plan.floorPlan?.dataUrl : undefined;
     if (!dataUrl) { setBackgroundReady((value) => value + 1); return; }
