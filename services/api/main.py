@@ -65,6 +65,7 @@ def local_shelter_context() -> list[dict]:
 
 
 @lru_cache(maxsize=1)
+@lru_cache(maxsize=1)
 def osm_payload() -> dict:
     path = Path(__file__).resolve().parents[2] / "data/raw/openstreetmap/anyang_pedestrian_broad/overpass.json"
     return json.loads(path.read_text(encoding="utf-8"))
