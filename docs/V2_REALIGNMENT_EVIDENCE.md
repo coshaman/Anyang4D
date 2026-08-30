@@ -23,6 +23,7 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - 실내 PDF: 업로드한 PDF data URL을 브라우저 PDF object로 실제 편집 surface 아래에 렌더링하고, 그 위에 시작/출구/집결지 마커와 편집 가능한 route polyline을 겹친다. 브라우저 PDF viewer가 지원하지 않는 경우 원본 열기 안내를 표시한다.
 - 공개 readiness 복구: `/readyz`는 필수 runtime artifact 존재만 확인하는 캐시된 경량 probe를 사용하고, 그래프·solver·AI 모델 상세 검증은 `/api/release/readiness`로 분리한다. 콜드 스타트 첫 health probe에서 대형 파일 파싱이 발생하지 않는다.
 - 관리자 AI bounded recovery: 고급 분석 UI는 후보 생성 수와 별개로 상위 3개만 exact 검증하도록 요청해 응답 시간을 bounded하게 유지하고, 실패/timeout 시 사용자에게 상태를 명시한다.
+- Render 배포 선언: `render.yaml`이 Docker runtime, `PORT=8080`, `/healthz` health check를 고정해 재배포 시 startup 계약을 반복 가능하게 한다.
 
 ## 실행한 검증
 
@@ -70,6 +71,7 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 
 - 공개 HTTPS 배포는 검증하지 않았다. `artifacts/final/deployment-smoke.json`의 `public_https=false`, `public_url=null`이 현재 authoritative evidence다. 공개 URL/QR resolve를 주장하려면 호스팅 인증 후 동일 최신 커밋으로 smoke test를 다시 실행해야 한다.
 - Docker/실제 컨테이너 재실행은 현재 호스트에서 Docker 엔진을 사용할 수 없어 이번 변경에서 재검증하지 않았다.
+- Render Blueprint 추가는 재배포 설정을 제공하지만 기존 `anyang4d.onrender.com` 서비스에 자동 적용되지는 않는다. Render 계정에서 Blueprint 또는 동일 커밋을 실제 서비스에 배포한 뒤 공개 smoke test가 필요하다.
 - 관리자 4D source-change Playwright 테스트 2개와 관리자 기능 Playwright 테스트 8개는 단일 worker 실행에서 통과했다. 병렬 실행은 이 Windows 환경의 Chromium native process 자원 문제로 불안정하므로 릴리스 검증은 단일 worker 기준으로 고정한다.
 - `/admin?demo=1`은 0/10/20/30분의 네 상태 시각화 preset을 명시적으로 선택한다. 4D source-change 테스트 2개는 수정 후 통과했다.
 - QR 이미지는 외부 QR 이미지 제공자가 차단될 때 공개 URL fallback을 표시한다. URL 자체는 페이지 내부에서 확인 가능하다.
