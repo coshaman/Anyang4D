@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { MapView } from "./MapView";
 import { facilities, type Facility } from "./realData";
-import { API_BASE } from "./api";
+import { API_BASE, requestErrorMessage } from "./api";
 import { FRONTEND_BUILD_ID, type ReleaseVersion } from "./version";
 import { readJsonResponse } from "./api";
 
@@ -57,8 +57,9 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
       setDiagnostics((current) => [...current.filter((item) => item.endpoint !== endpoint), { endpoint, status: String(response.status), elapsedMs: Math.round(performance.now() - started) }].slice(-12));
       return response;
     } catch (error) {
+      const normalized = new Error(requestErrorMessage(error, endpoint));
       setDiagnostics((current) => [...current.filter((item) => item.endpoint !== endpoint), { endpoint, status: error instanceof DOMException && error.name === "AbortError" ? "TIMEOUT" : "ERROR", elapsedMs: Math.round(performance.now() - started) }].slice(-12));
-      throw error;
+      throw normalized;
     } finally { window.clearTimeout(timeout); }
   }
 
@@ -88,7 +89,6 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
       const firstTime = body.frame_times?.[0] ?? 0;
       setTime(firstTime);
       setStatus("LOADING_FRAME · 첫 frame을 계산하는 중입니다.");
-      await loadFrame(id, firstTime, generation);
       if (generation === requestGeneration.current) setStatus(`${body.title} · ${body.provenance}`);
     } catch (error) {
       if (generation === requestGeneration.current) setStatus(`ERROR · 시나리오 상세/첫 frame · ${error instanceof Error ? error.message : "연결 실패"}`);
@@ -98,7 +98,7 @@ export function AdminSimulator({ onBack, demoMode = false }: { onBack: () => voi
   async function loadFrame(id = selectedId, at = time, generation = requestGeneration.current) {
     if (!id) return;
     try {
-      const response = await request(`${API}/scenarios/${id}/frames/${at}`);
+      const response = await request(`${API}/scenarios/${id}/frames/${at}`, undefined, 90000);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const next = await readJsonResponse<Frame>(response, `${API}/scenarios/${id}/frames/${at}`);
       if (generation === requestGeneration.current) setFrame(next);

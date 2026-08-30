@@ -22,6 +22,7 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - 공개 훈련 복구: `trainingDemo.ts`의 0/10/20/30분 정적 사전계산 프레임을 첫 화면에 사용한다. 관리자 시나리오 목록/프레임 API는 초기 렌더에서 호출하지 않으며, 사용자가 요청한 서버 새로고침만 8초 제한으로 실행하고 실패 시 정적 프레임을 유지한다. 공개 훈련 화면은 현재 프레임의 영향 영역·통행 제한·수요 흐름·시설 부하·가용성·미배정 인원을 문장과 지표로 해석하며, 이용 불가 시설은 지도에서 빨간색으로 표시한다.
 - 시민 도보 경로 복구: MapLibre `load` 이전에 도착한 경로 source 갱신을 버리지 않도록 readiness 이후 재적용하고, 지도 클릭 입력은 source/layer 초기화와 독립적으로 수집한다.
 - 행사 야외 수동 경로 복구: 시작점·출구 지정 전에도 두 개 이상의 수동 경로점을 지도에 즉시 선으로 표시하고, 이후 지정한 시작점·출구·집결지를 같은 경로에 연결한다.
+- 경로/프레임 오류 복구: 시민·행사 도보 경로와 관리자 프레임 요청에 bounded timeout을 적용하고, 브라우저 raw AbortError 대신 endpoint와 다음 조치를 포함한 사용자용 메시지를 표시한다. 초기 관리자 시나리오 상세와 frame의 중복 요청도 제거한다.
 - 실내 PDF: 업로드한 PDF data URL을 브라우저 PDF object로 실제 편집 surface 아래에 렌더링하고, 그 위에 시작/출구/집결지 마커와 편집 가능한 route polyline을 겹친다. 브라우저 PDF viewer가 지원하지 않는 경우 원본 열기 안내를 표시한다.
 - 공개 readiness 복구: `/readyz`는 필수 runtime artifact 존재만 확인하는 캐시된 경량 probe를 사용하고, 그래프·solver·AI 모델 상세 검증은 `/api/release/readiness`로 분리한다. 콜드 스타트 첫 health probe에서 대형 파일 파싱이 발생하지 않는다.
 - 관리자 AI bounded recovery: 고급 분석 UI는 후보 생성 수와 별개로 상위 3개만 exact 검증하도록 요청해 응답 시간을 bounded하게 유지하고, 실패/timeout 시 사용자에게 상태를 명시한다.
@@ -29,7 +30,7 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 
 ## 실행한 검증
 
-- `npx vitest run --pool=threads --maxWorkers=1 --reporter=dot`: 10 files, 44 tests passed.
+- `npx vitest run --pool=threads --maxWorkers=1 --reporter=dot`: 10 files, 45 tests passed.
 - `pytest tests/test_release_readiness.py tests/test_production_container.py -q`: 3 passed, 1 skipped; 경량 `/readyz` probe와 상세 readiness 분리를 확인했다.
 - `npm run build`: TypeScript와 Vite build passed.
 - `pytest tests/test_goal4a_api.py tests/test_goal2_data.py tests/test_goal7a_flow.py -q`: 13 passed.

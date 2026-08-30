@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { fetchJson, readJsonResponse } from "./api";
+import { fetchJson, readJsonResponse, requestErrorMessage } from "./api";
 
 describe("readJsonResponse", () => {
   afterEach(() => vi.restoreAllMocks());
@@ -30,5 +30,10 @@ describe("readJsonResponse", () => {
       init?.signal?.addEventListener("abort", () => reject(new DOMException("aborted", "AbortError")));
     }));
     await expect(fetchJson("/api/routes", {}, 1, 0)).rejects.toThrow("서버 응답 시간 초과");
+  });
+
+  it("never exposes the browser's raw abort reason", () => {
+    expect(requestErrorMessage(new DOMException("signal is aborted without reason", "AbortError"), "/api/scenarios/demo/frames/0"))
+      .toBe("서버 응답 시간 초과 · /api/scenarios/demo/frames/0");
   });
 });

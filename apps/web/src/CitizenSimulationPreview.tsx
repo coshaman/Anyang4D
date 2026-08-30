@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { MapView } from "./MapView";
 import { facilities, type Facility } from "./realData";
-import { API_BASE, readJsonResponse } from "./api";
+import { API_BASE, readJsonResponse, requestErrorMessage } from "./api";
 import { describeTrainingFrame, trainingDemoFrames, trainingDemoScenario, type TrainingDemoScenario } from "./trainingDemo";
 
 type Scenario = TrainingDemoScenario;
@@ -42,7 +42,7 @@ export function CitizenSimulationPreview({ onBack }: { onBack: () => void }) {
       setFrame(await readJsonResponse<Frame>(response, endpoint));
       setError("");
     } catch (error) {
-      setError(`서버 계산값을 불러오지 못했습니다. 정적 사전계산 화면을 계속 표시합니다 · ${error instanceof Error ? error.message : "연결 실패"}`);
+      setError(`서버 계산값을 불러오지 못했습니다. 정적 사전계산 화면을 계속 표시합니다 · ${requestErrorMessage(error, endpoint)}`);
     } finally {
       window.clearTimeout(timeout);
     }
