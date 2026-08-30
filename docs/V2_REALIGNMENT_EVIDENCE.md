@@ -31,12 +31,12 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - `npm run build`: TypeScript와 Vite build passed.
 - `pytest tests/test_goal4a_api.py tests/test_goal2_data.py tests/test_goal7a_flow.py -q`: 13 passed.
 - `pytest tests/test_goal4a_assignment.py tests/test_goal4a_state_engine.py tests/test_goal4b_data.py tests/test_goal5a_contracts.py tests/test_goal5a_model.py tests/test_goal5a_screening_api.py -q`: 19 passed (도로/시설 상태 변경과 exact assignment 영향 포함).
-- Playwright `v2-map.spec.ts` 및 `v2-event-public.spec.ts`: desktop targeted run에서 3D source/layer 1개와 행사 3개가 통과했다. 공개 행사 페이지, QR target 실제 재접속, 장면 전환, EBML WebM download, 실내 image-local 경로 그리기, 야외 MapLibre 경로·AED 공개 전환을 포함한다.
+- Playwright `v2-map.spec.ts` 및 `v2-event-public.spec.ts`: 이전 desktop targeted run에서 3D source/layer 1개와 행사 3개가 통과했다. 공개 행사 페이지, QR target 실제 재접속, 장면 전환, EBML WebM download, 실내 image-local 경로 그리기, 야외 MapLibre 경로·AED 공개 전환을 포함한다. 이후 자동 초안 경로 시나리오 2개는 Windows Chromium/MapLibre 자원 문제로 완료 증거를 확보하지 못했으므로 성공으로 집계하지 않는다.
 - Playwright 시민 경로 및 preview smoke: desktop 단일 worker에서 경로 geometry 렌더링과 large-text/offline/미리보기 흐름 통과.
 - Playwright `v2-4d-source.spec.ts`: phone/desktop 2 tests passed; timeline이 hazard와 `evacuation-flow` source를 변경한다.
 - Playwright 관리자 핵심 기능: phone/desktop 8 tests passed; timeline, A/B, export, road/facility authoring, AI separation을 포함한다.
 - Playwright production config: 최신 `dist`를 FastAPI same-origin runtime으로 기동한 뒤 no-mock `production-recovery.spec.ts` 2 tests passed; `/healthz`, `/readyz`, real facilities, citizen route, training frame, admin readiness/AI path를 확인했다. MapLibre worker 의존 자산도 번들되어 `maplibre-gl-shared` 404가 재발하지 않음을 확인했다.
-- production recovery 재검증: 최신 정적 훈련/PDF 변경 후 same-origin FastAPI runtime에서 `production-recovery.spec.ts` 2 tests passed (17.2s); `/readyz`, AED endpoint, 시민 도보 geometry, 정적 훈련 화면, 관리자 exact/AI 경로를 확인했다.
+- production recovery 재검증: 최신 정적 훈련/PDF 변경 후 same-origin FastAPI runtime에서 시민 복구 테스트와 관리자 AI bounded 단일 테스트를 각각 재검증했다. 시민 복구·이벤트 route는 통과했고, 관리자 exact/AI 경로는 단일 worker에서 1/1 passed (50.6s)였다. 전체 2-test 재실행 결과는 안정성 문제로 authoritative 성공 증거로 집계하지 않는다.
 - production event route check: same-origin runtime에서 `/event-admin`과 `/event/{slug}` 모두 200 및 공개 행사 heading 렌더를 확인했다. 관리자 AI bounded 요청은 단일 worker smoke에서 1/1 passed (50.6s).
 - 자동 초안 단위 검증: indoor L-route 생성/편집 계약과 public 4-frame overlay 계약을 포함해 targeted Vitest 10 tests passed.
 - `scripts/check_anti_slop.py`: passed.
@@ -57,6 +57,8 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - `artifacts/evals/v2/screenshots/admin-4d-20min-1280.png`
 - `artifacts/evals/v2/screenshots/admin-4d-30min-1280.png`
 - `artifacts/evals/v2/screenshots/event-organizer-indoor-1280x720-desktop.png`
+- `artifacts/evals/goal7a/public-training-static-t0.png`
+- `artifacts/evals/goal7a/public-training-static-t30.png`
 
 4D 상태 캡처를 시각 검토한 결과, 0/10/20/30분에서 hazard 범위, 통행 제한 선, 시설/배정 지표가 각각 달라졌고 지도 레이어와 관리자 패널이 함께 렌더링되었다.
 실내 행사 안내 캡처에서는 단계형 행사 설정, 실내 도면 편집 surface, image-local 경로 polyline, 구역/영상 프리셋이 함께 보인다.
