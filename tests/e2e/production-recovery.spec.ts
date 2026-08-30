@@ -14,7 +14,7 @@ test("production container exposes real citizen and walking route flows", async 
   expect((await request.get("/readyz")).status()).toBe(200);
   const version = await request.get("/api/release/version");
   expect(version.status()).toBe(200);
-  expect((await version.json()).version).toBeTruthy();
+  expect((await version.json()).frontend_build_id).toBeTruthy();
   expect((await request.get("/event-admin")).status()).toBe(200);
   expect((await request.get("/event/anyang-demo")).status()).toBe(200);
   const aed = await request.get("/api/facilities?type=aed");
