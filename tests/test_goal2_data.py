@@ -1,7 +1,7 @@
 import pytest
 
 from services.api.facilities import load_real_facilities, normalize_aed_row, normalize_shelter_row, normalize_water_row
-from services.api.routing import build_route
+from services.api.routing import build_route, build_routes
 
 
 def test_shelter_normalization_preserves_source_missingness():
@@ -93,6 +93,21 @@ def test_route_reports_disconnected_graph_without_fabricating_path():
 
     with pytest.raises(ValueError, match="no pedestrian path"):
         build_route(payload, (37.4, 126.9), (37.5, 127.0))
+
+
+def test_route_returns_two_candidates_when_walkable_graph_has_alternative_paths():
+    payload = {"elements": [
+        {"type": "node", "id": 1, "lat": 37.4000, "lon": 126.9000},
+        {"type": "node", "id": 2, "lat": 37.4010, "lon": 126.9010},
+        {"type": "node", "id": 3, "lat": 37.3990, "lon": 126.9010},
+        {"type": "node", "id": 4, "lat": 37.4000, "lon": 126.9020},
+        {"type": "way", "id": 10, "nodes": [1, 2, 4], "tags": {"highway": "footway"}},
+        {"type": "way", "id": 11, "nodes": [1, 3, 4], "tags": {"highway": "footway"}},
+    ]}
+    routes = build_routes(payload, (37.4000, 126.9000), (37.4000, 126.9020))
+    assert len(routes) == 2
+    assert routes[0]["candidate_index"] == 1
+    assert routes[0]["geometry"][0] == {"latitude": 37.4, "longitude": 126.9}
 
 
 def test_real_facility_loader_reproduces_goal1_counts():

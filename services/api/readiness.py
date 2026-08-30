@@ -14,6 +14,12 @@ from services.simulator.data import load_population_demand, load_simulation_faci
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "data/manifests/data_manifest.json"
 MODEL_PATH = ROOT / "models/scenario_triage/model.joblib"
+LIGHTWEIGHT_REQUIRED = (
+    ROOT / "data/processed/anyang_facilities.json",
+    ROOT / "data/processed/anyang_population.json",
+    ROOT / "data/raw/openstreetmap/anyang_pedestrian_broad/overpass.json",
+    ROOT / "data/scenarios/goal4a",
+)
 
 
 def _safe_error(exc: Exception) -> str:
@@ -32,6 +38,13 @@ def _source_versions() -> dict[str, Any]:
             "sha256": item.get("sha256"),
         }
     return sources
+
+
+@lru_cache(maxsize=1)
+def lightweight_readiness_payload() -> dict[str, Any]:
+    """Cheap public probe; detailed validation stays behind release readiness."""
+    missing = [str(path.relative_to(ROOT)) for path in LIGHTWEIGHT_REQUIRED if not path.exists()]
+    return {"status": "READY" if not missing else "NOT_READY", "missing": missing}
 
 
 @lru_cache(maxsize=1)

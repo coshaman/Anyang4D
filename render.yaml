@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: safe-twin-anyang
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    autoDeploy: false
+    envVars:
+      - key: PORT
+        value: 8080

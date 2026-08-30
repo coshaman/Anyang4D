@@ -3,6 +3,7 @@ import asyncio
 import httpx
 
 from services.api.main import app
+from services.api.goal4a import _roads_cached
 
 
 def request(method: str, path: str, **kwargs):
@@ -40,3 +41,12 @@ def test_scenario_export_contains_caveats_and_frame():
     assert body["export_type"] == "GOAL4A_SCENARIO_SUMMARY"
     assert body["frame"]["time_minute"] == 20
     assert body["caveats"]
+
+
+def test_nearest_road_selection_resolves_map_click_without_edge_id_input():
+    road = _roads_cached()[0]
+    midpoint = [(road["a"][0] + road["b"][0]) / 2, (road["a"][1] + road["b"][1]) / 2]
+    response = request("POST", "/api/admin/goal4a/roads/nearest", json={"longitude": midpoint[0], "latitude": midpoint[1]})
+    assert response.status_code == 200
+    assert response.json()["edge_id"] == road["edge_id"]
+    assert response.json()["selection"] == "MAP_CLICK_NEAREST_OSM_EDGE"

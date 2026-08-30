@@ -9,14 +9,14 @@ from fastapi.staticfiles import StaticFiles
 
 from .contracts import FoundationResponse, Provenance, ProvenanceResponse, RouteRequest
 from .facilities import load_local_shelter_context, load_processed_facilities
-from .routing import build_route
+from .routing import build_routes
 from .simulation import router as simulation_router
 from .goal4a import router as goal4a_router
 from .goal5a import router as goal5a_router
 from .modes import router as modes_router
 from .optional_modules import router as optional_modules_router
 from .flood_readiness import router as flood_readiness_router
-from .readiness import readiness_payload
+from .readiness import lightweight_readiness_payload, readiness_payload
 from services.release.version import release_version
 
 
@@ -37,10 +37,10 @@ def healthz() -> dict:
 
 @app.get("/readyz")
 def readyz() -> dict:
-    payload = readiness_payload()
+    payload = lightweight_readiness_payload()
     if payload["status"] != "READY":
-        raise HTTPException(status_code=503, detail={"status": payload["status"], "mandatory_checks": payload["mandatory_checks"]})
-    return {"status": "ready", "mandatory_checks": payload["mandatory_checks"]}
+        raise HTTPException(status_code=503, detail=payload)
+    return {"status": "ready", "probe": "lightweight", "missing": []}
 
 SOURCE_AVAILABILITY = {
     "CIVIL_DEFENSE_SHELTER": {"status": "DOWNLOADED", "data": "real", "count": 231},
@@ -64,6 +64,7 @@ def local_shelter_context() -> list[dict]:
     return load_local_shelter_context()
 
 
+@lru_cache(maxsize=1)
 @lru_cache(maxsize=1)
 def osm_payload() -> dict:
     path = Path(__file__).resolve().parents[2] / "data/raw/openstreetmap/anyang_pedestrian_broad/overpass.json"
@@ -114,11 +115,12 @@ def release_version_endpoint() -> dict[str, str]:
 @app.post("/api/routes")
 def routes(request: RouteRequest) -> dict:
     try:
-        return build_route(
+        candidates = build_routes(
             osm_payload(),
             (request.origin["latitude"], request.origin["longitude"]),
             (request.destination["latitude"], request.destination["longitude"]),
         )
+        return {**candidates[0], "candidates": candidates}
     except (KeyError, ValueError) as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
 
@@ -128,6 +130,8 @@ if DIST.exists():
     @app.get("/admin", include_in_schema=False)
     @app.get("/simulate", include_in_schema=False)
     @app.get("/about-data", include_in_schema=False)
+    @app.get("/event-admin", include_in_schema=False)
+    @app.get("/event/{slug}", include_in_schema=False)
     def spa_entry() -> FileResponse:
         return FileResponse(DIST / "index.html")
 

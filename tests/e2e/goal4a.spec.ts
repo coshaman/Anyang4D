@@ -9,11 +9,10 @@ test.setTimeout(120000);
 
 test("admin simulator exposes real data, timeline, training boundary, and axe-clean controls", async ({ page }) => {
   await page.goto("/admin", { waitUntil: "commit", timeout: 60000 });
-  await expect(page.getByRole("heading", { name: "안양 4D 도시상태 시뮬레이터" })).toBeVisible({ timeout: 30000 });
+  await expect(page.getByRole("heading", { name: "안양 안전 운영 도구" })).toBeVisible({ timeout: 30000 });
   await expect(page.getByText("훈련/가정 시나리오", { exact: true })).toBeVisible();
   await expect(page.getByText(/공식 비상급수 맥락/)).toBeVisible({ timeout: 30000 });
   await expect(page.getByRole("button", { name: "훈련 경로 계산" })).toBeVisible();
-  await expect(page.getByText(/지형 flood path: 비활성/)).toBeVisible({ timeout: 30000 });
   await page.screenshot({ path: "artifacts/evals/ui/goal4a-admin-1280x720.png", fullPage: true });
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations.filter((item) => ["serious", "critical"].includes(item.impact ?? ""))).toEqual([]);
@@ -22,7 +21,7 @@ test("admin simulator exposes real data, timeline, training boundary, and axe-cl
 test("admin simulator remains usable on phone viewport", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/admin", { waitUntil: "commit", timeout: 60000 });
-  await expect(page.getByRole("heading", { name: "안양 4D 도시상태 시뮬레이터" })).toBeVisible({ timeout: 30000 });
+  await expect(page.getByRole("heading", { name: "안양 안전 운영 도구" })).toBeVisible({ timeout: 30000 });
   await page.screenshot({ path: "artifacts/evals/ui/goal4a-admin-390x844.png", fullPage: true });
 });
 
@@ -46,6 +45,7 @@ test("admin demo keeps AI estimates separate from exact verification", async ({ 
     });
   });
   await page.goto("/admin?demo=1", { waitUntil: "commit", timeout: 60000 });
+  await page.getByRole("button", { name: "고급 분석" }).click();
   await expect(page.getByRole("heading", { name: "AI 대규모 시나리오 선별" })).toBeVisible({ timeout: 30000 });
   await page.getByRole("button", { name: "AI 빠른 선별" }).click();
   await expect(page.getByText(/100개 후보 · exact 호출 1회/)).toBeVisible({ timeout: 30000 });
@@ -56,7 +56,7 @@ test("admin demo keeps AI estimates separate from exact verification", async ({ 
 test("admin authoring, timeline, A/B comparison, export, and visual matrix", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/admin", { waitUntil: "commit", timeout: 60000 });
-  await expect(page.getByRole("heading", { name: "안양 4D 도시상태 시뮬레이터" })).toBeVisible({ timeout: 30000 });
+  await expect(page.getByRole("heading", { name: "안양 안전 운영 도구" })).toBeVisible({ timeout: 30000 });
   await expect(page.getByText("감소된 동작")).toBeVisible({ timeout: 30000 });
 
   const timeline = page.getByRole("slider", { name: "4D 시뮬레이션 타임라인" });

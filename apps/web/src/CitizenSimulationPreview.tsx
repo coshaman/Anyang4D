@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { MapView } from "./MapView";
 import { facilities, type Facility } from "./realData";
-import { API_BASE } from "./api";
-import { readJsonResponse } from "./api";
+import { API_BASE, readJsonResponse } from "./api";
+import { trainingDemoFrames, trainingDemoScenario, type TrainingDemoScenario } from "./trainingDemo";
 
-const API = `${API_BASE}/admin/goal4a`;
-
-type Scenario = { scenario_id: string; title: string; frame_times: number[] };
+type Scenario = TrainingDemoScenario;
 type Frame = {
   hazard: { geometry: Record<string, unknown> | null; label: string | null; provenance: string };
   roads: { changed_count: number; changed: Array<{ a: [number, number]; b: [number, number]; reason?: string }> };
@@ -19,41 +17,36 @@ type Frame = {
   computation_status: string;
 };
 
-async function getJson<T>(path: string): Promise<T> {
-  const endpoint = `${API}${path}`;
-  return readJsonResponse<T>(await fetch(endpoint), endpoint);
-}
-
 export function CitizenSimulationPreview({ onBack }: { onBack: () => void }) {
-  const [scenarios, setScenarios] = useState<Scenario[]>([]);
-  const [scenario, setScenario] = useState<Scenario | null>(null);
-  const [frame, setFrame] = useState<Frame | null>(null);
+  const [scenarios, setScenarios] = useState<Scenario[]>([trainingDemoScenario]);
+  const [scenario, setScenario] = useState<Scenario | null>(trainingDemoScenario);
+  const [frame, setFrame] = useState<Frame | null>(trainingDemoFrames[0]);
   const [timeIndex, setTimeIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    let active = true;
-    getJson<{ items: Scenario[] }>("/scenarios")
-      .then(({ items }) => {
-        if (!active) return;
-        const preferred = items.find((item) => item.scenario_id === "anyang-civil-defense-outage") ?? items[0];
-        setScenarios(items);
-        setScenario(preferred ?? null);
-      })
-      .catch((error) => active && setError(error instanceof Error ? error.message : "서버 연결 오류 · scenarios"));
-    return () => { active = false; };
-  }, []);
-
-  useEffect(() => {
     if (!scenario) return;
     const minute = scenario.frame_times[timeIndex] ?? scenario.frame_times[0] ?? 0;
-    let active = true;
-    getJson<Frame>(`/scenarios/${scenario.scenario_id}/frames/${minute}`)
-      .then((next) => active && setFrame(next))
-      .catch((error) => active && setError(error instanceof Error ? error.message : "서버 연결 오류 · frame"));
-    return () => { active = false; };
+    setFrame(trainingDemoFrames[minute] ?? trainingDemoFrames[0]);
   }, [scenario, timeIndex]);
+
+  async function refreshFromServer() {
+    if (!scenario) return;
+    const minute = scenario.frame_times[timeIndex] ?? 0;
+    const endpoint = `${API_BASE}/admin/goal4a/scenarios/${scenario.scenario_id}/frames/${minute}`;
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 8000);
+    try {
+      const response = await fetch(endpoint, { signal: controller.signal });
+      setFrame(await readJsonResponse<Frame>(response, endpoint));
+      setError("");
+    } catch (error) {
+      setError(`서버 계산값을 불러오지 못했습니다. 정적 사전계산 화면을 계속 표시합니다 · ${error instanceof Error ? error.message : "연결 실패"}`);
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
 
   useEffect(() => {
     if (!playing || !scenario?.frame_times.length) return;
@@ -72,8 +65,10 @@ export function CitizenSimulationPreview({ onBack }: { onBack: () => void }) {
     <p className="lead">실제 재난 안내가 아닌, 관리자 가정 시나리오의 계산 결과를 시민용으로 단순하게 확인합니다.</p>
     <div className="training-warning" role="note"><strong>훈련/가정 시나리오</strong><span>공식 재난문자와 현장 안내를 우선하세요. 이 화면은 대피 지시나 안전 보장을 제공하지 않습니다.</span></div>
     {error && <p className="error-message" role="alert">{error}</p>}
-    {scenarios.length > 0 && <label className="admin-field">시나리오<select value={scenario?.scenario_id ?? ""} onChange={(event) => { setScenario(scenarios.find((item) => item.scenario_id === event.target.value) ?? null); setTimeIndex(0); }}><option value="" disabled>시나리오 선택</option>{scenarios.map((item) => <option key={item.scenario_id} value={item.scenario_id}>{item.title}</option>)}</select></label>}
+    {scenarios.length > 0 && <label className="admin-field">시나리오<select value={scenario?.scenario_id ?? ""} onChange={(event) => { setScenario(scenarios.find((item) => item.scenario_id === event.target.value) ?? null); setTimeIndex(0); }}><option value="" disabled>시나리오 선택</option>{scenarios.map((item) => <option key={item.scenario_id} value={item.scenario_id}>{item.scenario_id === trainingDemoScenario.scenario_id ? "정적 공개 프리뷰 · 4개 프레임" : item.title}</option>)}</select></label>}
     {scenario && <>
+      <p className="provenance-line">공개 훈련 모드 · 정적 사전계산값 우선 <button className="text-button" type="button" onClick={() => void refreshFromServer()}>서버 계산값 새로고침</button></p>
+      <section className="training-legend" aria-label="훈련 오버레이 범례"><strong>지금 보이는 변화</strong><span>붉은 영역: 훈련 영향 영역</span><span>주황 선: 훈련용 통행 제한</span><span>굵은 파란 선: 배정 흐름</span><span>시설 원: 이용 가능 여부·부하</span></section>
       <div className="training-controls"><button className="secondary-button" type="button" onClick={() => setPlaying((value) => !value)}>{playing ? "일시정지" : "재생"}</button><label htmlFor="training-time">시간 {time}분</label><input id="training-time" type="range" min="0" max={Math.max(0, scenario.frame_times.length - 1)} value={timeIndex} onChange={(event) => setTimeIndex(Number(event.target.value))} aria-label="훈련 시나리오 시간" /></div>
       <MapView facilities={shelterFacilities} onSelect={() => undefined} currentLocation={null} hazardGeometry={frame?.hazard.geometry} hazardLabel={frame?.hazard.label} changedRoads={frame?.roads.changed} facilityLoads={loadById} evacuationFlow={frame?.evacuation_flow} />
       {frame && <section className="training-results" aria-label="훈련 계산 결과"><h2>{scenario.title}</h2><p className="provenance-line">계산 상태 · {frame.computation_status} · {frame.hazard.provenance}</p><dl><div><dt>대피 수요</dt><dd>{frame.assignment.evacuation_demand.toLocaleString()}명</dd></div><div><dt>배정</dt><dd>{frame.assignment.assigned.toLocaleString()}명</dd></div><div><dt>미배정</dt><dd>{frame.assignment.unserved.toLocaleString()}명</dd></div><div><dt>가용 대피소</dt><dd>{frame.available_shelter_count}곳</dd></div><div><dt>통행 제한</dt><dd>{frame.roads.changed_count}개</dd></div></dl><p className="notice-text">이 결과는 가정 조건의 계산값입니다. terrain 기반 시민 hazard routing과 공식 대피 지시는 연결되어 있지 않습니다.</p></section>}

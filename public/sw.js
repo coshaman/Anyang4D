@@ -1,4 +1,4 @@
-const CACHE = "safe-twin-anyang-shell-v3";
+const CACHE = "safe-twin-anyang-shell-v4";
 const SHELL = ["/", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import copy
+import math
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -167,6 +168,22 @@ def resources() -> dict[str, Any]:
 def resource_inventory() -> dict[str, Any]:
     context = load_local_resource_context()["flood_response_inventory"]
     return {"items": context, "count": len(context), "provenance": "ANYANG_LOCAL_OFFICIAL", "dispatch_optimization_authorized": False}
+
+
+@router.post("/roads/nearest")
+def nearest_road(payload: dict[str, Any]) -> dict[str, Any]:
+    try:
+        longitude, latitude = float(payload["longitude"]), float(payload["latitude"])
+        def distance(road: dict[str, Any]) -> float:
+            ax, ay = road["a"]; bx, by = road["b"]
+            dx, dy = bx - ax, by - ay
+            denominator = dx * dx + dy * dy
+            t = max(0.0, min(1.0, ((longitude - ax) * dx + (latitude - ay) * dy) / denominator)) if denominator else 0.0
+            return math.hypot(longitude - (ax + t * dx), latitude - (ay + t * dy))
+        road = min(_roads_cached(), key=distance)
+        return {"edge_id": str(road["edge_id"]), "a": road["a"], "b": road["b"], "selection": "MAP_CLICK_NEAREST_OSM_EDGE"}
+    except (KeyError, TypeError, ValueError) as exc:
+        raise HTTPException(status_code=422, detail="지도 좌표가 필요합니다.") from exc
 
 
 @router.get("/scenarios/{scenario_id}/export")

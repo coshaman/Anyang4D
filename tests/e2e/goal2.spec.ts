@@ -33,7 +33,7 @@ test("AED flow keeps 119 first and preserves missing coordinates", async ({ page
 test("coordinate-bearing facility draws the basic walking route line", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "대피소" }).click();
-  await page.getByRole("button", { name: /대피소/ }).last().click();
+  await page.locator(".nearby-list > button").first().click();
   await page.getByRole("button", { name: "기본 도보 경로 보기" }).click();
   await expect(page.getByTestId("walking-route-line")).toBeVisible({ timeout: 30000 });
   await expect(page.getByText(/기본 도보 경로.*예상.*출처/)).toBeVisible();
@@ -55,7 +55,7 @@ test("large text, geolocation denial, offline state, and preview shell are hones
   await page.getByRole("button", { name: "재난 상황 미리보기" }).click();
   await expect(page.getByRole("heading", { name: "재난 상황 미리보기" })).toBeVisible();
   await expect(page.getByText("훈련/가정 시나리오")).toBeVisible();
-  await expect(page.getByText("대피 수요")).toBeVisible({ timeout: 30000 });
+  await expect(page.getByText("대피 수요", { exact: true })).toBeVisible({ timeout: 30000 });
   await page.screenshot({ path: `artifacts/evals/ui/goal2-training-preview-${testInfo.project.name}.png`, fullPage: true });
   expect(await seriousAxe(page)).toEqual([]);
 });

@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.setTimeout(180000);
 const publicBase = process.env.PUBLIC_BASE_URL ?? "https://anyang4d.onrender.com";
+test.skip(!process.env.PUBLIC_BASE_URL, "외부 공개 배포 검증은 PUBLIC_BASE_URL을 지정한 경우에만 실행합니다.");
 
 async function wake(page: import("@playwright/test").Page) {
   await page.goto(`${publicBase}/healthz`, { waitUntil: "domcontentloaded" });
