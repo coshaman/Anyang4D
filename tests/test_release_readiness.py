@@ -24,3 +24,9 @@ def test_readiness_payload_is_cached_between_calls(monkeypatch):
     readiness.readiness_payload()
     readiness.readiness_payload()
     assert calls == 1
+
+
+def test_lightweight_readiness_only_checks_required_artifact_presence():
+    payload = readiness.lightweight_readiness_payload()
+    assert payload["status"] == "READY"
+    assert payload["missing"] == []

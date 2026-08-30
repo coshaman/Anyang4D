@@ -57,6 +57,19 @@ export function removeLastRoutePoint(plan: EventPlan, groupId: string): EventPla
   return updateEventGroup(plan, groupId, { route: route.slice(0, -1) });
 }
 
+/** Deterministic, editable draft only; it does not infer fire-code-safe corridors. */
+export function buildIndoorDraftRoute(start: EventPoint | null, exit: EventPoint | null, assembly?: EventPoint | null): EventPoint[] {
+  if (!start || !exit) return [];
+  const route: EventPoint[] = [start];
+  if (start.x !== exit.x && start.y !== exit.y) route.push({ x: exit.x, y: start.y });
+  route.push(exit);
+  if (assembly && (assembly.x !== exit.x || assembly.y !== exit.y)) {
+    if (exit.x !== assembly.x && exit.y !== assembly.y) route.push({ x: assembly.x, y: exit.y });
+    route.push(assembly);
+  }
+  return route;
+}
+
 export function addOutdoorNode(plan: EventPlan, groupId: string, kind: "start" | "exit" | "assembly", point: OutdoorPoint): EventPlan {
   const field = `outdoor${kind[0].toUpperCase()}${kind.slice(1)}` as "outdoorStart" | "outdoorExit" | "outdoorAssembly";
   return updateEventGroup(plan, groupId, { [field]: point } as Partial<EventGroup>);

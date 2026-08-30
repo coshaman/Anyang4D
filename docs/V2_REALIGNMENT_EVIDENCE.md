@@ -19,10 +19,15 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - 공개 행사: `/event/{slug}`에서 구역, 출구, 집결지, 비상 행동, 연락처, QR-ready URL, 실내 도면/야외 MapLibre 지도와 AED·소화기·계단·출입 제한 지점 목록을 제공한다.
 - 영상: 동일 `EventPlan`에서 6장면 1920×1080 canvas를 만들고 play/pause/restart/fullscreen/WebM export를 제공한다. 실내 도면 업로드는 영상 배경으로 렌더링하고, 야외 계획은 지도형 배경을 사용한다. WebM export는 설정된 장면 길이의 전체 storyboard를 가상 타임라인으로 순회해 녹화한다. 영상용 A/B/C 구역, 제목, 로고, 장면 길이, 문자 크기, 캡션/브라우저 음성 미리듣기 프리셋을 저장하며, TTS는 재생 시 장면별 브라우저 편의 기능으로만 동작한다. WebM은 화면과 자막만 authoritative export다.
 - 관리자: `행사 안내`, `재난 시뮬레이션`, `고급 분석` workspace와 지도 클릭 기반 도로 선택을 제공한다. 시설 마커를 클릭하면 해당 시설이 편집 대상으로 선택되고 현재 용량을 편집값에 불러온다. 고급 분석의 AI 선별은 모든 관리자 화면에서 접근 가능하며, bounded timeout/진단 상태와 모델 미준비 오류를 표시한다.
+- 공개 훈련 복구: `trainingDemo.ts`의 0/10/20/30분 정적 사전계산 프레임을 첫 화면에 사용한다. 관리자 시나리오 목록/프레임 API는 초기 렌더에서 호출하지 않으며, 사용자가 요청한 서버 새로고침만 8초 제한으로 실행하고 실패 시 정적 프레임을 유지한다. 공개 훈련 범례에 영향 영역·통행 제한·수요 흐름·시설 부하 의미를 표시한다.
+- 실내 PDF: 업로드한 PDF data URL을 브라우저 PDF object로 실제 편집 surface 아래에 렌더링하고, 그 위에 시작/출구/집결지 마커와 편집 가능한 route polyline을 겹친다. 브라우저 PDF viewer가 지원하지 않는 경우 원본 열기 안내를 표시한다.
+- 공개 readiness 복구: `/readyz`는 필수 runtime artifact 존재만 확인하는 캐시된 경량 probe를 사용하고, 그래프·solver·AI 모델 상세 검증은 `/api/release/readiness`로 분리한다. 콜드 스타트 첫 health probe에서 대형 파일 파싱이 발생하지 않는다.
+- 관리자 AI bounded recovery: 고급 분석 UI는 후보 생성 수와 별개로 상위 3개만 exact 검증하도록 요청해 응답 시간을 bounded하게 유지하고, 실패/timeout 시 사용자에게 상태를 명시한다.
 
 ## 실행한 검증
 
-- `npm test -- --run`: 9 files, 35 tests passed.
+- `npx vitest run --pool=threads --maxWorkers=1`: 10 files, 37 tests passed.
+- `pytest tests/test_release_readiness.py tests/test_production_container.py -q`: 3 passed, 1 skipped; 경량 `/readyz` probe와 상세 readiness 분리를 확인했다.
 - `npm run build`: TypeScript와 Vite build passed.
 - `pytest tests/test_goal4a_api.py tests/test_goal2_data.py tests/test_goal7a_flow.py -q`: 13 passed.
 - `pytest tests/test_goal4a_assignment.py tests/test_goal4a_state_engine.py tests/test_goal4b_data.py tests/test_goal5a_contracts.py tests/test_goal5a_model.py tests/test_goal5a_screening_api.py -q`: 19 passed (도로/시설 상태 변경과 exact assignment 영향 포함).
@@ -31,6 +36,9 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - Playwright `v2-4d-source.spec.ts`: phone/desktop 2 tests passed; timeline이 hazard와 `evacuation-flow` source를 변경한다.
 - Playwright 관리자 핵심 기능: phone/desktop 8 tests passed; timeline, A/B, export, road/facility authoring, AI separation을 포함한다.
 - Playwright production config: 최신 `dist`를 FastAPI same-origin runtime으로 기동한 뒤 no-mock `production-recovery.spec.ts` 2 tests passed; `/healthz`, `/readyz`, real facilities, citizen route, training frame, admin readiness/AI path를 확인했다. MapLibre worker 의존 자산도 번들되어 `maplibre-gl-shared` 404가 재발하지 않음을 확인했다.
+- production recovery 재검증: 최신 정적 훈련/PDF 변경 후 same-origin FastAPI runtime에서 `production-recovery.spec.ts` 2 tests passed (17.2s); `/readyz`, AED endpoint, 시민 도보 geometry, 정적 훈련 화면, 관리자 exact/AI 경로를 확인했다.
+- production event route check: same-origin runtime에서 `/event-admin`과 `/event/{slug}` 모두 200 및 공개 행사 heading 렌더를 확인했다. 관리자 AI bounded 요청은 단일 worker smoke에서 1/1 passed (50.6s).
+- 자동 초안 단위 검증: indoor L-route 생성/편집 계약과 public 4-frame overlay 계약을 포함해 targeted Vitest 10 tests passed.
 - `scripts/check_anti_slop.py`: passed.
 - `scripts/check_secrets.py`: passed.
 

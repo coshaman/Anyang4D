@@ -2,6 +2,10 @@ import { test, expect } from "@playwright/test";
 
 test.setTimeout(60000);
 
+test.beforeEach(async ({ page }) => {
+  await page.route("https://tile.openstreetmap.org/**", (route) => route.abort());
+});
+
 test("public event page exposes share QR and advances deterministic video scenes", async ({ page }) => {
   await page.goto("/event/anyang-demo", { waitUntil: "domcontentloaded", timeout: 30000 });
   await expect(page.getByRole("heading", { name: "SAFE-Twin 행사 대피 안내" })).toBeVisible();
@@ -59,6 +63,28 @@ test("organizer draws an image-local indoor evacuation route", async ({ page }, 
   }
 });
 
+test("organizer generates and can edit an indoor draft route", async ({ page }) => {
+  await page.goto("/event-admin", { waitUntil: "domcontentloaded" });
+  await page.getByLabel("행사명").fill("자동 초안 실내 행사");
+  await page.getByLabel("행사 장소").fill("안양 강당");
+  await page.getByRole("button", { name: "다음" }).click();
+  await page.getByLabel("실내 도면").check();
+  await page.getByRole("button", { name: "다음" }).click();
+  const surface = page.getByTestId("floor-plan-surface");
+  await surface.click({ position: { x: 100, y: 100 } });
+  await page.getByLabel("안내 지점 종류").selectOption("exit");
+  await surface.click({ position: { x: 600, y: 400 } });
+  await page.getByLabel("안내 지점 종류").selectOption("assembly");
+  await surface.click({ position: { x: 700, y: 450 } });
+  await page.getByRole("button", { name: "자동 초안 경로 만들기" }).click();
+  await expect(page.getByText(/자동 초안 경로를 만들었습니다/)).toBeVisible();
+  await expect(surface.locator("polyline")).toBeVisible();
+  const draftPoints = await surface.locator("polyline").getAttribute("points");
+  await page.getByRole("button", { name: "경로 그리기" }).click();
+  await surface.click({ position: { x: 300, y: 250 } });
+  await expect.poll(() => surface.locator("polyline").getAttribute("points")).not.toBe(draftPoints);
+});
+
 test("organizer publishes an outdoor map route with safety points", async ({ page }) => {
   await page.goto("/event-admin", { waitUntil: "domcontentloaded" });
   await expect(page.getByRole("heading", { name: "행사 대피안내 만들기" })).toBeVisible();
@@ -89,4 +115,40 @@ test("organizer publishes an outdoor map route with safety points", async ({ pag
   await expect(page.getByText("AED").last()).toBeVisible();
   await expect(page.getByText("지정됨").first()).toBeVisible();
   await expect(page.getByTestId("walking-route-line")).toBeVisible();
+});
+
+test("organizer applies an OSM outdoor draft candidate", async ({ page }) => {
+  await page.route("http://127.0.0.1:8000/api/routes", async (route) => {
+    const geometry = [
+      { latitude: 37.4, longitude: 126.95 },
+      { latitude: 37.401, longitude: 126.951 },
+      { latitude: 37.402, longitude: 126.952 },
+    ];
+    await route.fulfill({
+      contentType: "application/json",
+      body: JSON.stringify({
+        geometry,
+        distance_m: 250,
+        estimated_walking_minutes: 4,
+        candidates: [
+          { geometry, distance_m: 250, estimated_walking_minutes: 4 },
+          { geometry: [geometry[0], { latitude: 37.399, longitude: 126.951 }, geometry[2]], distance_m: 280, estimated_walking_minutes: 5 },
+        ],
+      }),
+    });
+  });
+  await page.goto("/event-admin", { waitUntil: "domcontentloaded" });
+  await page.getByLabel("행사명").fill("자동 초안 야외 행사");
+  await page.getByLabel("행사 장소").fill("안양 캠퍼스");
+  await page.getByRole("button", { name: "다음" }).click();
+  await page.getByRole("button", { name: "다음" }).click();
+  const map = page.locator(".event-outdoor-editor .real-map");
+  await expect(map.locator(".maplibregl-canvas")).toBeVisible({ timeout: 30000 });
+  await map.click({ position: { x: 220, y: 150 } });
+  await page.getByLabel("안내 지점 종류").selectOption("exit");
+  await map.click({ position: { x: 520, y: 170 } });
+  await page.getByRole("button", { name: "자동 초안 경로 만들기" }).click();
+  await expect(page.getByText(/2개 OSM 도보 초안/)).toBeVisible();
+  await page.getByRole("button", { name: /초안 적용 1/ }).click();
+  await expect(page.getByText(/선택한 OSM 도보 초안을 적용했습니다/)).toBeVisible();
 });

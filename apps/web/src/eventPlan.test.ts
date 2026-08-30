@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addEventNode, addOutdoorFacility, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, buildEventShareUrl, clearEventNode, createEventPlan, decodeEventPlan, encodeEventPlan, removeLastEventFacility, removeLastRoutePoint, updateEventGroup, type EventPoint } from "./eventPlan";
+import { addEventNode, addOutdoorFacility, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, buildEventShareUrl, buildIndoorDraftRoute, clearEventNode, createEventPlan, decodeEventPlan, encodeEventPlan, removeLastEventFacility, removeLastRoutePoint, updateEventGroup, type EventPoint } from "./eventPlan";
 
 describe("event evacuation plan contract", () => {
   it("creates a group plan and preserves image-local points through URL encoding", () => {
@@ -58,6 +58,13 @@ describe("event evacuation plan contract", () => {
     const plan = createEventPlan("야외 행사", "캠퍼스", "OUTDOOR");
     const next = addOutdoorFacility(plan, "AED", { latitude: 37.4, longitude: 126.95 }, "중앙 AED");
     expect(next.outdoorFacilities).toEqual([{ kind: "AED", point: { latitude: 37.4, longitude: 126.95 }, label: "중앙 AED" }]);
+  });
+
+  it("builds an editable indoor draft route from marked points", () => {
+    expect(buildIndoorDraftRoute({ x: 100, y: 100 }, { x: 600, y: 400 }, { x: 700, y: 450 })).toEqual([
+      { x: 100, y: 100 }, { x: 600, y: 100 }, { x: 600, y: 400 }, { x: 700, y: 400 }, { x: 700, y: 450 },
+    ]);
+    expect(buildIndoorDraftRoute(null, { x: 1, y: 1 })).toEqual([]);
   });
 
   it("removes the most recently added facility of the selected outdoor kind", () => {
