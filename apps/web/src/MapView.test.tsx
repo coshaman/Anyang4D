@@ -1,7 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { buildBuildingGeoJson, buildBuildingExtrusionLayer, eventSafetyPointGeoJson, normalizeBuilding, updateWalkingRouteSource } from "./MapView";
+import { buildBuildingGeoJson, buildBuildingExtrusionLayer, buildFacilityGeoJson, eventSafetyPointGeoJson, normalizeBuilding, updateWalkingRouteSource } from "./MapView";
 
 describe("2.5D building map contract", () => {
+  it("publishes facility availability for visible status changes", () => {
+    const collection = buildFacilityGeoJson(
+      [{ id: "shelter-1", latitude: 37.4, longitude: 126.95, name: "대피소", category: "CIVIL_DEFENSE_SHELTER" } as never],
+      { "shelter-1": 0.96 },
+      { "shelter-1": false },
+    );
+    expect(collection.features[0].properties).toMatchObject({ load_ratio: 0.96, available: false });
+  });
+
   it("does not lose a walking route update while MapLibre sources are still loading", () => {
     const calls: unknown[] = [];
     const source = { setData: (data: unknown) => calls.push(data) };

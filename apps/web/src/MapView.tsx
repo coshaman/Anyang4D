@@ -20,6 +20,7 @@ type Props = {
   buildings?: Building[];
   evacuationFlow?: EvacuationFlow[];
   facilityLoadRatios?: Record<string, number>;
+  facilityAvailability?: Record<string, boolean>;
   eventSafetyPoints?: Array<{ kind: string; point: { latitude: number; longitude: number }; label?: string }>;
 };
 
@@ -55,6 +56,17 @@ export function normalizeBuilding(building: OSMBuilding): Building {
   return { id: building.id, geometry: building.geometry, height_m: 0, height_provenance: "UNKNOWN_HEIGHT" };
 }
 
+export function buildFacilityGeoJson(facilities: Facility[], facilityLoads: Record<string, number> = {}, facilityAvailability: Record<string, boolean> = {}, evacuationFlow: EvacuationFlow[] = [], facilityLoadRatios: Record<string, number> = {}) {
+  return {
+    type: "FeatureCollection" as const,
+    features: facilities.filter((facility) => facility.latitude !== null && facility.longitude !== null).map((facility) => ({
+      type: "Feature" as const,
+      geometry: { type: "Point" as const, coordinates: [facility.longitude as number, facility.latitude as number] },
+      properties: { id: facility.id, name: facility.name ?? "이름 미상", category: facility.category, load: facilityLoads[facility.id] ?? 0, load_ratio: facilityLoadRatios[facility.id] ?? facilityLoads[facility.id] ?? evacuationFlow.find((flow) => flow.shelter_id === facility.id)?.load_ratio ?? 0, available: facilityAvailability[facility.id] ?? true },
+    })),
+  };
+}
+
 export function buildBuildingGeoJson(buildings: Building[]) {
   return { type: "FeatureCollection" as const, features: buildings.map((building) => ({ type: "Feature" as const, geometry: building.geometry, properties: { id: building.id, height_m: building.height_m, height_provenance: building.height_provenance } })) };
 }
@@ -67,7 +79,7 @@ export function buildEvacuationFlowGeoJson(flows: EvacuationFlow[]) {
   return { type: "FeatureCollection" as const, features: flows.map((flow) => ({ type: "Feature" as const, geometry: flow.geometry, properties: { demand_node_id: flow.demand_node_id, shelter_id: flow.shelter_id, assigned_demand: flow.assigned_demand, load_ratio: flow.load_ratio } })) };
 }
 
-export function MapView({ facilities, onSelect, currentLocation, hazardGeometry = null, hazardLabel = null, onMapClick, changedRoads = [], facilityLoads = {}, walkingRoute = null, buildings = osmBuildings.map(normalizeBuilding), evacuationFlow = [], facilityLoadRatios = {}, eventSafetyPoints = [] }: Props) {
+export function MapView({ facilities, onSelect, currentLocation, hazardGeometry = null, hazardLabel = null, onMapClick, changedRoads = [], facilityLoads = {}, walkingRoute = null, buildings = osmBuildings.map(normalizeBuilding), evacuationFlow = [], facilityLoadRatios = {}, facilityAvailability = {}, eventSafetyPoints = [] }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<MapInstance | null>(null);
   const onSelectRef = useRef(onSelect);
@@ -78,14 +90,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
   const [viewMode, setViewMode] = useState<"2D" | "3D">("2D");
   const [mapReady, setMapReady] = useState(false);
 
-  const geojson = {
-    type: "FeatureCollection" as const,
-    features: facilities.filter((facility) => facility.latitude !== null && facility.longitude !== null).map((facility) => ({
-      type: "Feature" as const,
-      geometry: { type: "Point" as const, coordinates: [facility.longitude as number, facility.latitude as number] },
-      properties: { id: facility.id, name: facility.name ?? "이름 미상", category: facility.category, load: facilityLoads[facility.id] ?? 0, load_ratio: facilityLoadRatios[facility.id] ?? evacuationFlow.find((flow) => flow.shelter_id === facility.id)?.load_ratio ?? 0 }
-    }))
-  };
+  const geojson = buildFacilityGeoJson(facilities, facilityLoads, facilityAvailability, evacuationFlow, facilityLoadRatios);
   dynamicProps.current = { geojson, hazardGeometry, hazardLabel, changedRoads, walkingRoute, eventSafetyPoints };
 
   useEffect(() => {
@@ -129,7 +134,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
       instance.addLayer({ id: "evacuation-flow-lines", type: "line", source: "evacuation-flow", paint: { "line-color": "#1457a6", "line-opacity": 0.86, "line-width": ["interpolate", ["linear"], ["get", "assigned_demand"], 1, 2, 100, 4, 1000, 9] } });
       instance.addLayer({ id: "facility-clusters", type: "circle", source: "facilities", filter: ["has", "point_count"], paint: { "circle-color": "#0a6472", "circle-radius": ["step", ["get", "point_count"], 18, 50, 24, 100, 30], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
       instance.addLayer({ id: "facility-cluster-count", type: "symbol", source: "facilities", filter: ["has", "point_count"], layout: { "text-field": "{point_count_abbreviated}", "text-size": 13 }, paint: { "text-color": "#ffffff" } });
-      instance.addLayer({ id: "facility-points", type: "circle", source: "facilities", filter: ["!", ["has", "point_count"]], paint: { "circle-color": "#0a6472", "circle-radius": ["interpolate", ["linear"], ["get", "load_ratio"], 0, 7, 0.5, 10, 1, 14, 1.5, 18], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+      instance.addLayer({ id: "facility-points", type: "circle", source: "facilities", filter: ["!", ["has", "point_count"]], paint: { "circle-color": ["case", ["==", ["get", "available"], false], "#c62828", "#0a6472"], "circle-radius": ["interpolate", ["linear"], ["get", "load_ratio"], 0, 7, 0.5, 10, 1, 14, 1.5, 18], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
       updateWalkingRouteSource(instance, current.walkingRoute);
       if (current.walkingRoute && current.walkingRoute.geometry.length > 1) {
         const bounds = new maplibregl.LngLatBounds();
@@ -184,7 +189,7 @@ export function MapView({ facilities, onSelect, currentLocation, hazardGeometry 
   useEffect(() => {
     const source = map.current?.getSource("facilities") as maplibregl.GeoJSONSource | undefined;
     source?.setData(geojson);
-  }, [facilities, facilityLoads]);
+  }, [facilities, facilityLoads, facilityAvailability, evacuationFlow]);
 
   useEffect(() => {
     const source = map.current?.getSource("scenario-closures") as maplibregl.GeoJSONSource | undefined;
