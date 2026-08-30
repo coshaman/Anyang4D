@@ -10,7 +10,11 @@ test("production container exposes real citizen and walking route flows", async 
   page.on("response", (response) => {
     if (response.status() === 404 && response.url().includes("maplibre-gl-shared")) missingMapLibreAssets.push(response.url());
   });
+  expect((await request.get("/healthz")).status()).toBe(200);
   expect((await request.get("/readyz")).status()).toBe(200);
+  const version = await request.get("/api/release/version");
+  expect(version.status()).toBe(200);
+  expect((await version.json()).version).toBeTruthy();
   expect((await request.get("/event-admin")).status()).toBe(200);
   expect((await request.get("/event/anyang-demo")).status()).toBe(200);
   const aed = await request.get("/api/facilities?type=aed");
