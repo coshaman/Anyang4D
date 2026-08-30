@@ -2,7 +2,7 @@ import { useState } from "react";
 import { addEventNode, addOutdoorFacility, addOutdoorNode, addOutdoorRoutePoint, addRoutePoint, buildIndoorDraftRoute, clearEventNode, createEventPlan, removeLastEventFacility, removeLastOutdoorRoutePoint, removeLastRoutePoint, type EventPlan, type EventPoint, type EventRepresentation, type OutdoorPoint } from "./eventPlan";
 import { FloorPlanCanvas } from "./FloorPlanCanvas";
 import { MapView } from "./MapView";
-import { API_BASE, readJsonResponse } from "./api";
+import { API_BASE, fetchJson } from "./api";
 
 const instructionOptions = ["뛰지 마세요", "엘리베이터를 사용하지 마세요", "안내요원의 지시에 따르세요", "위험지역으로 되돌아가지 마세요", "위급 시 119에 신고하세요"];
 type NodeKind = "start" | "exit" | "assembly" | "AED" | "EXTINGUISHER" | "STAIRS" | "RESTRICTED_ZONE";
@@ -63,7 +63,7 @@ export function EventOrganizer({ onPreview, onBack }: { onPreview: (plan: EventP
     if (!activeGroup.outdoorStart || !activeGroup.outdoorExit) { setDraftStatus("참가자 시작 구역과 출구를 먼저 지도에서 지정하세요."); return; }
     setDraftStatus("OSM 도보 그래프에서 자동 초안을 계산하는 중입니다…");
     try {
-      const request = (origin: OutdoorPoint, destination: OutdoorPoint) => fetch(`${API_BASE}/routes`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ origin, destination }) }).then((response) => readJsonResponse<RouteCandidate>(response, `${API_BASE}/routes`));
+      const request = (origin: OutdoorPoint, destination: OutdoorPoint) => fetchJson<RouteCandidate>(`${API_BASE}/routes`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ origin, destination }) }, 12000, 1);
       const exitResult = await request(activeGroup.outdoorStart, activeGroup.outdoorExit);
       const toAssembly = activeGroup.outdoorAssembly ? await request(activeGroup.outdoorExit, activeGroup.outdoorAssembly) : null;
       const candidates = (exitResult.candidates?.length ? exitResult.candidates : [exitResult]).slice(0, 3).map((candidate) => ({ route: [...candidate.geometry.slice(1, -1), ...(toAssembly ? toAssembly.geometry.slice(1, -1) : [])], distance_m: candidate.distance_m + (toAssembly?.distance_m ?? 0), estimated_walking_minutes: candidate.estimated_walking_minutes + (toAssembly?.estimated_walking_minutes ?? 0) }));
