@@ -1,7 +1,20 @@
 import { describe, expect, it } from "vitest";
-import { buildBuildingGeoJson, buildBuildingExtrusionLayer, eventSafetyPointGeoJson, normalizeBuilding } from "./MapView";
+import { buildBuildingGeoJson, buildBuildingExtrusionLayer, eventSafetyPointGeoJson, normalizeBuilding, updateWalkingRouteSource } from "./MapView";
 
 describe("2.5D building map contract", () => {
+  it("does not lose a walking route update while MapLibre sources are still loading", () => {
+    const calls: unknown[] = [];
+    const source = { setData: (data: unknown) => calls.push(data) };
+    const notReady = { getSource: () => undefined };
+    const ready = { getSource: (id: string) => id === "walking-route" ? source : undefined };
+    const route = { geometry: [{ latitude: 37.4, longitude: 126.95 }, { latitude: 37.401, longitude: 126.951 }], origin: { latitude: 37.4, longitude: 126.95 }, destination: { latitude: 37.401, longitude: 126.951 } };
+
+    expect(updateWalkingRouteSource(notReady, route)).toBe(false);
+    expect(updateWalkingRouteSource(ready, route)).toBe(true);
+    expect(calls).toHaveLength(1);
+    expect((calls[0] as { features: unknown[] }).features).toHaveLength(3);
+  });
+
   it("prefers OSM height, then derives levels, then marks unknown height", () => {
     expect(normalizeBuilding({ id: "osm-1", geometry: { type: "Polygon", coordinates: [] }, tags: { height: "12.5", "building:levels": "4" } })).toMatchObject({ height_m: 12.5, height_provenance: "OSM_HEIGHT" });
     expect(normalizeBuilding({ id: "osm-2", geometry: { type: "Polygon", coordinates: [] }, tags: { "building:levels": "4" } })).toMatchObject({ height_m: 12, height_provenance: "DERIVED_LEVEL_HEIGHT" });
