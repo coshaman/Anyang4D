@@ -50,6 +50,7 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - `artifacts/evals/v2/screenshots/citizen-390.png`
 - `artifacts/evals/v2/screenshots/citizen-768.png`
 - `artifacts/evals/v2/screenshots/citizen-1280.png`
+- `artifacts/evals/goal7a/public-route-result.png`
 - `artifacts/evals/v2/screenshots/citizen-3d-1280.png`
 - `artifacts/evals/v2/screenshots/event-public-video-1280.png`
 - `artifacts/evals/v2/screenshots/event-public-1440.png`
@@ -57,6 +58,7 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - `artifacts/evals/v2/screenshots/admin-4d-10min-1280.png`
 - `artifacts/evals/v2/screenshots/admin-4d-20min-1280.png`
 - `artifacts/evals/v2/screenshots/admin-4d-30min-1280.png`
+- `artifacts/evals/goal7a/public-admin-ready.png`
 - `artifacts/evals/v2/screenshots/event-organizer-indoor-1280x720-desktop.png`
 - `artifacts/evals/goal7a/public-training-static-t0.png`
 - `artifacts/evals/goal7a/public-training-static-t30.png`
