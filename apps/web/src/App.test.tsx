@@ -37,7 +37,7 @@ describe("SAFE-Twin real citizen shell", () => {
     expect(await screen.findByRole("heading", { name: "재난 상황 미리보기" })).toBeInTheDocument();
     expect(await screen.findByText("안양 일반 대피 훈련")).toBeInTheDocument();
     expect(screen.getByText(/훈련\/가정 시나리오/)).toBeInTheDocument();
-    expect(await screen.findByText(/대피 수요/)).toBeInTheDocument();
+    expect(await screen.findByText("대피 수요", { exact: true })).toBeInTheDocument();
   });
 
   it("supports large text mode", () => {

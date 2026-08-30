@@ -1,9 +1,18 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { EventOrganizer } from "./EventOrganizer";
+import { buildOutdoorRouteGeometry } from "./EventOrganizer";
 import { FloorPlanCanvas } from "./FloorPlanCanvas";
 
 describe("event organizer workflow", () => {
+  it("renders a manual outdoor route from route points before endpoints are assigned", () => {
+    const route = buildOutdoorRouteGeometry(undefined, undefined, [
+      { latitude: 37.4, longitude: 126.95 },
+      { latitude: 37.401, longitude: 126.951 },
+    ]);
+    expect(route).toHaveLength(2);
+  });
+
   it("creates an event plan from name, venue, and indoor representation", () => {
     const onPreview = vi.fn();
     render(<EventOrganizer onPreview={onPreview} />);
