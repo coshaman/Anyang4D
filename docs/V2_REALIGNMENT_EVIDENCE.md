@@ -59,9 +59,12 @@ SAFE-Twin V2는 시민, 행사 안내, 관리자(재난 시뮬레이션·고급 
 - `artifacts/evals/v2/screenshots/event-organizer-indoor-1280x720-desktop.png`
 - `artifacts/evals/goal7a/public-training-static-t0.png`
 - `artifacts/evals/goal7a/public-training-static-t30.png`
+- `artifacts/evals/goal7a/outdoor-draft-route.png`
+- `artifacts/evals/goal7a/indoor-draft-route.png`
 
 4D 상태 캡처를 시각 검토한 결과, 0/10/20/30분에서 hazard 범위, 통행 제한 선, 시설/배정 지표가 각각 달라졌고 지도 레이어와 관리자 패널이 함께 렌더링되었다.
 실내 행사 안내 캡처에서는 단계형 행사 설정, 실내 도면 편집 surface, image-local 경로 polyline, 구역/영상 프리셋이 함께 보인다.
+야외 초안 캡처에서는 지도에 지정 지점과 적용된 OSM 초안, 2개 후보 거리·시간, 운영자 검토 라벨이 함께 보인다. 실내 초안 캡처에서는 업로드된 SVG 도면 실제 배경, 시작·출구 마커, 자동 생성 polyline, 운영자 검토 라벨이 함께 보인다.
 
 ## 제한사항 및 배포 게이트
 
